@@ -1,7 +1,7 @@
-#chmod
-##Über
+# chmod
+## Über
 Zugriffsrechte ändern
-##mode
+## mode
 - x ausführen
 - w schreiben
 - r lesen
