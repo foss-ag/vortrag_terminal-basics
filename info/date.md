@@ -1,7 +1,7 @@
-#date
-##Über
+# date
+## Über
 Ausgabe von Uhrzeit und Datum in verschiedenen Formaten
-##Parameter
+## Parameter
 - +Format
  - %s UnixTimeStamp
  - %Y Jahreszahl
