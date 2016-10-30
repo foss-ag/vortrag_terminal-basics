@@ -16,6 +16,9 @@ Pakete Management Kurzform für apt-get, apt-cache
 
   - aufgrund der Datenbank die Pakete aktualisieren
 
+- apt dist-upgrade
+  - wie upgrade, managed aber auch noch dependencies issues
+
 - apt remove [pkg...]
 
   - Pakete entfernen
