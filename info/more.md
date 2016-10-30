@@ -5,6 +5,10 @@
 *more* ist ein filereader.
 Wann immer man auf ein Textdokument trifft ist *more* die sichere Variante es zu lesen, denn editieren kann man damit nicht. Wohl aber das Dokument durchsuchen und zu bestimmten Stellen springen.
 
+
+-----
+
+
 **In Kürze:**
 * Filereader mit Suchfunktion
 * Arbeitet auf der Standardausgabe
@@ -12,4 +16,6 @@ Wann immer man auf ein Textdokument trifft ist *more* die sichere Variante es zu
 * Beherrscht alle dem System bekannten Codierungen
 * Versucht immer jedes angegebene Dokument zu lesen. (Auch binary!)
 
-*more* ist der Vater des intelligenteren Nachfolgers [less.md| *less* ]
+-----
+
+*more* ist der Vater des intelligenteren Nachfolgers [*less*](less.md)
