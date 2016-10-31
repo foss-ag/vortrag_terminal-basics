@@ -1,0 +1,267 @@
+\documentclass[12pt,utf8]{beamer}
+
+\usepackage[german]{babel}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\title{Linux Terminal Basic}
+\subtitle{BLABLABLA}
+
+\author[J.-M. Lenk, C. Parnitzke, J. Schneider, Y. Bungers]{Jan-Marius Lenk, Christoph Parnitzke, Josef Schneider, Yannick Bungers}
+\institute[FOSS AG]{Free and Open Source Software AG\\ Fakultät für Informatik}
+
+\date{\today}
+
+\begin{document}
+
+\titlepage
+
+\begin{frame}
+\frametitle{Inhaltsverzeichnis}
+\begin{itemize}
+	\item Theorie
+	\item Arbeiten mit Ordnern, Dateien und Archiven
+	\item Prozesse
+	\item Zusatz
+\end{itemize}
+\end{frame}
+
+\section{Theorie}
+\begin{frame}
+\frametitle{Linux Philosophie}
+\begin{figure}
+\includegraphics[scale=0.3]{res/tux.png}
+\end{figure}
+\begin{itemize}
+	\item Philosophie besteht aus drei Punkten:
+	\begin{itemize}
+		\item 1. Schreibe Programme, die nur eine Sache tun und dies erfolgreich (DOTADIW)
+		\item 2. Schreibe Programme um zusammen zu Arbeiten
+		\item 3. Schreibe Programme, die mit Text arbeiten, denn dies ist universell
+	\end{itemize}
+	\item Ist auch heute noch Kernaussage
+\end{itemize}
+\footnote{https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{Terminal vs. Shell}
+\begin{itemize}
+	\item Terminal ist zeilenweise Eingabe von Befehlen
+	\begin{itemize}
+		\item[1)] TTY (teletype) sind Terminals, erreichbar via STRG+ALT+F[1-7]
+		\item[2)] VTerm: virtueller Terminal in grafischer Oberfläche
+		\item[3)] Shell: interpretiert Eingabe des Benutzers
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{apt-get vs. apt vs. aptitute}
+\begin{itemize}
+	\item Paket Management: apt Kurzform für apt-get und apt-cache
+	\item wichtigsten Befehle:
+	\begin{itemize}
+		\item[1.] apt install [pkg...]
+		\item[2.] apt update
+		\item[3.] apt upgrade/dist-upgrade/full-upgrade
+		\item[4.] apt remove [pkg...]
+	\end{itemize}
+	\item aptitude ist etwas grafischer und hat Zusatzfunktionen
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{man page - Wenn man mal nicht weiter weiß}
+\begin{itemize}
+	\item Benutzeranleitung für das System
+	\item Anleitung zu installierten Programmen/Tools
+	\item Sektionen, die besonders interessant sind:
+	\begin{itemize}
+		\item NAME, SYNOPSIS, DESCRIPTION, OPTIONS (EXAMPLE und BUGS)
+	\end{itemize}
+	\item Wie werden Einträge gesucht?
+	\begin{itemize}
+		\item[1.] ausführbare Programme und Shell Kommandos
+		\item[2.] Systemaufrufe (vom Kernel bereit gestellt)
+		\item[3.] Bibliotheksaufrufe (innerhalb von Programm-Bibliotheken)
+		\item[4.] spezielle Dateien (in /dev)
+		\item[5.] Dateiformate und Konventionen (/etc/passwd)
+		\item[6.] Spiele
+		\item[7.] Sonstiges (Macropakete und Konventionen)
+		\item[8.] System administrations Kommandos (nur Root)
+		\item[9.] Kernel Routinen (kein Standard)
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+%autocompletion einfach erwähnen und als notiz auf Handout
+
+\section{Arbeiten mit Ordnern, Dateien und Archiven}
+\subsection{Ordner}
+\begin{frame}
+\frametitle{ls - kleines Licht in der Dunkelheit}
+\begin{itemize}
+	\item listet alle Ordner und Dateien in Verzeichnis auf
+	\item aktuelles Verzeichnis ist dabei Default
+	\item mögliche Argumente:
+	\begin{itemize}[<+->]
+		\item -a  (all) inkl. versteckter Verzeichnisse
+		\item -l  (long listing format) inkl. Rechte, Besitzer, Größe, etc.
+		\item -h  (human readable) Größen der Dateien leserlicher
+		\item -r  (recursive) umgekehrte Reihenfolge
+		\item -m  Namen durch Kommata getrennt
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{cd - die kleine Form der Teleportation}
+cd bietet das Navigieren durch das Dateisystem
+\begin{itemize}[<+->]
+	\item Notationen:	
+	\begin{itemize}[<+->]
+		\item Wechsel in Parent-Directory mit ../
+		\item Wechsel in Home-Directory mit cd   (ohne Pfad)
+		\item Wechsel in Verzeichnis (Bsp.: Dokumente (bzw. Documents))
+		\begin{itemize}[<+->]
+			\item cd /home/[username]/Dokumente
+			\item cd $\sim$/Dokumente   (Abkürzen von Home-Directory mit $\sim$)
+			\item cd Dokumente    (relativ vom aktuellen Verzeichnis)
+		\end{itemize}
+	\end{itemize}
+	\item Funfact: cd .  (wechselt in das aktuelle Verzeichnis)
+	\begin{itemize}
+		\item es tut nichts, aber dafür sehr gut
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{mkdir - Verzeichnisse erschaffen}
+mkdir erstellt Ordner auf dem Rechner
+\begin{itemize}[<+->]
+	\item Syntax: mkdir [path]   (erzeugt Ordner mit Pfad [path])
+	\item Beispiel:
+	\begin{itemize}[<+->]
+		\item mkdir neuer-ordner/    (relativ zum aktuellen Pfad)
+		\item mkdir /tmp/neuer-ordner/tmp1/tmp2/
+	\end{itemize}
+	\item -p   erstellt Parent-Directory, falls es nicht existiert
+	\item -mode=  Modus mit dem der Ordner erstellt wird (siehe chmod)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{chmod - Mein Ordner gehört mir}
+chmod ändert die Zugriffsrechte von Dateien und Ordnern
+\begin{itemize}[<+->]
+	\item Syntax: chmod [mode] [path]
+	\item Beispiel (/home/[username]/neuer-ordner/):
+	\begin{itemize}[<+->]
+		\item aktuelle Rechte: u=rwx g=r-x a=r-x
+		\item chmod g=rwx $\sim$/neuer-ordner (wir geben der Gruppe Schreib-Recht)
+		\item chmod a-r $\sim$/neuer-ordner (wir nehmen allen anderen das Lese-Recht)
+		\item neue Rechte: u=rwx g=rwx a=--x
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{chown}
+%TODO
+\end{frame}
+
+\begin{frame}
+\frametitle{rmdir}
+%TODO
+\end{frame}
+
+\begin{frame}
+\frametitle{Input, Output und Error}
+\begin{itemize}
+	\item jedes Programm hat drei Datenströme:
+	\begin{itemize}
+		\item[1)] stdin (Standard Input [number: 0])
+		\item[2)] stdout (Standard Output [number: 1])
+		\item[3)] stderr (Standard Error Output [number: 2])
+	\end{itemize}
+	\item Bsp.: echo
+	\begin{itemize}[<+->]
+		\item echo gibt einen eingegebenen Text zurück
+		\item Syntax: echo [text]
+		\item [text] ist stdin und die Konsole ist stdout und stderr
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Pipe, $<$ und $>$ }
+Pipes helfen die Ein- und Ausgabe umzuleiten
+\begin{itemize}[<+->]
+	\item $<$ und $>$ laden und schreiben Dateien
+	\begin{itemize}[<+->]
+		\item $>$ Schreiben in eine Datei
+		\item Bsp.: cal $>$ test.txt
+		\item $<$ Laden aus einer Datei
+		\item Bsp.: less $<$ test.txt
+	\end{itemize}
+	\item Pipe $\mid$
+	\begin{itemize}[<+->]
+		\item Ausgabe von Befehl $\to$ Eingabe anderer Befehl
+		\item Bsp.: date $\mid$ less
+	\end{itemize}
+	\item fancy stuff:
+	\begin{itemize}[<+->]
+		\item Umleiten von stderr: 2$>$ statt $>$
+		\item also durch Angabe von Stream Nummer
+		\item Bsp.: Umleiten von stderr auf stdout
+		\begin{itemize}
+			\item ls -r $>$ output.txt 2$>\&$1 
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{more - Less than everything}
+more ist ein Filereader
+\begin{itemize}
+	\item Angucken von Datei ohne Editieren
+	\item Arbeitet auf Standardausgabe
+	\item Beherrscht alle dem System bekannten Codierungen
+	\item Navigierung ist allerdings ein wenig hinderlich
+	\item ist Grundlage zu less
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{less - Even more than 'more'}
+less ist intelligenter Nachfolger von more
+\begin{itemize}
+	\item unterstützt Scrolling
+	\item Navigation:
+	\begin{itemize}[<+->]
+		\item Pfeil- und Bildlauftasten
+		\item '/pattern' Durchsucht das Dokument nach angegebenen Muster
+		\item '?pattern' ist wie /pattern nur rückwärts
+		\item '$&$pattern' zeigt nur Zeilen, mit Muster
+		\item wird pattern benutzt, dann zeigt 'n' das nächste Vorkommen
+		\item ':n' ruft das nächste Dokument auf (wenn less mehrere bekommen hat)
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{tail und head}
+%TODO
+\end{frame}
+
+\begin{frame}
+\frametitle{cp und mv}
+%TODO
+\end{frame}
+
+\end{document}
