@@ -1,6 +1,7 @@
 \documentclass[12pt,utf8]{beamer}
 
 \usepackage[german]{babel}
+\usepackage{color}
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{tikz}
@@ -58,22 +59,51 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{apt-get vs. apt vs. aptitute}
+\frametitle{su - Switch User}
 \begin{itemize}
-	\item Paket Management: apt Kurzform für apt-get und apt-cache
-	\item wichtigsten Befehle:
-	\begin{itemize}
-		\item[1.] apt install [pkg...]
-		\item[2.] apt update
-		\item[3.] apt upgrade/dist-upgrade/full-upgrade
-		\item[4.] apt remove [pkg...]
-	\end{itemize}
-	\item aptitude ist etwas grafischer und hat Zusatzfunktionen
+	\item wechsel des Benutzers innerhalb der Konsole
+	\item ohne Parameter wird versucht sich als 'root' einzuloggen
+	\item ansonsten 'su [user]' einloggen als 'user'
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{man page - Wenn man mal nicht weiter weiß}
+\frametitle{\textcolor{red}{s}uper \textcolor{red}{u}ser \textcolor{red}{do}}
+\framesubtitle{Mit großer Macht kommt große Verantwortung}
+'sudo' führt einen Befehl mit administrativer Berechtigung aus 'sudo [command]'.
+[Achtung!!] 'sudo' funktioniert nur, wenn Benutzer in root-Gruppe ist.
+\begin{itemize}[<+->]
+	\item führt man Befehle als Root aus, sollte man vorsichtig sein
+	\item Parameter:
+	\begin{itemize}[<+->]
+		\item '-b' (background) führt Befehl im Hintergrund aus [kommt später]
+		\item '-e' (edit) öffnet Datei zum editieren, erstellt temp. Backup
+		\item '-s' (shell) öffnet eine Shell
+		\item '-u [user]' führt Befehl als Benutzer aus
+	\end{itemize}
+	\item wird '[nur Root]' angegeben, muss Befehl mit sudo gestartet werden
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{apt-get vs. apt vs. aptitute}
+[nur Root]
+\begin{itemize}
+	\item Paket Management: apt Kurzform für apt-get und apt-cache
+	\item wichtigsten Befehle:
+	\begin{itemize}
+		\item[1.] 'apt install [pkg...]'
+		\item[2.] 'apt update'
+		\item[3.] 'apt [upgrade | dist-upgrade | full-upgrade]'
+		\item[4.] 'apt remove [pkg...]'
+	\end{itemize}
+	\item 'aptitude' ist etwas grafischer und hat Zusatzfunktionen
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{man page}
+\framesubtitle{Wenn man mal nicht weiter weiß}
 \begin{itemize}
 	\item Benutzeranleitung für das System
 	\item Anleitung zu installierten Programmen/Tools
@@ -101,37 +131,39 @@
 \section{Arbeiten mit Ordnern, Dateien und Archiven}
 \subsection{Ordner}
 \begin{frame}
-\frametitle{ls - kleines Licht in der Dunkelheit}
+\frametitle{\textcolor{red}{l}i\textcolor{red}{s}t}
+\framesubtitle{Ein kleines Licht in der Dunkelheit}
 \begin{itemize}
 	\item listet alle Ordner und Dateien in Verzeichnis auf
 	\item aktuelles Verzeichnis ist dabei Default
 	\item mögliche Argumente:
 	\begin{itemize}[<+->]
-		\item -a  (all) inkl. versteckter Verzeichnisse
-		\item -l  (long listing format) inkl. Rechte, Besitzer, Größe, etc.
-		\item -h  (human readable) Größen der Dateien leserlicher
-		\item -r  (recursive) umgekehrte Reihenfolge
-		\item -m  Namen durch Kommata getrennt
+		\item '-a'  (all) inkl. versteckter Verzeichnisse
+		\item '-l'  (long listing format) inkl. Rechte, Besitzer, Größe, etc.
+		\item '-h'  (human readable) Größen der Dateien leserlicher
+		\item '-r'  (recursive) umgekehrte Reihenfolge
+		\item '-m'  Namen durch Kommata getrennt
 	\end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{cd - die kleine Form der Teleportation}
-cd bietet das Navigieren durch das Dateisystem
+\frametitle{\textcolor{red}{c}hange \textcolor{red}{d}irectory}
+\framesubtitle{Die kleine Form der Teleportation}
+'cd' bietet das Navigieren durch das Dateisystem
 \begin{itemize}[<+->]
 	\item Notationen:	
 	\begin{itemize}[<+->]
-		\item Wechsel in Parent-Directory mit ../
-		\item Wechsel in Home-Directory mit cd   (ohne Pfad)
+		\item Wechsel in Parent-Directory mit '../'
+		\item Wechsel in Home-Directory mit 'cd'   (ohne Pfad)
 		\item Wechsel in Verzeichnis (Bsp.: Dokumente (bzw. Documents))
 		\begin{itemize}[<+->]
-			\item cd /home/[username]/Dokumente
-			\item cd $\sim$/Dokumente   (Abkürzen von Home-Directory mit $\sim$)
-			\item cd Dokumente    (relativ vom aktuellen Verzeichnis)
+			\item 'cd /home/[username]/Dokumente'
+			\item 'cd $\sim$/Dokumente'   (Abkürzen von Home-Directory mit $\sim$)
+			\item 'cd Dokumente'    (relativ vom aktuellen Verzeichnis)
 		\end{itemize}
 	\end{itemize}
-	\item Funfact: cd .  (wechselt in das aktuelle Verzeichnis)
+	\item Funfact: 'cd .'  (wechselt in das aktuelle Verzeichnis)
 	\begin{itemize}
 		\item es tut nichts, aber dafür sehr gut
 	\end{itemize}
@@ -139,30 +171,44 @@ cd bietet das Navigieren durch das Dateisystem
 \end{frame}
 
 \begin{frame}
-\frametitle{mkdir - Verzeichnisse erschaffen}
-mkdir erstellt Ordner auf dem Rechner
+\frametitle{\textcolor{red}{m}a\textcolor{red}{k}e \textcolor{red}{dir}ectory}
+\framesubtitle{Verzeichnisse erschaffen}
+'mkdir' erstellt Ordner auf dem Rechner
 \begin{itemize}[<+->]
-	\item Syntax: mkdir [path]   (erzeugt Ordner mit Pfad [path])
+	\item Syntax: 'mkdir [path]'   (erzeugt Ordner mit Pfad [path])
 	\item Beispiel:
 	\begin{itemize}[<+->]
-		\item mkdir neuer-ordner/    (relativ zum aktuellen Pfad)
-		\item mkdir /tmp/neuer-ordner/tmp1/tmp2/
+		\item 'mkdir neuer-ordner/'    (relativ zum aktuellen Pfad)
+		\item 'mkdir /tmp/neuer-ordner/tmp1/tmp2/'
 	\end{itemize}
-	\item -p   erstellt Parent-Directory, falls es nicht existiert
-	\item -mode=  Modus mit dem der Ordner erstellt wird (siehe chmod)
+	\item '-p'   erstellt Parent-Directory, falls es nicht existiert
+	\item '-mode=[mode]'  Modus mit dem der Ordner erstellt wird (siehe chmod)
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{chmod - Mein Ordner gehört mir}
-chmod ändert die Zugriffsrechte von Dateien und Ordnern
+\frametitle{Gruppenverwaltung}
 \begin{itemize}[<+->]
-	\item Syntax: chmod [mode] [path]
+	\item 'groups [username]' (zeigt Gruppen von Benutzer an)
+	\item 'groupadd [groupname]' (legt Gruppe an) [nur Root]
+	\item 'groupdel [groupname]' (löscht Gruppe) [nur Root]
+	\item 'groupmod [option] [groupname]' (Bsp.: --new-name [Name]) [nur Root]
+	\item 'usermod -aG [username] [groupname]' (Benutzer zu Gruppe hinzufügen) [nur Root]
+	\item 'deluser [username] [groupname]' (Benutzer aus Gruppe entfernen) [nur Root]
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textcolor{red}{ch}ange \textcolor{red}{mod}e}
+\framesubtitle{Mein Ordner gehört mir}
+'chmod' ändert die Zugriffsrechte von Dateien und Ordnern
+\begin{itemize}[<+->]
+	\item Syntax: 'chmod [mode] [path]'
 	\item Beispiel (/home/[username]/neuer-ordner/):
 	\begin{itemize}[<+->]
 		\item aktuelle Rechte: u=rwx g=r-x a=r-x
-		\item chmod g=rwx $\sim$/neuer-ordner (wir geben der Gruppe Schreib-Recht)
-		\item chmod a-r $\sim$/neuer-ordner (wir nehmen allen anderen das Lese-Recht)
+		\item 'chmod g=rwx $\sim$/neuer-ordner' (wir geben der Gruppe Schreib-Recht)
+		\item 'chmod a-r $\sim$/neuer-ordner' (wir nehmen allen anderen das Lese-Recht)
 		\item neue Rechte: u=rwx g=rwx a=--x
 	\end{itemize}
 \end{itemize}
@@ -178,6 +224,7 @@ chmod ändert die Zugriffsrechte von Dateien und Ordnern
 %TODO
 \end{frame}
 
+\subsection{Dateien}
 \begin{frame}
 \frametitle{Input, Output und Error}
 \begin{itemize}
@@ -187,10 +234,10 @@ chmod ändert die Zugriffsrechte von Dateien und Ordnern
 		\item[2)] stdout (Standard Output [number: 1])
 		\item[3)] stderr (Standard Error Output [number: 2])
 	\end{itemize}
-	\item Bsp.: echo
+	\item Bsp.: 'echo'
 	\begin{itemize}[<+->]
-		\item echo gibt einen eingegebenen Text zurück
-		\item Syntax: echo [text]
+		\item 'echo' gibt einen eingegebenen Text zurück
+		\item Syntax: 'echo [text]'
 		\item [text] ist stdin und die Konsole ist stdout und stderr
 	\end{itemize}
 \end{itemize}
@@ -201,17 +248,17 @@ chmod ändert die Zugriffsrechte von Dateien und Ordnern
 \frametitle{Pipe, $<$ und $>$ }
 Pipes helfen die Ein- und Ausgabe umzuleiten
 \begin{itemize}[<+->]
-	\item $<$ und $>$ laden und schreiben Dateien
+	\item '$<$' und '$>$' laden und schreiben Dateien
 	\begin{itemize}[<+->]
-		\item $>$ Schreiben in eine Datei
-		\item Bsp.: cal $>$ test.txt
-		\item $<$ Laden aus einer Datei
-		\item Bsp.: less $<$ test.txt
+		\item '$>$' Schreiben in eine Datei
+		\item Bsp.: 'cal $>$ test.txt'
+		\item '$<$' Laden aus einer Datei
+		\item Bsp.: 'less $<$ test.txt'
 	\end{itemize}
-	\item Pipe $\mid$
+	\item Pipe '$\mid$'
 	\begin{itemize}[<+->]
 		\item Ausgabe von Befehl $\to$ Eingabe anderer Befehl
-		\item Bsp.: date $\mid$ less
+		\item Bsp.: 'date $\mid$ less'
 	\end{itemize}
 	\item fancy stuff:
 	\begin{itemize}[<+->]
@@ -226,20 +273,22 @@ Pipes helfen die Ein- und Ausgabe umzuleiten
 \end{frame}
 
 \begin{frame}
-\frametitle{more - Less than everything}
-more ist ein Filereader
+\frametitle{more}
+\framesubtitle{Less than everything}
+'more' ist ein Filereader
 \begin{itemize}
 	\item Angucken von Datei ohne Editieren
 	\item Arbeitet auf Standardausgabe
 	\item Beherrscht alle dem System bekannten Codierungen
 	\item Navigierung ist allerdings ein wenig hinderlich
-	\item ist Grundlage zu less
+	\item Grundlage zu less
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{less - Even more than 'more'}
-less ist intelligenter Nachfolger von more
+\frametitle{less}
+\framesubtitle{Even more than 'more}
+'less' ist intelligenter Nachfolger von more
 \begin{itemize}
 	\item unterstützt Scrolling
 	\item Navigation:
@@ -247,7 +296,7 @@ less ist intelligenter Nachfolger von more
 		\item Pfeil- und Bildlauftasten
 		\item '/pattern' Durchsucht das Dokument nach angegebenen Muster
 		\item '?pattern' ist wie /pattern nur rückwärts
-		\item '$&$pattern' zeigt nur Zeilen, mit Muster
+		\item '$\&$pattern' zeigt nur Zeilen, mit Muster
 		\item wird pattern benutzt, dann zeigt 'n' das nächste Vorkommen
 		\item ':n' ruft das nächste Dokument auf (wenn less mehrere bekommen hat)
 	\end{itemize}
@@ -255,13 +304,356 @@ less ist intelligenter Nachfolger von more
 \end{frame}
 
 \begin{frame}
-\frametitle{tail und head}
+\frametitle{con\textcolor{red}{cat}enate}
+\framesubtitle{Was eine Katze mit Linux zu tun hat}
+'cat' konkateniert und zeigt die Inhalte von Dateien
+\begin{itemize}[<+->]
+	\item an sich nicht mächtig, sehr einfacher Befehl
+	\item Parameter
+	\begin{itemize}
+		\item '-n' Nummeriert die ausgegebenen Zeilen 
+		\item '-s' Unterdrückt Ausgabe von sich wiederholenden Leerzeichen
+	\end{itemize}
+	\item Bsp.: 'cat -m output.txt'
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{head $\&$ tail}
+\framesubtitle{Dateien von Kopf bis Fuß}
+Ähnlich zu Cat, sind 'head' und 'tail' einfach Textdatei Betrachter. Allerdings beschränken sich diese auf bestimmte Teile der Datei.
+\begin{itemize}
+	\item 'head' gibt ersten 10 Zeilen der angegebenen Datei aus
+	\item 'tail' gibt letzten 10 Zeilen der angegebenen Datei aus
+	\item Parameter:
+	\begin{itemize}
+		\item head:
+		\begin{itemize}[<+->]
+			\item '-n [val]' gibt ersten [val] Zeilen aus 
+		\end{itemize}
+		\item tail:
+		\begin{itemize}[<+->]
+			\item '-n [val]' analog zu head
+			\item '-f' fügt weitere Zeilen zur Ausgabe hinzu, falls Inhalt weiter anwächst
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Sortieren und Suchen}
+Auch wenn man beim Sortieren erst einmal an das Sortieren von Dateien denkt,
+bezieht sich das Sortieren auf den Inhalt von Dateien.
+Das Suchen dagegen auf das Finden von Dateien.
+\begin{itemize}[<+->]
+	\item 'sort [option] [File]' (liest die Datei File und sortiert den Inhalt)
+	\begin{itemize}[<+->]
+		\item '-r' Ausgabe umdrehen
+		\item '-c' Check ob Inhalt von Datei sortiert ist
+		\item Bsp.: 'sort -r output.txt'
+	\end{itemize}
+	\item 'find [path] [pattern]' (suchen nach Datei im System via Muster)
+	\begin{itemize}[<+->]
+		\item [Achtung!!] Suche kann lange dauern
+		\item Bsp.: 'find ~ -name output.txt' (suche im Home-Folder 'output.txt')
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{cp $\&$ mv}
+\framesubtitle{Die Kunst des Klonens und Umbenennens}
+'cp' und 'mv' sind neben 'ls' und 'cd' wohl die wichtigsten Befehle in Linux.
+\begin{itemize}
+	\item Dateiname muss bei beiden Befehlen nicht gleich bleiben
+	\item 'mv [path1] [path2]'
+	\begin{itemize}
+		\item verschiebt Datei von [path1] zu [path2]
+		\item Parameter:
+		\begin{itemize}[<+->]
+			\item '-i' (interactive) fragt vor Überschreiben
+			\item '-f' (force) überschreibt \textbf{immer}
+			\item '-n' (no-clobber) überschreibt \textbf{niemals}
+			\item '--backup' erstellt Backup vor Überschreiben
+		\end{itemize}
+	\end{itemize}
+	\item 'cp [path1] [path2]'
+	\begin{itemize}
+		\item kopiert Datei von [path1] zu [path2]
+		\item Parameter:
+		\begin{itemize}[<+->]
+			\item selben wie 'mv'
+			\item '-r' (recursive) ermöglicht verschieben von Ordnern
+			\item '-s' (symbolic-link) erstellt symbolische Links, statt Dateien
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{rm}
+\framesubtitle{Flutsch! Und weg!}
+Immer wieder im Leben kommt eine Zeit in der man etwas Ballast abwerfen möchte.  
+`rm` hilft dabei
+\begin{itemize}[<+->]
+	\item Syntax: 'rm [option] [file]'
+	\item Parameter:
+	\begin{itemize}[<+->]
+		\item '-f' (force) es wird nicht nachgefragt und einfach alles gelöscht
+		\item '-i' Nachfragen bei jeder Löschung
+		\item '-r' Löschung rekursiv $\to$ (Ordner und Unterordner)
+		\item '-d' leere Verzeichnisse löschen
+	\end{itemize}
+	\item 'rm' löscht nicht entgültig, Dateien sind nicht unleserlich
+	\item soll entgültig gelöscht werden, dann benutze 'shred' (später)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{shred}
+\framesubtitle{RRRRRRRRRRRRRTTZZZZZZZZZZZ!}
+'shred' überschreibt Dateien und löscht sie damit entgültig
+\begin{itemize}
+	\item Syntax: 'shred [option] [file]'
+	\item Parameter:
+	\begin{itemize}[<+->]
+		\item '-f' (force) Versuch Schreibrechte zu bekommen, falls benötigt
+		\item '-n [num]' Anzahl [num] der Schreibvorgänge pro Datei
+		\item '-u' Löschen nach dem Überschreiben
+	\end{itemize}
+	\item Bsp.: 'shred -u test.txt'
+	\item [Achtung!!] kein Löschen von Backups, evtl. Wiederherstellung möglich
+\end{itemize}
+\end{frame}
+
+\subsection{Archive}
+\begin{frame}
+\frametitle{\textcolor{red}{t}ape \textcolor{red}{ar}chiver}
+\framesubtitle{Archivieren}
+Dateien mit .tar, .tar.gz, .zip, etc. können natürlich auch via der Oberfläche entpackt werden, allerdings kann es auch sein, dass man dies über die Konsole vornehmen muss.
+\begin{itemize}[<+->]
+	\item Syntax entpacken: 'tar [option] [path]'
+	\item Syntax verpacken: 'tar [option] [path-archiv] [path-files]'
+	\item Parameter:
+	\begin{itemize}[<+->]
+		\item '-c' (create) erzeugt neues Archiv
+		\item '-x' (extract) extrahieren einer Datei
+		\item '-v' (verbose) Fortschritt auflisten
+		\item '-z' (gzip format) komprimieren als .gz, etc.
+		\item '-f' erzeugt beim Entpacken einen Ordner mit Namen von Archiv
+	\end{itemize}
+	\item Bsp.: 'tar -xvf test.tar'
+\end{itemize}
+\end{frame}
+
+\section{Prozesse}
+\subsection{Prozesse verwalten}
+\begin{frame}
+\frametitle{htop - interaktiver Prozessmanager}
+\begin{itemize}
+	\item 'top'
+	\begin{itemize}[<+->]
+		\item ist bereits installtiert
+		\item '-h' um Befehle anzeigen zu lassen
+	\end{itemize}
+	\item 'htop'
+	\begin{itemize}[<+->]
+		\item muss noch installiert werden
+		\item leichtere Bedienung und somit verwaltung von Prozessen
+	\end{itemize}
+	\item Ansicht:
+	\begin{itemize}[<+->]
+		\item Auslastung der einzelnen CPU-Kerne und des Arbeitsspeichers
+		\item Anteil vom Swap und bisherige Laufzeit des Systems
+		\item PID (Prozess ID), User, PRI (Priorität), NI (Nice-Wert)
+		\item VIRT und RES (benutzer virtueller und physischer Speicher)
+		\item S (State; S $\in$ $\{$ S[leeping], R[unning], D[isk sleep], Z[ombie], T[raced/suspended], W[Paging] $\}$)
+		\item CPU$\%$ und MEM$\%$ (genutzter CPU und Arbeitsspeicher Anteil) und TIME (bisherige Laufzeit)
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Nettigkeit}
+\begin{frame}
+\frametitle{nice - nette Programme}
+Ausführen von Programmen mit modifizierter sheduling Priorität p, mit p $\in$ [-20,19]. Hierbei ist -20 die höchste Priorität
+\begin{itemize}[<+->]
+	\item normalerweise werden Programme mit Priorität 0 gestartet
+	\item Syntax: 'nice [option] [command] [arg] ...'
+	\item Parameter:
+	\begin{itemize}
+		\item '-n (--adjustment=N)' aufaddieren von Integer N auf aktuellen Nice-Wert (Default: N=10)
+	\end{itemize}
+	\item Bsp. 'ping':
+	\begin{itemize}[<+->]
+		\item Syntax: 'ping [option] [addr]'
+		\item Parameter: '-c [num]' (Anzahl der pings setzen), '-W [time]' (Timeout setzen)
+		\item 'nice -n 20 ping www.foss-ag.de'
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{renice und nohup}
+'renice' ermöglicht nachträgliches Einstellen des Nice-Wertes einen bereits laufenden Prozesses.
+'nohup' ermöglicht es ein Programm weiterlaufen zu lassen, auch wenn der Benutzer sich ausloggt.
+\begin{itemize}
+	\item 'renice'
+	\begin{itemize}[<+->]
+		\item Syntax: 'renice [-n] priority [-g | -p | -u] identifier'
+		\item '-n [num]' ist neuer Nice-Wert
+		\item '-g [group-id]', '-p [process-id]', '-u [user-id]'
+	\end{itemize}
+	\item 'nohup'
+	\begin{itemize}
+		\item Syntax: 'nohup [commando] [args]'
+		\item Ausgabe wird dabei in eine nohup.txt Datei im Home-Directory geschrieben (umlenken möglich)
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{$\&$ - Backstage}
+bei Angabe dieses Operators am eine eines Prozess-Aufrufs, wird der Prozess in den Hintergrund verschoben
+\begin{itemize}[<+->]
+	\item Prozess blockiert Shell nicht, sodass weiteres Arbeiten möglich
+	\item Ausgabe wird aber weiterhin auf Shell geschrieben
+\end{itemize}
+[Achtung!!] $\&$ $\equiv$ Prozess in Hintergrund; $\&\&$ $\equiv$ Prozesse hintereinander ausführen (p1 $\&\&$ p2 : p2 wird ausgeführt, wenn p1 erfolgreich)
+\end{frame}
+
+\begin{frame}
+\frametitle{nano, pico, vim}
 %TODO
 \end{frame}
 
 \begin{frame}
-\frametitle{cp und mv}
-%TODO
+\frametitle{shutdown}
+\framesubtitle{Wenn man mal das real life genießen will}
+ermöglicht Ausschalten oder Neustart des Systems [nur Root]
+\begin{itemize}[<+->]
+	\item Syntax: 'shutdown [options] [time]'
+	\item Parameter:
+	\begin{itemize}[<+->]
+		\item '-P' (poweroff)
+		\item '-r' (reboot) 
+		\item '-h' (halt) kein Timer möglich
+	\end{itemize}
+	\item 'sudo reboot' anstelle von 'sudo shutdown -r'
+	\item bei 'reboot' kein Timer möglich
+\end{itemize}
+\end{frame}
+
+\section{Zusatz}
+\begin{frame}
+\frametitle{ip addr}
+Meist wurde 'ifconfig' benutzt um seine lokalen IP-Adressen des Rechners anzuzeigen. Dieser Befehl ist allerdings ein wenig obsolet und wurde ersetzt durch 'ip addr'.
+\begin{itemize}
+	\item Um lokale IP-Adresse zu erfahren, ohne über Router zu gehen
+	\item Wird benötigt, wenn man sich via 'ssh' einloggen will
+	\item leider etwas unübersichtlich
+	\item Parameter:
+	\begin{itemize}
+		\item '-4' Anzeigen der IPv4-Adressen
+		\item '-6' Anzeigen der IPv6-Adressen
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{nmon}
+'nmon' dient zur Überwachung der Auslastung der PC Komponenten
+\begin{itemize}
+	\item Elemente können der Anzeige bei Bedarf hinzugefügt und entfernt werden
+	\item Shortcuts:
+	\begin{itemize}[<+->]
+		\item 'c' zeigt die Auslastung aller CPU Kerne an
+		\item 'm' zeigt die Auslastung des Arbeitsspeichers an (auch mit SWAP)
+		\item 'd' zeigt die Auslastung der Festplatte an
+		\item 'k' zeigt Kernel Statistiken an (Queue, Forks, Interrupts)
+		\item 'r' Details zum System und Prozessor
+		\item 'l' CPU Auslastung als Graph
+		\item 'n' Auslastung der Netzwerk Schnittstelle
+		\item 'j' Auslastung des Dateisystems (Platz und Aufbau)
+		\item 't' wie top, Auflistung aller laufenden Prozesse
+		\item '+' bzw. '-' Refresh erhöhen bzw. verringern
+		\item 'H' für Hilfe (Shortcuts auflisten)
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textcolor{red}{Reg}ular \textcolor{red}{Ex}pression - 1}
+\framesubtitle{The art of black magic}
+Reguläre Ausdrücke sind Muster, eine Grundstruktur von gesuchten Begriffen angeben. Um eine Fehlinterpretation der Shell zu vermeiden, sollte ein RegEx immer in Anführungszeichen angegeben werden.
+\begin{itemize}
+	\item Syntax - 1:
+	\begin{itemize}[<+->]
+		\item 'c' ein konstantes Zeichen c
+		\item '.' genau \textbf{ein} beliebiges Zeichen
+		\item '.*' Folge von beliebigen Zeichen (auch keines)
+		\item '*' Zeichen vor * ist beliebig oft (auch gar nicht)
+		\item '?' Zeichen vor ? ist \textbf{genau} einmal oder gar nicht
+		\item '+' Zeichen vor + ist min. einmal
+		\item '$\{$n,m$\}$' Zeichen wird n bis m mal wiederholt
+		\item '$\{$n$\}$' Zeichen genau n mal
+		\item '[...]' Zeichen kommt in den Klammern vor
+		\item '[...-...]' Zeichen aus Zeichenklasse
+		
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textcolor{red}{Reg}ular \textcolor{red}{Ex}pression - 2}
+\framesubtitle{The art of black magic}
+\begin{itemize}
+	\item Syntax - 2:
+	\begin{itemize}
+		\item '[ $\hat{}$ ...]' und '[ $\hat{}$ ...-...]' verneinte Zeichenklasse
+		\item ' $\hat{}$ ' Zeilenanfang
+		\item '\$' Zeilenende
+		\item '$<$' Wortanfang
+		\item '$>$' Wortende
+		\item 'a1$\mid$a2' alternative Ausdrücke; a1 oder a2
+		\item '(...)' Gruppe von Ausdrücken
+		\item '$\setminus$' Sonderbedeutung von nächstem Symbol ignorieren. Bsp.: |
+	\end{itemize}
+	\item Bsp.: '.*p+ython[1-99]*.*$\setminus\mid$.*$\setminus$.pyc?'
+	\item es werden alle Wörter/Dateien gesucht, die:
+	\begin{itemize}
+		\item 'python' im Namen haben oder mit .py bzw. .pyc aufhören
+		\item dürfen mit Zahlen zwischen 1 und 99 enden
+		\item min. ein p am Anfang haben
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{grep}
+\framesubtitle{Gonna catch em' Strings}
+Durchsucht eine Eingabe nach einem RegEx.
+\begin{itemize}[<+->]
+	\item Selektoren:
+	\begin{itemize}[<+->]
+		\item '-E' Interpretiert Suchwort als erweiterten RegEx
+		\item '-F' Interpretiert Suchwort als fixed String
+		\item '-G' Interpretiert Suchwort als basic RegEx
+	\end{itemize}
+	\item Kontrolle:
+	\begin{itemize}
+		\item '-f [file]' liest RegEx aus [file]
+		\item '-v' invertiert das Matchmaking (alle Zeilen ohne RegEx)
+		\item '-w' gibt nur Zeilen aus, in denen ganze Worte dem RegEx entsprechen
+		\item '-x' gibt nur Zeilen aus, die ganze dem RegEx entsprechen
+	\end{itemize}
+	\item Ausgabe:
+	\begin{itemize}
+		\item '-c' gibt Anzahl der passenden Zeilen aus
+		\item '-o' gibt nur gematchten Teile einer Zeile aus
+		\item '-q' keine Ausgabe, gibt Exitcode 0 aus, wenn erfolgreich
+	\end{itemize}
+\end{itemize}
 \end{frame}
 
 \end{document}
