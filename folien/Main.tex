@@ -59,7 +59,7 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{su - Switch User}
+\frametitle{\textcolor{red}{s}witch \textcolor{red}{u}ser}
 \begin{itemize}
 	\item wechsel des Benutzers innerhalb der Konsole
 	\item ohne Parameter wird versucht sich als 'root' einzuloggen
@@ -216,12 +216,27 @@
 
 \begin{frame}
 \frametitle{chown}
-%TODO
+Ändern des Besitzers von Orndern und Dateien.
+\begin{itemize}
+	\item zu jeder Datei/Ordner gehören 2 Besitzer:
+	\begin{itemize}[<+->]
+		\item ein Nutzer
+		\item eine Gruppe
+	\end{itemize}
+	\item 'chown [user] [file]' [file] gehört jetzt [user]
+	\item 'chown [user]:[group] [file]' [file] gehört jetzt zu [group] und [user]
+	\item Parameter -R ändert die Zugehörigkeit rekursiv
+\end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{rmdir}
-%TODO
+Löschen von leeren Ordnern.
+\begin{itemize}
+	\item Befehl ist weniger mächtig als man erwartet
+	\item Vorsicht ist geboten, auch leere Verzeichnisse können wichtig sein!!
+	\item leere Ordner in dem leeren Ordner werden auch gelöscht
+\end{itemize}
 \end{frame}
 
 \subsection{Dateien}
@@ -361,7 +376,7 @@ Das Suchen dagegen auf das Finden von Dateien.
 \end{frame}
 
 \begin{frame}
-\frametitle{cp $\&$ mv}
+\frametitle{\textcolor{red}{c}o\textcolor{red}{p}y $\&$ \textcolor{red}{m}o\textcolor{red}{v}e}
 \framesubtitle{Die Kunst des Klonens und Umbenennens}
 'cp' und 'mv' sind neben 'ls' und 'cd' wohl die wichtigsten Befehle in Linux.
 \begin{itemize}
@@ -391,7 +406,7 @@ Das Suchen dagegen auf das Finden von Dateien.
 \end{frame}
 
 \begin{frame}
-\frametitle{rm}
+\frametitle{\textcolor{red}{r}e\textcolor{red}{m}ove}
 \framesubtitle{Flutsch! Und weg!}
 Immer wieder im Leben kommt eine Zeit in der man etwas Ballast abwerfen möchte.  
 `rm` hilft dabei
@@ -523,8 +538,45 @@ bei Angabe dieses Operators am eine eines Prozess-Aufrufs, wird der Prozess in d
 \end{frame}
 
 \begin{frame}
-\frametitle{nano, pico, vim}
-%TODO
+\frametitle{Texteditoren - 1: ed, nano, pico}
+\framesubtitle{You would (not) love Ed!!}
+Das Bearbeiten von Textdateien ist in der Konsole schwierig. Ein Beispiel ist 'ed' (release 1970; Grundlage für 'grep').
+\begin{itemize}
+	\item 'pico' (release 1992):
+	\begin{itemize}[<+->]
+		\item sehr minimalistischer Editor
+		\item reine Textverarbeitung, mehrere Dokumente möglich, Syntaxhighlighting
+		\item kein Highlighting von einem Wort, kein Text-Splitscreen, keine RegEx suche
+	\end{itemize}
+	\item 'nano' (release 1999):
+	\begin{itemize}[<+->]
+		\item ebenfalls sehr minimalistisch
+		\item Nachfolger von pico
+		\item bietet mehr Funktionsumfang, z.B.: Text-Splitscreen, RegEx Suche
+	\end{itemize}
+	\item 'nano' und 'pico' sind sehr minimalistisch, aber nicht zu unterschätzen
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Texteditoren - 2: vim, jed}
+\framesubtitle{Good thing Ed is not around anymore}
+Wir haben grad die minimaltistischen Editoren betrachtet, nun die etwas mächtigeren.
+\begin{itemize}
+	\item 'vim' (release 1991):
+	\begin{itemize}[<+->]
+		\item Großmufti unter den Editoren
+		\item verbesserte Suchfunktionen, mächtiger als nano und pico
+		\item Standard bei 'git'
+	\end{itemize}
+	\item 'jed' (release 1992):
+	\begin{itemize}[<+->]
+		\item der Editor für Programmierer
+		\item liefert Templates für verschiedene Anwendungsfälle
+		\item weniger mächtig als vim, aber dennoch viele Features
+	\end{itemize}
+	\item Bei der Wahl des Editors ist es wie immer im Leben, Geschmäcker sind verschieden
+\end{itemize}
 \end{frame}
 
 \begin{frame}
