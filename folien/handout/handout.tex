@@ -10,18 +10,16 @@
 \textbf{Terminal vs. Shell}
 \begin{itemize}
 	\item Terminal: zeilenweise Eingabe von Befehlen
-	\item TTY: Terminals 
-	
-	via STRG+ALT+F[1-7]
+	\item TTY: Terminals via STRG+ALT+F[1-7]
 	\item VTerm: virtuelles Terminal in grafischer Umgebung
 	\item Shell: interpretiert Benutzereingabe
-\end{itemize}\\
+\end{itemize}
 
 \textbf{switch user}
 \begin{itemize}
 	\item Syntax: su [user]
 	\item wechseln des Benutzers via Terminal
-\end{itemize}\\
+\end{itemize}
 
 \textbf{super user do}
 \begin{itemize}
@@ -34,7 +32,7 @@
 		\item -s (öffnet Shell)
 		\item -u [user] (führt Befehl als [user] aus)
 	\end{itemize}
-\end{itemize}\\
+\end{itemize}
 
 \textbf{apt-get und aptitude}
 \begin{itemize}
@@ -53,7 +51,7 @@
 		\item sudo apt list (zeigt Liste von Paketen)
 		\item sudo apt list --installed (zeigt installierte pakete)
 	\end{itemize}
-\end{itemize}\\
+\end{itemize}
 
 \textbf{man page}
 \begin{itemize}
@@ -91,7 +89,7 @@
         \item[8.] System administrations Kommandos (nur Root)
         \item[9.] Kernel Routinen (kein Standard)
 	\end{itemize}
-\end{itemize}\\
+\end{itemize}
 
 \textbf{list}
 \begin{itemize}
@@ -112,7 +110,7 @@
 		\item -1 (Auflistung zeilenweise)
 		\item --sort=[var] (sortiert mit [var]=none (keine Sortierung); [var]=size (nach Größe sortiert); [var]=time (Sortierung nach Zeit); version=(Sortierung nach Version), [var]=extension (Sortierung nach Anhang))
 	\end{itemize}
-\end{itemize}\\
+\end{itemize}
 
 \textbf{change directory}
 \begin{itemize}
@@ -120,7 +118,7 @@
 	\item Syntax: cd [path]
 	\item Wechsel in Parent-Directory '../'
 	\item Wechsel in Home-Directory 'cd' 
-\end{itemize}\\
+\end{itemize}
 
 \textbf{make directory}
 \begin{itemize}
@@ -131,7 +129,7 @@
 		\item -p (erstellt Parent-Directory, falls es nicht existiert)
 		\item -mode=[Mode] (Modus mit dem Ordner erstellt wird)
 	\end{itemize}
-\end{itemize}\\
+\end{itemize}
 
 \textbf{Gruppenverwaltung}
 \begin{itemize}
@@ -141,7 +139,7 @@
 	\item groupmod [option] [group] (modifizieren der Gruppen Eigenschaften) [nur Root]
 	\item usermod -ag [user] [group] ([user] zu [group] hinzufügen) [nur Root]
 	\item deluser [user] [group] ([user] aus [group] entfernen) [nur Root]
-\end{itemize}\\
+\end{itemize}
 
 \textbf{change mode}
 \begin{itemize}
@@ -159,7 +157,7 @@
 		\item w (Erlaubnis zu Schreiben)
 		\item x (Erlaubnis zum Ausführen)
 	\end{itemize}
-\end{itemize}\\
+\end{itemize}
 
 \textbf{change owner}
 \begin{itemize}
@@ -167,20 +165,20 @@
 	\item Benutzer ändern: chown [user] [file]
 	\item Gruppe ändern: chown [user]:[group] [file]
 	\item Parameter -R ändert Zugehörigkeit rekursiv
-\end{itemize}\\
+\end{itemize}
 
 \textbf{remove directory}
 \begin{itemize}
 	\item Löschen von leeren Verzeichnissen
 	\item Vorsicht: auch leere Verzeichnisse können wichtig sein
 	\item leere Ordner in dem Ordner werden auch gelöscht
-\end{itemize}\\
+\end{itemize}
 
 \textbf{echo}
 \begin{itemize}
 	\item Syntax: echo [text]
 	\item gibt eingegebenen Text wieder
-\end{itemize}\\
+\end{itemize}
 
 \textbf{stdin, stdout, stderr}
 \begin{itemize}
@@ -188,7 +186,7 @@
 	\item stdin (Standard Input [number: 0])
 	\item stdout (Standard Output [number: 1])
 	\item stderr (Standard Error [number: 2])
-\end{itemize}\\
+\end{itemize}
 
 \textbf{$<$, $>$ und Pipe}
 \begin{itemize}
@@ -205,7 +203,7 @@
 		\item Bsp. umleiten von stderr auf stdout:
 		\item [command] $>$ [path] 2$>\&$1
 	\end{itemize}	 
-\end{itemize}\\
+\end{itemize}
 
 \textbf{more}
 \begin{itemize}
@@ -213,7 +211,7 @@
 	\item kein Editieren möglich
 	\item Betrachten immer von oben nach unten
 	\item Navigation ist etwas hinderlich
-\end{itemize}\\
+\end{itemize}
 
 \textbf{less}
 \begin{itemize}
@@ -228,7 +226,7 @@
 		\item 'n' spring zum nächsten Mustervorkommen
 		\item ':n' ruft nächste Dokument auf
 	\end{itemize}
-\end{itemize}\\
+\end{itemize}
 
 \textbf{concatenate}
 \begin{itemize}
@@ -239,7 +237,7 @@
 		\item -n (nummeriert ausgegebenen Zeilen)
 		\item -s (unterdrückt Ausgabe von widerholenden Leerzeichen)
 	\end{itemize}
-\end{itemize}\\
+\end{itemize}
 
 \textbf{head und tail}
 \begin{itemize}
@@ -258,7 +256,7 @@
 			\item -f (gibt immer aktuellen Zeilen aus)
 		\end{itemize}
 	\end{itemize}
-\end{itemize}\\
+\end{itemize}
 
 \textbf{Sortieren und Suchen}
 \begin{itemize}
@@ -272,7 +270,7 @@
 	\begin{itemize}
 		\item sucht nach Dateien im System via Muster
 	\end{itemize}
-\end{itemize}\\
+\end{itemize}
 
 \textbf{copy und move}
 \begin{itemize}
@@ -290,7 +288,7 @@
 		\item -r (verschieben von Ordnern [nur 'cp'!!!!])
 		\item -s (erstellt symbolische Links statt Dateien [nur 'cp' !!!!])
 	\end{itemize}
-\end{itemize}\\
+\end{itemize}
 
 \textbf{remove}
 \begin{itemize}
@@ -303,7 +301,7 @@
 		\item -d (leere Verzeichnisse löschen)
 	\end{itemize}
 	\item 'rm' löscht nicht entgültig
-\end{itemize}\\
+\end{itemize}
 
 \textbf{shred}
 \begin{itemize}
@@ -317,7 +315,7 @@
 		\item -z (Nullen beim letzten Vorgang verwenden [Überschreiben verbergen])
 	\end{itemize}
 	\item Backups werden nicht mitgelöscht
-\end{itemize}\\
+\end{itemize}
 
 \textbf{tar}
 \begin{itemize}
@@ -334,7 +332,7 @@
 		\item -r (Daten an Archiv anfügen)
 		\item -d (Unterschiede zwischen 2 Archiven anzeigen)
 	\end{itemize}
-\end{itemize}\\
+\end{itemize}
 
 \textbf{Prozesse verwalten}
 \begin{itemize}
@@ -357,7 +355,7 @@
 		\item S (State; S $\in$ $\{$S[leeping], R[unning], D[ist sleep], Z[ombie], T[race/suspend], W[Paging]$\}$)
 		\item CPU$\%$ und MEM$\%$ (genutzer CPU- und RAM-Anteil)
 	\end{itemize}
-\end{itemize}\\
+\end{itemize}
 
 \textbf{nice}
 \begin{itemize}
@@ -368,14 +366,14 @@
 	\begin{itemize}
 		\item -n (--adjustment=N) (aufaddieren von N auf Nice-Wert)
 	\end{itemize}
-\end{itemize}\\
+\end{itemize}
 
 \textbf{ping}
 \begin{itemize}
 	\item prüft die Verfügbarkeit einer Website
 	\item Syntax: ping [option] [addr] 
 	\item -c [num] (Anzahl der Pings setzen)
-\end{itemize}\\
+\end{itemize}
 
 \textbf{renice und nohup}
 \begin{itemize}
@@ -389,7 +387,7 @@
 	\begin{itemize}
 		\item Programm läuft weiter auch nach Logout
 	\end{itemize}
-\end{itemize}\\
+\end{itemize}
 
 \textbf{$\&$}
 \begin{itemize}
@@ -399,6 +397,136 @@
 	\item Achtung!! $\&\&$ $\equiv$ Prozesse hintereinander ausführen
 	\begin{itemize}
 		\item p1 $\&\&$ p2 : p2 ausgeführt, wenn p1 erfolgreich
+	\end{itemize}
+\end{itemize}
+
+\textbf{Texteditoren}
+\begin{itemize}
+	\item ed:
+	\begin{itemize}
+		\item nicht Teil der Standardinstallation
+		\item erster Texteditor; Release: 1970
+		\item a (append), i (insert), w (write), q (quit)
+		\item Grundlage für grep
+	\end{itemize}
+	\item pico:
+	\begin{itemize}
+		\item Release: 1992
+		\item sehr minimaltistischer Editor
+		\item reine Textverarbeitung, mehrere Dokumente möglich, Syntaxhighlighting
+		\item kein Highlighting von einem Wort, kein Text-Splitscreen, keine RegEx Suche 
+	\end{itemize}
+	\item nano:
+	\begin{itemize}
+		\item Release: 1999
+		\item sehr minimaltistischer Editor
+		\item Nachfolger von pico
+		\item bietet mehr Funktionalität, z.B.: Text-Splitscreen, RegEx Suche
+	\end{itemize}
+	\item vim:
+	\begin{itemize}
+		\item Release: 1991
+		\item Großmufti unter den Editoren
+		\item verbesserte Suchfunktionen
+		\item Standard bei 'git'
+	\end{itemize}
+	\item jed:
+	\begin{itemize}
+		\item Release: 1992
+		\item Editor für Programmierer
+		\item liefert Templates für verschiedene Anwendungsfälle
+		\item weniger mächtig als vim
+	\end{itemize}
+\end{itemize}
+
+\textbf{shutdown}
+\begin{itemize}
+	\item Ausschalten oder Neustart
+	\item Syntax: shutdown [options] [time]
+	\item Parameter:
+	\begin{itemize}
+		\item -P (poweroff)
+		\item -r (reboot)
+		\item -h (halt; kein Timer möglich)
+	\end{itemize}
+\end{itemize}
+
+\textbf{ip addr}
+\begin{itemize}
+	\item Anzeigen von lokalen IP-Adressen
+	\item Parameter:
+	\begin{itemize}
+		\item -4 Anzeigen der IPv4-Adressen
+		\item -6 Anzeigen der IPv6-Adressen
+	\end{itemize}
+\end{itemize}
+
+\textbf{nmon}
+\begin{itemize}
+	\item Shortcuts:
+	\begin{itemize}
+		\item c (zeigt Auslastung aller CPU Kerne)
+		\item m (zeigt Auslastung Arbeitsspeicher [mit Swap])
+		\item d (zeigt Auslastung der Festplatte)
+		\item k (zeigt Kernel Statistiken)
+		\item r (Details zum System und Prozessor)
+		\item l (CPU Auslastung als Graph)
+		\item n (Auslastung der Netzwerk Schnittstellen)
+		\item j (Auslastung des Dateisystems)
+		\item t (wie top, alle laufenden Prozesse)
+		\item + bzw. - (Refresh erhöhen bzw. verringern)
+		\item H (Hilfe)
+	\end{itemize}
+\end{itemize}
+
+\textbf{RegEx}
+\begin{itemize}
+	\item zeigen Grundstruktur von gesuchtem Begriff
+	\item Angeben immer in Anführungszeichen
+	\item Syntax:
+	\begin{itemize}
+		\item c (konstantes Zeichen c)
+		\item . (genau \textbf{ein} beliebiges Zeichen)
+		\item .* (Folge von beliebigen Zeichen [auch keines])
+		\item * (Zeichen vor * ist beliebig oft [auch gar nicht])
+		\item ? (Zeichen vor ? ist \textbf{genau} einmal oder gar nicht)
+		\item + (Zeichen vor + min. einmal)
+		\item $\{$n,m$\}$ (Zeichen wird n bis m mal wiederholt)
+		\item $\{$n$\}$ (Zeichen wird genau n mal wiederholt)
+		\item [...] (Zeichen kommt in den Klammern vor)
+		\item [...-...] (Zeichen ist aus Zeichenklasse)
+		\item [$\hat{}$...] und [$\hat{}$...-...] (verneinen von Zeichenklasse)
+		\item \$ (Zeilenende)
+		\item $<$ (Wortanfang)
+		\item $>$ (Wortende)
+		\item a1$\mid$a2 (alternative Ausdrücke; a1 oder a2)
+		\item (...) Gruppe von Ausdrücken
+		\item $\setminus$ Sonderbedeutung von nächstem Symbol ignorieren
+	\end{itemize}
+\end{itemize}
+
+\textbf{grep}
+\begin{itemize}
+	\item durchsucht eine Eingabe nach einem RegEx
+	\item Syntax: grep [path] [RegEx]
+	\item Selektoren:
+	\begin{itemize}
+		\item -E (Interpretiert Suchwort als erweiterten RegEx)
+		\item -F (Interpretiert Suchwort als fixed String)
+		\item -G (Interpretiert Suchwort als basic RegEx)
+	\end{itemize}
+	\item Kontrolle:
+	\begin{itemize}
+		\item -f [file] (liest RegEx aus [file])
+		\item -v (invertiert das Matchmaking)
+		\item -w (gibt nur Zeilen aus, in denen ganze Worte dem RegEx entsprechen)
+		\item -x (gibt nur Zeilen aus, die ganz dem RegEx entsprechen)
+	\end{itemize}
+	\item Ausgabe:
+	\begin{itemize}
+		\item -c (gibt Anzahl der passenden Zeilen aus)
+		\item -o (gibt nur gematchten Teile einer Zeile aus)
+		\item -q (keine Ausgabe, gibt Exitcode 0 aus, falls erfolgreich)
 	\end{itemize}
 \end{itemize}
 \end{document}
