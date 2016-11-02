@@ -1,0 +1,23 @@
+$the_cow = << "EOC";
+    $thoughts
+       $thoughts
+          $thoughts
+
+  FFFFF  OOOO   SSSS   SSSS          AAAA   GGGG 
+ FFFFFF OOOOOO SSSSSS SSSSSS        AAAAAA GGGGGG
+ FF     OO  OO SS     SS            AA  AA GG
+ FFFFFF OO  OO SSSSS  SSSSS  XXXXXX AA  AA GG GGG
+ FFFFFF OO  OO  SSSSS  SSSSS XXXXXX AAAAAA GG GGG
+ FF     OO  OO     SS     SS        AA  AA GG  GG
+ FF     OOOOOO SSSSSS SSSSSS        AA  AA GGGGGG
+ FF      OOOO   SSSS   SSSS         AA  AA  GGGG
+
+   ============================================
+   |                                          |
+   | Michael, Christoph, Joseph, Yannick, Jan |
+   |                                          |
+   ============================================
+
+
+EOC
+#author: ThiefOfTime
