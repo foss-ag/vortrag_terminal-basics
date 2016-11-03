@@ -5,6 +5,7 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{tikz}
+\input{beamerthemeTU.sty}
 
 \title{Linux Terminal Basic}
 \subtitle{BLABLABLA}
@@ -61,9 +62,9 @@
 \begin{frame}
 \frametitle{\textcolor{red}{s}witch \textcolor{red}{u}ser}
 \begin{itemize}
-	\item wechsel des Benutzers innerhalb der Konsole
-	\item ohne Parameter wird versucht sich als 'root' einzuloggen
-	\item ansonsten 'su [user]' einloggen als 'user'
+	\item Wechsel des Benutzers innerhalb der Konsole
+	\item Ohne Parameter wird versucht sich als 'root' einzuloggen
+	\item Ansonsten 'su [user]' einloggen als 'user'
 \end{itemize}
 \end{frame}
 
@@ -73,15 +74,15 @@
 'sudo' führt einen Befehl mit administrativer Berechtigung aus 'sudo [command]'.
 [Achtung!!] 'sudo' funktioniert nur, wenn Benutzer in root-Gruppe ist.
 \begin{itemize}[<+->]
-	\item führt man Befehle als Root aus, sollte man vorsichtig sein
+	\item Führt man Befehle als Root aus, sollte man vorsichtig sein
 	\item Parameter:
 	\begin{itemize}[<+->]
 		\item '-b' (background) führt Befehl im Hintergrund aus [kommt später]
 		\item '-e' (edit) öffnet Datei zum editieren, erstellt temp. Backup
 		\item '-s' (shell) öffnet eine Shell
-		\item '-u [user]' führt Befehl als Benutzer aus
+		\item '-u [user]' führt Befehl als [user] aus
 	\end{itemize}
-	\item wird '[nur Root]' angegeben, muss Befehl mit sudo gestartet werden
+	\item Wird hier'[nur Root]' angegeben, muss Befehl mit sudo gestartet werden
 \end{itemize}
 \end{frame}
 
@@ -90,7 +91,7 @@
 [nur Root]
 \begin{itemize}
 	\item Paket Management: apt Kurzform für apt-get und apt-cache
-	\item wichtigsten Befehle:
+	\item Wichtigsten Befehle:
 	\begin{itemize}
 		\item[1.] 'apt install [pkg...]'
 		\item[2.] 'apt update'
@@ -134,9 +135,9 @@
 \frametitle{\textcolor{red}{l}i\textcolor{red}{s}t}
 \framesubtitle{Ein kleines Licht in der Dunkelheit}
 \begin{itemize}
-	\item listet alle Ordner und Dateien in Verzeichnis auf
-	\item aktuelles Verzeichnis ist dabei Default
-	\item mögliche Argumente:
+	\item Listet alle Ordner und Dateien in Verzeichnis auf
+	\item Aktuelles Verzeichnis ist dabei Default
+	\item Mögliche Argumente:
 	\begin{itemize}[<+->]
 		\item '-a'  (all) inkl. versteckter Verzeichnisse
 		\item '-l'  (long listing format) inkl. Rechte, Besitzer, Größe, etc.
@@ -215,10 +216,10 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{chown}
+\frametitle{\textcolor{red}{ch}ange \textcolor{red}{own}er}
 Ändern des Besitzers von Orndern und Dateien.
 \begin{itemize}
-	\item zu jeder Datei/Ordner gehören 2 Besitzer:
+	\item Zu jeder Datei/Ordner gehören 2 Besitzer:
 	\begin{itemize}[<+->]
 		\item ein Nutzer
 		\item eine Gruppe
@@ -230,12 +231,12 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{rmdir}
+\frametitle{\textcolor{red}{r}e\textcolor{red}{m}ove \textcolor{red}{dir}ectory}
 Löschen von leeren Ordnern.
 \begin{itemize}
 	\item Befehl ist weniger mächtig als man erwartet
 	\item Vorsicht ist geboten, auch leere Verzeichnisse können wichtig sein!!
-	\item leere Ordner in dem leeren Ordner werden auch gelöscht
+	\item Leere Ordner in dem leeren Ordner werden auch gelöscht
 \end{itemize}
 \end{frame}
 
@@ -243,7 +244,7 @@ Löschen von leeren Ordnern.
 \begin{frame}
 \frametitle{Input, Output und Error}
 \begin{itemize}
-	\item jedes Programm hat drei Datenströme:
+	\item Jedes Programm hat drei Datenströme:
 	\begin{itemize}
 		\item[1)] stdin (Standard Input [number: 0])
 		\item[2)] stdout (Standard Output [number: 1])
@@ -261,7 +262,7 @@ Löschen von leeren Ordnern.
 
 \begin{frame}
 \frametitle{Pipe, $<$ und $>$ }
-Pipes helfen die Ein- und Ausgabe umzuleiten
+Umleiten der Ein- und Ausgabe
 \begin{itemize}[<+->]
 	\item '$<$' und '$>$' laden und schreiben Dateien
 	\begin{itemize}[<+->]
@@ -303,14 +304,14 @@ Pipes helfen die Ein- und Ausgabe umzuleiten
 \begin{frame}
 \frametitle{less}
 \framesubtitle{Even more than 'more}
-'less' ist intelligenter Nachfolger von more
+'less' ist intelligenter Nachfolger von 'more'
 \begin{itemize}
 	\item unterstützt Scrolling
 	\item Navigation:
 	\begin{itemize}[<+->]
 		\item Pfeil- und Bildlauftasten
 		\item '/pattern' Durchsucht das Dokument nach angegebenen Muster
-		\item '?pattern' ist wie /pattern nur rückwärts
+		\item '?pattern' ist wie '/pattern' nur rückwärts
 		\item '$\&$pattern' zeigt nur Zeilen, mit Muster
 		\item wird pattern benutzt, dann zeigt 'n' das nächste Vorkommen
 		\item ':n' ruft das nächste Dokument auf (wenn less mehrere bekommen hat)
@@ -323,7 +324,7 @@ Pipes helfen die Ein- und Ausgabe umzuleiten
 \framesubtitle{Was eine Katze mit Linux zu tun hat}
 'cat' konkateniert und zeigt die Inhalte von Dateien
 \begin{itemize}[<+->]
-	\item an sich nicht mächtig, sehr einfacher Befehl
+	\item An sich nicht mächtig, sehr einfacher Befehl
 	\item Parameter
 	\begin{itemize}
 		\item '-n' Nummeriert die ausgegebenen Zeilen 
@@ -336,7 +337,7 @@ Pipes helfen die Ein- und Ausgabe umzuleiten
 \begin{frame}
 \frametitle{head $\&$ tail}
 \framesubtitle{Dateien von Kopf bis Fuß}
-Ähnlich zu Cat, sind 'head' und 'tail' einfach Textdatei Betrachter. Allerdings beschränken sich diese auf bestimmte Teile der Datei.
+Ähnlich zu 'cat', sind 'head' und 'tail' einfach Textdatei Betrachter. Allerdings beschränken sich diese auf bestimmte Teile der Datei.
 \begin{itemize}
 	\item 'head' gibt ersten 10 Zeilen der angegebenen Datei aus
 	\item 'tail' gibt letzten 10 Zeilen der angegebenen Datei aus
@@ -359,7 +360,7 @@ Pipes helfen die Ein- und Ausgabe umzuleiten
 \frametitle{Sortieren und Suchen}
 Auch wenn man beim Sortieren erst einmal an das Sortieren von Dateien denkt,
 bezieht sich das Sortieren auf den Inhalt von Dateien.
-Das Suchen dagegen auf das Finden von Dateien.
+Das Suchen bezieht sich auf das Finden von Dateien.
 \begin{itemize}[<+->]
 	\item 'sort [option] [File]' (liest die Datei File und sortiert den Inhalt)
 	\begin{itemize}[<+->]
@@ -474,7 +475,7 @@ Dateien mit .tar, .tar.gz, .zip, etc. können natürlich auch via der Oberfläch
 	\item 'htop'
 	\begin{itemize}[<+->]
 		\item muss noch installiert werden
-		\item leichtere Bedienung und somit verwaltung von Prozessen
+		\item deutlich leichtere Bedienung
 	\end{itemize}
 	\item Ansicht:
 	\begin{itemize}[<+->]
@@ -493,7 +494,7 @@ Dateien mit .tar, .tar.gz, .zip, etc. können natürlich auch via der Oberfläch
 \frametitle{nice - nette Programme}
 Ausführen von Programmen mit modifizierter sheduling Priorität p, mit p $\in$ [-20,19]. Hierbei ist -20 die höchste Priorität
 \begin{itemize}[<+->]
-	\item normalerweise werden Programme mit Priorität 0 gestartet
+	\item Normalerweise werden Programme mit Priorität 0 gestartet
 	\item Syntax: 'nice [option] [command] [arg] ...'
 	\item Parameter:
 	\begin{itemize}
@@ -510,7 +511,7 @@ Ausführen von Programmen mit modifizierter sheduling Priorität p, mit p $\in$ 
 
 \begin{frame}
 \frametitle{renice und nohup}
-'renice' ermöglicht nachträgliches Einstellen des Nice-Wertes einen bereits laufenden Prozesses.
+'renice' ermöglicht nachträgliches Einstellen des Nice-Wertes eines bereits laufenden Prozesses.
 'nohup' ermöglicht es ein Programm weiterlaufen zu lassen, auch wenn der Benutzer sich ausloggt.
 \begin{itemize}
 	\item 'renice'
@@ -529,9 +530,9 @@ Ausführen von Programmen mit modifizierter sheduling Priorität p, mit p $\in$ 
 
 \begin{frame}
 \frametitle{$\&$ - Backstage}
-bei Angabe dieses Operators am eine eines Prozess-Aufrufs, wird der Prozess in den Hintergrund verschoben
+Bei Angabe dieses Operators am Ende eines Prozess-Aufrufs, wird der Prozess in den Hintergrund verschoben
 \begin{itemize}[<+->]
-	\item Prozess blockiert Shell nicht, sodass weiteres Arbeiten möglich
+	\item Prozess blockiert Shell nicht $\to$ weiteres Arbeiten möglich
 	\item Ausgabe wird aber weiterhin auf Shell geschrieben
 \end{itemize}
 [Achtung!!] $\&$ $\equiv$ Prozess in Hintergrund; $\&\&$ $\equiv$ Prozesse hintereinander ausführen (p1 $\&\&$ p2 : p2 wird ausgeführt, wenn p1 erfolgreich)
@@ -546,13 +547,13 @@ Das Bearbeiten von Textdateien ist in der Konsole schwierig. Ein Beispiel ist 'e
 	\begin{itemize}[<+->]
 		\item sehr minimalistischer Editor
 		\item reine Textverarbeitung, mehrere Dokumente möglich, Syntaxhighlighting
-		\item kein Highlighting von einem Wort, kein Text-Splitscreen, keine RegEx suche
+		\item kein Highlighting von einem Wort, kein Text-Splitscreen, keine RegEx-Suche
 	\end{itemize}
 	\item 'nano' (release 1999):
 	\begin{itemize}[<+->]
 		\item ebenfalls sehr minimalistisch
 		\item Nachfolger von pico
-		\item bietet mehr Funktionsumfang, z.B.: Text-Splitscreen, RegEx Suche
+		\item bietet mehr Funktionsumfang, z.B.: Text-Splitscreen, RegEx-Suche
 	\end{itemize}
 	\item 'nano' und 'pico' sind sehr minimalistisch, aber nicht zu unterschätzen
 \end{itemize}
@@ -571,7 +572,7 @@ Wir haben grad die minimaltistischen Editoren betrachtet, nun die etwas mächtig
 	\end{itemize}
 	\item 'jed' (release 1992):
 	\begin{itemize}[<+->]
-		\item der Editor für Programmierer
+		\item \textbf{der} Editor für Programmierer
 		\item liefert Templates für verschiedene Anwendungsfälle
 		\item weniger mächtig als vim, aber dennoch viele Features
 	\end{itemize}
@@ -592,7 +593,7 @@ ermöglicht Ausschalten oder Neustart des Systems [nur Root]
 		\item '-h' (halt) kein Timer möglich
 	\end{itemize}
 	\item 'sudo reboot' anstelle von 'sudo shutdown -r'
-	\item bei 'reboot' kein Timer möglich
+	\item Bei 'reboot' kein Timer möglich
 \end{itemize}
 \end{frame}
 
@@ -637,7 +638,7 @@ Meist wurde 'ifconfig' benutzt um seine lokalen IP-Adressen des Rechners anzuzei
 \begin{frame}
 \frametitle{\textcolor{red}{Reg}ular \textcolor{red}{Ex}pression - 1}
 \framesubtitle{The art of black magic}
-Reguläre Ausdrücke sind Muster, eine Grundstruktur von gesuchten Begriffen angeben. Um eine Fehlinterpretation der Shell zu vermeiden, sollte ein RegEx immer in Anführungszeichen angegeben werden.
+Reguläre Ausdrücke sind Muster, die eine Grundstruktur von gesuchten Begriffen angeben. Um eine Fehlinterpretation der Shell zu vermeiden, sollte ein RegEx immer in Anführungszeichen angegeben werden.
 \begin{itemize}
 	\item Syntax - 1:
 	\begin{itemize}[<+->]
@@ -672,7 +673,7 @@ Reguläre Ausdrücke sind Muster, eine Grundstruktur von gesuchten Begriffen ang
 		\item '$\setminus$' Sonderbedeutung von nächstem Symbol ignorieren. Bsp.: |
 	\end{itemize}
 	\item Bsp.: '.*p+ython[1-99]*.*$\setminus\mid$.*$\setminus$.pyc?'
-	\item es werden alle Wörter/Dateien gesucht, die:
+	\item Es werden alle Wörter/Dateien gesucht, die:
 	\begin{itemize}
 		\item 'python' im Namen haben oder mit .py bzw. .pyc aufhören
 		\item dürfen mit Zahlen zwischen 1 und 99 enden
@@ -697,12 +698,12 @@ Durchsucht eine Eingabe nach einem RegEx.
 		\item '-f [file]' liest RegEx aus [file]
 		\item '-v' invertiert das Matchmaking (alle Zeilen ohne RegEx)
 		\item '-w' gibt nur Zeilen aus, in denen ganze Worte dem RegEx entsprechen
-		\item '-x' gibt nur Zeilen aus, die ganze dem RegEx entsprechen
+		\item '-x' gibt nur Zeilen aus, die ganz dem RegEx entsprechen
 	\end{itemize}
 	\item Ausgabe:
 	\begin{itemize}
 		\item '-c' gibt Anzahl der passenden Zeilen aus
-		\item '-o' gibt nur gematchten Teile einer Zeile aus
+		\item '-o' gibt nur gematchte Teile einer Zeile aus
 		\item '-q' keine Ausgabe, gibt Exitcode 0 aus, wenn erfolgreich
 	\end{itemize}
 \end{itemize}
