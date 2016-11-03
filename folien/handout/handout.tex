@@ -3,6 +3,12 @@
 
 \begin{document}
 %TODO : title, author, etc
+\title{Terminal Basic Cheat Sheet}
+\author{Jan-Marius Lenk, Christoph Parnitzke, Josef Schneider, Yannick Bungers}
+%\institute[FOSS AG]{Free and Open Source Software AG\\ Fakultät für Informatik}
+\date{\today}
+
+\maketitle
 
 \twocolumn
 \center
@@ -11,6 +17,10 @@
 \begin{itemize}
 	\item Terminal: zeilenweise Eingabe von Befehlen
 	\item TTY: Terminals via STRG+ALT+F[1-7]
+	\begin{itemize}
+		\item auch die grafische Oberfläche läuft auf einer Shell
+		\item meist auf F7
+	\end{itemize}
 	\item VTerm: virtuelles Terminal in grafischer Umgebung
 	\item Shell: interpretiert Benutzereingabe
 \end{itemize}
@@ -27,10 +37,24 @@
 	\item ausführen von [command] mit erweiterten Rechten
 	\item Parameter:
 	\begin{itemize}
-		\item -b (Ausführen von [command] im Hintergrund
+		\item -b (Ausführen von [command] im Hintergrund)
+		\begin{itemize}
+			\item Vorsicht bei interaktiven Programmen!!
+		\end{itemize}
 		\item -e (öffnet Datei zum editieren, erstellt tmp. Backup)
+		\begin{itemize}
+			\item gut beim Konfigurieren des Systems
+			\item beugt Datenverlust vor
+			\item Root wird neuer Besitzer der Datei
+			\item statt 'sudo -e' 'sudoedit' möglich
+		\end{itemize}
 		\item -s (öffnet Shell)
 		\item -u [user] (führt Befehl als [user] aus)
+		\item -i (gibt root die .profile und .login des Benutzers)
+		\begin{itemize}
+			\item übergebene Befehle werden in Environment des Benutzers gestartet
+			\item ohne '-c' wird interaktive Root-Shell geöffnet
+		\end{itemize}
 	\end{itemize}
 \end{itemize}
 
@@ -164,7 +188,7 @@
 	\item Ändern des Besitzers und der Gruppe einer/s Datei/Ordner
 	\item Benutzer ändern: chown [user] [file]
 	\item Gruppe ändern: chown [user]:[group] [file]
-	\item Parameter -R ändert Zugehörigkeit rekursiv
+	\item Parameter '-R' ändert Zugehörigkeit rekursiv
 \end{itemize}
 
 \textbf{remove directory}
@@ -176,8 +200,14 @@
 
 \textbf{echo}
 \begin{itemize}
-	\item Syntax: echo [text]
+	\item Syntax: echo [option] [text]
 	\item gibt eingegebenen Text wieder
+	\item Ausnahme: echo \$c (gibt Wert von Variable 'c' aus)
+	\item Parameter:
+	\begin{itemize}
+		\item -n (Ausgabe ohne neue Zeile)
+		\item -e (Verwendung von Formatierungsoptionen)
+	\end{itemize}
 \end{itemize}
 
 \textbf{stdin, stdout, stderr}
@@ -266,9 +296,10 @@
 		\item -r (Ausgabe umdrehen)
 		\item -c (checkt ob Inhalt sortiert ist)
 	\end{itemize}
-	\item Syntax: find [path] [pattern]
+	\item Syntax: find [option] [path] [pattern]
 	\begin{itemize}
 		\item sucht nach Dateien im System via Muster
+		\item -m (sucht Dateiname, nicht Pfad)
 	\end{itemize}
 \end{itemize}
 
@@ -285,6 +316,7 @@
 		\item -f (überschreibt \textbf{immer})
 		\item -n (überschreibt \textbf{niemals})
 		\item --backup (erstellt Backup vor Überschreiben
+		\item -S, --suffix=[suf] (alternatives Suffix [suf] für Backup)
 		\item -r (verschieben von Ordnern [nur 'cp'!!!!])
 		\item -s (erstellt symbolische Links statt Dateien [nur 'cp' !!!!])
 	\end{itemize}
@@ -346,6 +378,14 @@
 		\item meist nicht Standardinstallation
 		\item leichtere Bedienung als 'top'
 	\end{itemize}
+	\item Optionen für 'htop':
+	\begin{itemize}
+		\item -d, --delay=[n] (Delay [n] zwischen Updates)
+		\item -C, --no-color (htop ohne Farbe)
+		\item -h (zeigt mögliche Optionen)
+		\item -p, --pid=[PID1],[PID2],.. (zeigt nur Prozesse mit gegebener PID)
+		\item -u, --user=[name] (zeigt nur Prozesse von Benutzer [name])
+	\end{itemize}
 	\item Ansicht:
 	\begin{itemize}
 		\item Auslastung einzelner CPU-Kerne und Arbeitsspeicher
@@ -364,7 +404,7 @@
 	\item Syntax: nice [option] [command] [args]
 	\item Parameter:
 	\begin{itemize}
-		\item -n (--adjustment=N) (aufaddieren von N auf Nice-Wert)
+		\item -n, --adjustment=N (aufaddieren von N auf Nice-Wert)
 	\end{itemize}
 \end{itemize}
 
