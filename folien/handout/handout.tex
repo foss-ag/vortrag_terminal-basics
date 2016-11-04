@@ -1,18 +1,22 @@
 \documentclass{article}
-\usepackage{german}
+\usepackage{ngerman}
+\usepackage{color}
+
+\newcommand\svthema{Terminal Basic Cheat Sheet}
+\newcommand\svperson{Jan-Marius Lenk, Christoph Parnitzke, Josef Schneider, Yannick Bungers}
+\newcommand\svdatum{\today}
+\newcommand\lvinst{Free and Open Source Software AG\\ Department of computer science}
 
 \begin{document}
 %TODO : title, author, etc
-\title{Terminal Basic Cheat Sheet}
-\author{Jan-Marius Lenk, Christoph Parnitzke, Josef Schneider, Yannick Bungers}
-%\institute[FOSS AG]{Free and Open Source Software AG\\ Fakultät für Informatik}
 \date{\today}
+\title{ \textbf{\color{blue}\svthema} }
+\author{ \textsl{\color{black}\svperson}\\ \svdatum }
+\date{ \small \lvinst }
 
 \maketitle
 
-\twocolumn
-\center
-\scriptsize
+\small
 \textbf{Terminal vs. Shell}
 \begin{itemize}
 	\item Terminal: zeilenweise Eingabe von Befehlen
@@ -58,6 +62,9 @@
 	\end{itemize}
 \end{itemize}
 
+\twocolumn
+%\center
+\scriptsize
 \textbf{apt-get und aptitude}
 \begin{itemize}
 	\item immer mit 'sudo' ausführen
