@@ -5,10 +5,11 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{tikz}
+\usepackage{textcomp}
 \input{beamerthemeTU.sty}
 
-\title{Linux Terminal Basic}
-\subtitle{BLABLABLA}
+\title{Linux Basics}
+\subtitle{Terminal}
 
 \author[J.-M. Lenk, C. Parnitzke, J. Schneider, Y. Bungers]{Jan-Marius Lenk, Christoph Parnitzke, Josef Schneider, Yannick Bungers}
 \institute[FOSS AG]{Free and Open Source Software AG\\ Fakultät für Informatik}
@@ -33,18 +34,17 @@
 \begin{frame}
 \frametitle{Linux Philosophie}
 \begin{figure}
-\includegraphics[scale=0.3]{res/tux.png}
+\includegraphics[scale=0.26]{res/tux.png}{\tiny 1)}
 \end{figure}
 \begin{itemize}
 	\item Philosophie besteht aus drei Punkten:
 	\begin{itemize}
 		\item 1. Schreibe Programme, die nur eine Sache tun und dies erfolgreich (DOTADIW)
-		\item 2. Schreibe Programme um zusammen zu Arbeiten
-		\item 3. Schreibe Programme, die mit Text arbeiten, denn dies ist universell
+		\item 2. Schreibe Programme die zusammenarbeiten
+		\item 3. Schreibe Programme, die über Text arbeiten, denn dies ist universell
 	\end{itemize}
-	\item Ist auch heute noch Kernaussage
+	\item Ist heute noch Kernphilosophie
 \end{itemize}
-\footnote{https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png}
 \end{frame}
 
 \begin{frame}
@@ -71,18 +71,18 @@
 \begin{frame}
 \frametitle{\textcolor{red}{s}uper \textcolor{red}{u}ser \textcolor{red}{do}}
 \framesubtitle{Mit großer Macht kommt große Verantwortung}
-'sudo' führt einen Befehl mit administrativer Berechtigung aus 'sudo [command]'.
-[Achtung!!] 'sudo' funktioniert nur, wenn Benutzer in root-Gruppe ist.
+'sudo' führt einen Befehl mit administrativer Berechtigung aus 'sudo [command]'.\\
+\textbf{Achtung!!} 'sudo' funktioniert nur, wenn Benutzer in root-Gruppe ist.
 \begin{itemize}[<+->]
 	\item Führt man Befehle als Root aus, sollte man vorsichtig sein
 	\item Parameter:
 	\begin{itemize}[<+->]
 		\item '-b' (background) führt Befehl im Hintergrund aus [kommt später]
-		\item '-e' (edit) öffnet Datei zum editieren, erstellt temp. Backup
+		\item '-e' (edit) öffnet Datei zum Editieren, erstellt temp. Backup
 		\item '-s' (shell) öffnet eine Shell
 		\item '-u [user]' führt Befehl als [user] aus
 	\end{itemize}
-	\item Wird hier'[nur Root]' angegeben, muss Befehl mit sudo gestartet werden
+	%\item Wird hier'[nur Root]' angegeben, muss Befehl mit sudo gestartet werden
 \end{itemize}
 \end{frame}
 
@@ -112,6 +112,12 @@
 	\begin{itemize}
 		\item NAME, SYNOPSIS, DESCRIPTION, OPTIONS (EXAMPLE und BUGS)
 	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{man page}
+	\begin{itemize}
 	\item Wie werden Einträge gesucht?
 	\begin{itemize}
 		\item[1.] ausführbare Programme und Shell Kommandos
@@ -303,7 +309,7 @@ Umleiten der Ein- und Ausgabe
 
 \begin{frame}
 \frametitle{less}
-\framesubtitle{Even more than 'more}
+\framesubtitle{Even more than 'more'}
 'less' ist intelligenter Nachfolger von 'more'
 \begin{itemize}
 	\item unterstützt Scrolling
@@ -370,8 +376,8 @@ Das Suchen bezieht sich auf das Finden von Dateien.
 	\end{itemize}
 	\item 'find [path] [pattern]' (suchen nach Datei im System via Muster)
 	\begin{itemize}[<+->]
-		\item [Achtung!!] Suche kann lange dauern
-		\item Bsp.: 'find ~ -name output.txt' (suche im Home-Folder 'output.txt')
+		\item \textbf{Achtung!!} Suche kann lange dauern
+		\item Bsp.: 'find $\sim$ -name output.txt' (Suche im Home-Folder 'output.txt')
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -393,12 +399,17 @@ Das Suchen bezieht sich auf das Finden von Dateien.
 			\item '--backup' erstellt Backup vor Überschreiben
 		\end{itemize}
 	\end{itemize}
+\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{\textcolor{red}{c}o\textcolor{red}{p}y $\&$ \textcolor{red}{m}o\textcolor{red}{v}e}
+	\begin{itemize}
 	\item 'cp [path1] [path2]'
 	\begin{itemize}
 		\item kopiert Datei von [path1] zu [path2]
 		\item Parameter:
 		\begin{itemize}[<+->]
-			\item selben wie 'mv'
+			\item selbe wie 'mv'
 			\item '-r' (recursive) ermöglicht verschieben von Ordnern
 			\item '-s' (symbolic-link) erstellt symbolische Links, statt Dateien
 		\end{itemize}
@@ -438,7 +449,7 @@ Immer wieder im Leben kommt eine Zeit in der man etwas Ballast abwerfen möchte.
 		\item '-u' Löschen nach dem Überschreiben
 	\end{itemize}
 	\item Bsp.: 'shred -u test.txt'
-	\item [Achtung!!] kein Löschen von Backups, evtl. Wiederherstellung möglich
+	\item \textbf{Achtung!!} kein Löschen von Backups, evtl. Wiederherstellung möglich
 \end{itemize}
 \end{frame}
 
@@ -458,7 +469,7 @@ Dateien mit .tar, .tar.gz, .zip, etc. können natürlich auch via der Oberfläch
 		\item '-z' (gzip format) komprimieren als .gz, etc.
 		\item '-f' erzeugt beim Entpacken einen Ordner mit Namen von Archiv
 	\end{itemize}
-	\item Bsp.: 'tar -xvf test.tar'
+%	\item Bsp.: 'tar -xvf test.tar'
 \end{itemize}
 \end{frame}
 
@@ -469,7 +480,7 @@ Dateien mit .tar, .tar.gz, .zip, etc. können natürlich auch via der Oberfläch
 \begin{itemize}
 	\item 'top'
 	\begin{itemize}[<+->]
-		\item ist bereits installtiert
+		\item ist bereits installiert
 		\item '-h' um Befehle anzeigen zu lassen
 	\end{itemize}
 	\item 'htop'
@@ -477,6 +488,12 @@ Dateien mit .tar, .tar.gz, .zip, etc. können natürlich auch via der Oberfläch
 		\item muss noch installiert werden
 		\item deutlich leichtere Bedienung
 	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{htop - interaktiver Prozessmanager}
+	\begin{itemize}
 	\item Ansicht:
 	\begin{itemize}[<+->]
 		\item Auslastung der einzelnen CPU-Kerne und des Arbeitsspeichers
@@ -529,27 +546,32 @@ Ausführen von Programmen mit modifizierter sheduling Priorität p, mit p $\in$ 
 \end{frame}
 
 \begin{frame}
-\frametitle{$\&$ - Backstage}
+\frametitle{\& - Backstage}
 Bei Angabe dieses Operators am Ende eines Prozess-Aufrufs, wird der Prozess in den Hintergrund verschoben
 \begin{itemize}[<+->]
 	\item Prozess blockiert Shell nicht $\to$ weiteres Arbeiten möglich
 	\item Ausgabe wird aber weiterhin auf Shell geschrieben
 \end{itemize}
-[Achtung!!] $\&$ $\equiv$ Prozess in Hintergrund; $\&\&$ $\equiv$ Prozesse hintereinander ausführen (p1 $\&\&$ p2 : p2 wird ausgeführt, wenn p1 erfolgreich)
+\textbf{Achtung!!} $\&$ $\equiv$ Prozess in Hintergrund; $\&\&$ $\equiv$ Prozesse hintereinander ausführen (p1 $\&\&$ p2 : p2 wird ausgeführt, wenn p1 erfolgreich)
 \end{frame}
 
 \begin{frame}
 \frametitle{Texteditoren - 1: ed, nano, pico}
 \framesubtitle{You would (not) love Ed!!}
-Das Bearbeiten von Textdateien ist in der Konsole schwierig. Ein Beispiel ist 'ed' (release 1970; Grundlage für 'grep').
+Das Bearbeiten von Textdateien ist in der Konsole schwierig. Ein Beispiel ist 'ed' (Release 1970; Grundlage für 'grep').
 \begin{itemize}
-	\item 'pico' (release 1992):
+	\item 'pico' (Release 1992):
 	\begin{itemize}[<+->]
 		\item sehr minimalistischer Editor
 		\item reine Textverarbeitung, mehrere Dokumente möglich, Syntaxhighlighting
 		\item kein Highlighting von einem Wort, kein Text-Splitscreen, keine RegEx-Suche
 	\end{itemize}
-	\item 'nano' (release 1999):
+\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Texteditoren - 1: ed, nano, pico}
+	\begin{itemize}
+	\item 'nano' (Release 1999):
 	\begin{itemize}[<+->]
 		\item ebenfalls sehr minimalistisch
 		\item Nachfolger von pico
@@ -562,19 +584,19 @@ Das Bearbeiten von Textdateien ist in der Konsole schwierig. Ein Beispiel ist 'e
 \begin{frame}
 \frametitle{Texteditoren - 2: vim, jed}
 \framesubtitle{Good thing Ed is not around anymore}
-Wir haben grad die minimaltistischen Editoren betrachtet, nun die etwas mächtigeren.
+Wir haben grad die minimalistischen Editoren betrachtet, nun die etwas mächtigeren.
 \begin{itemize}
-	\item 'vim' (release 1991):
+	\item 'vim' (Release 1991):
 	\begin{itemize}[<+->]
 		\item Großmufti unter den Editoren
-		\item verbesserte Suchfunktionen, mächtiger als nano und pico
+		\item Verbesserte Suchfunktionen, mächtiger als nano und pico
 		\item Standard bei 'git'
 	\end{itemize}
-	\item 'jed' (release 1992):
+	\item 'jed' (Release 1992):
 	\begin{itemize}[<+->]
-		\item \textbf{der} Editor für Programmierer
-		\item liefert Templates für verschiedene Anwendungsfälle
-		\item weniger mächtig als vim, aber dennoch viele Features
+		\item \textbf{Der} Editor für Programmierer
+		\item Liefert Templates für verschiedene Anwendungsfälle
+		\item Weniger mächtig als vim, aber dennoch viele Features
 	\end{itemize}
 	\item Bei der Wahl des Editors ist es wie immer im Leben, Geschmäcker sind verschieden
 \end{itemize}
@@ -583,7 +605,7 @@ Wir haben grad die minimaltistischen Editoren betrachtet, nun die etwas mächtig
 \begin{frame}
 \frametitle{shutdown}
 \framesubtitle{Wenn man mal das real life genießen will}
-ermöglicht Ausschalten oder Neustart des Systems [nur Root]
+Ermöglicht Ausschalten oder Neustart des Systems [nur Root]
 \begin{itemize}[<+->]
 	\item Syntax: 'shutdown [options] [time]'
 	\item Parameter:
@@ -625,12 +647,12 @@ Meist wurde 'ifconfig' benutzt um seine lokalen IP-Adressen des Rechners anzuzei
 		\item 'd' zeigt die Auslastung der Festplatte an
 		\item 'k' zeigt Kernel Statistiken an (Queue, Forks, Interrupts)
 		\item 'r' Details zum System und Prozessor
-		\item 'l' CPU Auslastung als Graph
+		%\item 'l' CPU Auslastung als Graph
 		\item 'n' Auslastung der Netzwerk Schnittstelle
 		\item 'j' Auslastung des Dateisystems (Platz und Aufbau)
-		\item 't' wie top, Auflistung aller laufenden Prozesse
+		%\item 't' wie top, Auflistung aller laufenden Prozesse
 		\item '+' bzw. '-' Refresh erhöhen bzw. verringern
-		\item 'H' für Hilfe (Shortcuts auflisten)
+		%\item 'H' für Hilfe (Shortcuts auflisten)
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -646,13 +668,22 @@ Reguläre Ausdrücke sind Muster, die eine Grundstruktur von gesuchten Begriffen
 		\item '.' genau \textbf{ein} beliebiges Zeichen
 		\item '.*' Folge von beliebigen Zeichen (auch keines)
 		\item '*' Zeichen vor * ist beliebig oft (auch gar nicht)
-		\item '?' Zeichen vor ? ist \textbf{genau} einmal oder gar nicht
+		\item '?' Zeichen vor ? ist
+		\textbf{genau} einmal oder gar nicht
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{\textcolor{red}{Reg}ular \textcolor{red}{Ex}pression - 1}
+	\begin{itemize}
+		\item Syntax - 1: (Fortsetzung)
+		\begin{itemize}
 		\item '+' Zeichen vor + ist min. einmal
 		\item '$\{$n,m$\}$' Zeichen wird n bis m mal wiederholt
 		\item '$\{$n$\}$' Zeichen genau n mal
 		\item '[...]' Zeichen kommt in den Klammern vor
-		\item '[...-...]' Zeichen aus Zeichenklasse
-		
+		\item '[...-...]' Zeichen aus Zeichenklasse		
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -672,6 +703,12 @@ Reguläre Ausdrücke sind Muster, die eine Grundstruktur von gesuchten Begriffen
 		\item '(...)' Gruppe von Ausdrücken
 		\item '$\setminus$' Sonderbedeutung von nächstem Symbol ignorieren. Bsp.: |
 	\end{itemize}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{\textcolor{red}{Reg}ular \textcolor{red}{Ex}pression - 2}
+\begin{itemize}
+	\item Syntax - 2: (Fortsetzung)
 	\item Bsp.: '.*p+ython[1-99]*.*$\setminus\mid$.*$\setminus$.pyc?'
 	\item Es werden alle Wörter/Dateien gesucht, die:
 	\begin{itemize}
@@ -700,6 +737,11 @@ Durchsucht eine Eingabe nach einem RegEx.
 		\item '-w' gibt nur Zeilen aus, in denen ganze Worte dem RegEx entsprechen
 		\item '-x' gibt nur Zeilen aus, die ganz dem RegEx entsprechen
 	\end{itemize}
+\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{grep}
+\begin{itemize}
 	\item Ausgabe:
 	\begin{itemize}
 		\item '-c' gibt Anzahl der passenden Zeilen aus
