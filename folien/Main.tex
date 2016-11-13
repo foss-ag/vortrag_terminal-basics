@@ -1,5 +1,5 @@
-\documentclass[12pt,utf8, handout]{beamer}
-
+\documentclass[12pt,utf8]{beamer}
+\setbeamercovered{transparent}
 \usepackage[german]{babel}
 \usepackage{color}
 \usepackage{xcolor}
@@ -105,24 +105,26 @@
 \begin{frame}
 \frametitle{man page}
 \framesubtitle{Wenn man mal nicht weiter weiß}
+Die Man-Page ist die Benutzeranleitung des Systems, mit Anleitungen zur Benutzung der installierten Programme
 \begin{itemize}
-	\item Benutzeranleitung für das System
-	\item Anleitung zu installierten Programmen/Tools
 	\item Sektionen, die besonders interessant sind:
 	\begin{itemize}
-		\item NAME, SYNOPSIS, DESCRIPTION, OPTIONS (EXAMPLE und BUGS)
+		\item {\scriptsize NAME, SYNOPSIS, DESCRIPTION, OPTIONS (EXAMPLE und BUGS)}
 	\end{itemize}
-	\item Wie werden Einträge gesucht?
+	\item \textbf{Wie werden Einträge gesucht?}
 	\begin{itemize}
-		\item[1.] ausführbare Programme und Shell Kommandos
-		\item[2.] Systemaufrufe (vom Kernel bereit gestellt)
-		\item[3.] Bibliotheksaufrufe (innerhalb von Programm-Bibliotheken)
-		\item[4.] spezielle Dateien (in /dev)
-		\item[5.] Dateiformate und Konventionen (/etc/passwd)
-		\item[6.] Spiele
-		\item[7.] Sonstiges (Macropakete und Konventionen)
-		\item[8.] System administrations Kommandos (nur Root)
-		\item[9.] Kernel Routinen (kein Standard)
+		{
+		\footnotesize
+		\item ausführbare Programme und Shell Kommandos
+		\item Systemaufrufe (vom Kernel bereit gestellt)
+		\item Bibliotheksaufrufe (Programm-Bibliotheken)
+		\item spezielle Dateien (in /dev)
+		\item Dateiformate und Konventionen (/etc/passwd)
+		\item Spiele
+		\item Sonstiges (Macropakete und Konventionen)
+		\item System administrations Kommandos (nur Root)
+		\item Kernel Routinen (kein Standard)
+		}
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -130,7 +132,7 @@
 %autocompletion einfach erwähnen und als notiz auf Handout
 \begin{frame}
 \frametitle{Aufgabe 1}
-Nun sollt ihr euch ein wenig mit der man-Page und dem Paket-Management vertraut machen. Zur Bearbeitung dieser kleinen Aufgabe habt ihr 10 Minuten zeit.
+Nun sollt ihr euch ein wenig mit der man-Page und dem Paket-Management vertraut machen. Zur Bearbeitung dieser Aufgabe habt ihr 10 Minuten zeit.
 \begin{itemize}
 	\item[1)] führt ein Update der Quellen durch; 'apt update'
 	\item[2)] installiert das Paket 'funny-manpages'
@@ -140,12 +142,7 @@ Nun sollt ihr euch ein wenig mit der man-Page und dem Paket-Management vertraut 
 	\end{itemize}
 	\item[3)] betrachtet folgende man-Pages:
 	\begin{itemize}
-		\item 'su'
-		\item 'apt-get'
-		\item 'party'
-		\item 'uubp'
-		\item 'tm'
-		\item 'flog'
+		\item 'su', 'apt-get', 'party', 'uubp', 'tm', 'flog'
 	\end{itemize}
 	\item[4)] (optional) 'funny-manpages' entfernen, wer mag
 	\begin{itemize}
@@ -170,6 +167,7 @@ Nun sollt ihr euch ein wenig mit der man-Page und dem Paket-Management vertraut 
 		\item '-r'  (recursive) umgekehrte Reihenfolge
 		\item '-m'  Namen durch Kommata getrennt
 	\end{itemize}
+	\item Bsp.: 'ls -al'
 \end{itemize}
 \end{frame}
 
@@ -265,6 +263,24 @@ Löschen von leeren Ordnern.
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{Aufgabe 2)}
+In der zweiten Aufgabe sollt ihr euch mit der Verwaltung von Ordnern auseinander setzen. Zur Bearbeitung stehen euch 10 Minuten zur verfügung.
+\begin{itemize}
+{\footnotesize
+	\item[1)] wechselt in das Verzeichnis '/tmp'
+	\item[2)] erstellt den Ordner 'test'
+	\item[3)] guckt euch die Rechte des Ordners an
+	\item[4)] entfernt die Recht für 'group' und 'all' des Ordners
+	\item[5)] setzt als neuen Owner des Ordners 'root' [nur Root]
+	\item[6)] versucht den Ordner zu entfernen (ohne 'sudo'). Was passiert?
+	\item[7)] wechselt nun wieder den Owner zurück [nur Root]
+	\item[8)] entfernt den Ordner
+	}
+\end{itemize}
+{\scriptsize Tipp: 'cd', 'ls', 'mkdir', 'chmod', 'chown', 'rm' bzw. 'rmdir'}
+\end{frame}
+
 \subsection{Dateien}
 \begin{frame}
 \frametitle{Input, Output und Error}
@@ -342,6 +358,21 @@ Umleiten der Ein- und Ausgabe
 		\item ':n' ruft das nächste Dokument auf (wenn less mehrere bekommen hat)
 	\end{itemize}
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Aufgabe 3)}
+In dieser Aufgabe sollt ihr euch mit der Umleitung der Standardausgabe beschäftigen. Für die Bearbeitung habt ihr 5 Minuten.
+\begin{itemize}
+	{\footnotesize
+	\item[1)] wechselt in euer Home-Verzeichnis
+	\item[2)] lasst euch die Inhalte rekursiv ausgeben
+	\item[3)] benutzt die Ausgabe als Eingabe für 'cowsay' (Pipe-Operator)
+	\item[4)] lasst euch nun diese Ausgabe in die Datei 'KuhSagtHome.txt' schreiben
+	\item[5)] seht euch den Inhalt der Datei an
+	}
+\end{itemize}
+{\scriptsize Tipp: cd, ls, cowsay, $\mid$, $>$, less}
 \end{frame}
 
 \begin{frame}
