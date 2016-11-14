@@ -278,7 +278,7 @@ In der zweiten Aufgabe sollt ihr euch mit der Verwaltung von Ordnern auseinander
 	\item[8)] entfernt den Ordner
 	}
 \end{itemize}
-{\scriptsize Tipp: 'cd', 'ls', 'mkdir', 'chmod', 'chown', 'rm' bzw. 'rmdir'}
+{\scriptsize Tipp: 'cd', 'ls', 'mkdir', 'chmod', 'chown', 'rmdir'}
 \end{frame}
 
 \subsection{Dateien}
@@ -498,6 +498,25 @@ Immer wieder im Leben kommt eine Zeit in der man etwas Ballast abwerfen möchte.
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{Aufgabe 4)}
+Diese Aufgabe soll euch ein Gefühl für den Umgang mit Dateien geben. Für die Bearbeitung habt ihr 15 Minuten.
+\begin{itemize}
+	{\footnotesize
+	\item[1)] sucht alle Dateien in '/usr/share' ausgeben, die dem folgenden RegEx entsprechen '.*.txt' und schreibt diese in '/home/[username]/txt-files.txt'
+	\item[2)] schaut euch nun den Inhalt an
+	\item[3)] sucht nach eurer Datei 'KuhSagtHome.txt' und schreibt das Ergebnis in 'kuh-sagt-path.txt' (Suche in '/home')
+	\item[4)] verbindet nun den Inhalt von 'txt-files.txt' und 'kuh-sagt-path.txt' und schreibt die Ausgabe in 'cat-files-kuh.txt'
+	\item[5)] betrachtet das Ende der Datei 'cat-files-kuh.txt'. Was fällt auf?
+	\item[6)] sortiert den Inhalt von 'cat-files-kuh.txt' numerisch und schreibt die Ausgabe in 'sort-cat-kuh.txt'
+	\item[7)] betrachtet den Anfang von 'sort-cat-kuh.txt'. Was hat sich verändert?
+	\item[8)] löscht nun alle eben erstellten Dateien
+	}
+\end{itemize}
+{\scriptsize Tipp: find, less bzw. more, cat, tail, head, sort, rm bzw. shred}
+\end{frame}
+
+
 \subsection{Archive}
 \begin{frame}
 \frametitle{\textcolor{red}{t}ape \textcolor{red}{ar}chiver}
@@ -637,6 +656,23 @@ Wir haben grad die minimaltistischen Editoren betrachtet, nun die etwas mächtig
 \end{frame}
 
 \begin{frame}
+\frametitle{Aufgabe 5)}
+In dieser Aufgabe sollt ihr euch mit der Verwaltung von Prozessen beschäftigen.
+Für die Bearbeitung stehen euch 10 Minuten zur Verfügung.
+\begin{itemize}
+	{\footnotesize
+	\item[1)] ladet euch die Datei 'infinite.tar' von 'foss-ag.de' herunter
+	\item[2)] verschiebt sie nach '/tmp' und entpackt sie dort
+	\item[3)] führt den Befehl 'python infinite$\_$run.py' im Hintergrund aus mit Nice-Wert 15
+	\item[4)] führt 'htop' bzw. 'top' aus, sucht euren Prozess und merkt euch die PID
+	\item[5)] verändert den Nice-Wert auf 10 und schaut in 'htop' bzw. 'top' nach, was passiert ist
+	\item[6)] stoppt nun den Prozess mit dem Befehl 'kill', wobei ihr die PID angeben müsst
+	}
+\end{itemize}
+{\scriptsize Tipp:  Tipp: tar, mv, nice, \&, renice, htop bzw. top}
+\end{frame}
+
+\begin{frame}
 \frametitle{shutdown}
 \framesubtitle{Wenn man mal das real life genießen will}
 ermöglicht Ausschalten oder Neustart des Systems [nur Root]
@@ -763,6 +799,19 @@ Durchsucht eine Eingabe nach einem RegEx.
 		\item '-q' keine Ausgabe, gibt Exitcode 0 aus, wenn erfolgreich
 	\end{itemize}
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Aufgabe 6)}
+Diese Aufgabe soll euch ein Gefühl für RegEx geben.
+\begin{itemize}
+{\footnotesize
+	\item[1)] lasst euch eure IP-Adresse ausgeben und schreibt die Ausgabe in 'ip.txt'
+	\item[2)] lasst euch nun nur die Zeilen Ausgeben, die eine valide IP-Adresse enthalten (IPv4, IPv6, oder beides)
+	\item \textbf{Achtung!!} es gibt mehrere Lösungen
+	}
+\end{itemize}
+{\scriptsize Tipp: ip addr, grep, RegEx}
 \end{frame}
 
 \end{document}
