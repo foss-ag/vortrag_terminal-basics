@@ -1,0 +1,94 @@
+\PassOptionsToPackage{subsection=false}{beamerouterthememiniframes}
+\usetheme{Szeged} % implicitely loads miniframes
+
+
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{xmpmulti,multimedia,xspace}
+\usepackage{color}
+\usepackage{hyperref}
+
+\setbeamertemplate{footline}{%
+	\leavevmode%
+  	\vspace{1em}	
+		\textit{\insertshortauthor} 
+  	\hfill
+    		\insertshorttitle 
+  	\hfill
+	\Acrobatmenu{LastPage}{\insertframenumber}~~
+}
+
+% frametitle
+\defbeamertemplate*{frametitle}{}{%
+  \leavevmode
+  \vspace*{0.1cm}
+  %\vspace*{-1cm}
+  \centerline{\bf\insertframetitle}
+  \centerline{\insertframesubtitle}
+}
+
+
+
+% title page
+\defbeamertemplate*{title page}{}{%
+  \vspace*{0.8cm}
+    \begin{minipage}[t][0.8\textheight]{\textwidth}
+
+      \begin{center}
+	{\bf\large
+	  \usebeamercolor[fg]{title}\inserttitle\\[0.5em]
+	  \ifx\insertsubtitle\empty
+	  	%	no subtitle
+	  \else
+	  	{\small --- \insertsubtitle\ ---}
+	  \fi
+	}
+	
+	\vspace*{0.3cm}
+	\insertauthor\\[0.5em]
+	\insertinstitute
+	
+	\insertdate
+	
+      \end{center}
+  \end{minipage}
+  %\setcounter{framenumber}{0}
+}
+
+% define fonts
+\setbeamerfont{frametitle}{size=\large}
+
+\let\footnotesize\tiny
+% footnote without a marker
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+% adjust base color theme
+\usecolortheme{orchid}
+% define CI-conforme color 
+\definecolor{ownDarkOr}{HTML}{0101DF}
+\definecolor{ownBlue}{HTML}{0080FF}	% 84b819
+\newcommand{\ownBlue}[1]{{\color{ownBlue}{#1}}}
+
+% set all related colors to ownBlue
+\setbeamercolor*{itemize item}{fg=ownBlue}
+\setbeamercolor*{enumerate item}{fg=ownBlue}
+\setbeamercolor*{description item}{fg=ownBlue}
+\setbeamercolor*{itemize subitem}{fg=ownBlue}
+\setbeamercolor*{itemize subsubitem}{fg=ownBlue}
+\setbeamercolor*{enumerate subitem}{fg=ownBlue}
+\setbeamercolor*{enumerate subsubitem}{fg=ownBlue}
+\setbeamercolor*{description subitem}{fg=ownBlue}
+\setbeamercolor*{description subsubitem}{fg=ownBlue}
+\setbeamercolor*{structure}{fg=ownBlue}
+\setbeamercolor*{section in toc}{fg=black}
+
+% highlighted section in navigation bar will be ownBlue
+\setbeamercolor*{section in head/foot}{fg=black}
+
+% turn on navigation bar (in general)
+\setbeamertemplate{navigation symbols}{}

@@ -5,10 +5,12 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{tikz}
-\input{beamerthemeTU.sty}
+%\input{beamerthemeTUSzeded.sty}
+\usetheme{TuSzeded}
 
 \title{Linux Basic}
 \subtitle{Das Terminal}
+
 
 \author[J.-M. Lenk, C. Parnitzke, Y. Bungers]{Jan-Marius Lenk, Christoph Parnitzke, Yannick Bungers}
 \institute[FOSS AG]{Free and Open Source Software AG\\ Fakultät für Informatik}
@@ -70,7 +72,7 @@
 
 \begin{frame}
 \frametitle{\textcolor{red}{s}uper \textcolor{red}{u}ser \textcolor{red}{do}}
-\framesubtitle{Mit großer Macht kommt große Verantwortung}
+\framesubtitle{\textcolor{ownDarkOr}{Mit großer Macht kommt große Verantwortung}}
 'sudo' führt einen Befehl mit administrativer Berechtigung aus 'sudo [command]'.
 [Achtung!!] 'sudo' funktioniert nur, wenn Benutzer in root-Gruppe ist.
 \begin{itemize}[<+->]
@@ -104,7 +106,7 @@
 
 \begin{frame}
 \frametitle{man page}
-\framesubtitle{Wenn man mal nicht weiter weiß}
+\framesubtitle{\textcolor{ownDarkOr}{Wenn man mal nicht weiter weiß}}
 Die Man-Page ist die Benutzeranleitung des Systems, mit Anleitungen zur Benutzung der installierten Programme
 \begin{itemize}
 	\item Sektionen, die besonders interessant sind:
@@ -132,7 +134,7 @@ Die Man-Page ist die Benutzeranleitung des Systems, mit Anleitungen zur Benutzun
 %autocompletion einfach erwähnen und als notiz auf Handout
 \begin{frame}
 \frametitle{Aufgabe 1}
-Nun sollt ihr euch ein wenig mit der man-Page und dem Paket-Management vertraut machen. Zur Bearbeitung dieser Aufgabe habt ihr 10 Minuten zeit.
+Nun sollt ihr euch ein wenig mit der man-Page und dem Paket-Management vertraut machen. Zur Bearbeitung dieser Aufgabe habt ihr 10 Minuten Zeit.
 \begin{itemize}
 	\item[1)] führt ein Update der Quellen durch; 'apt update'
 	\item[2)] installiert das Paket 'funny-manpages'
@@ -155,7 +157,7 @@ Nun sollt ihr euch ein wenig mit der man-Page und dem Paket-Management vertraut 
 \subsection{Ordner}
 \begin{frame}
 \frametitle{\textcolor{red}{l}i\textcolor{red}{s}t}
-\framesubtitle{Ein kleines Licht in der Dunkelheit}
+\framesubtitle{\textcolor{ownDarkOr}{Ein kleines Licht in der Dunkelheit}}
 \begin{itemize}
 	\item Listet alle Ordner und Dateien in Verzeichnis auf
 	\item Aktuelles Verzeichnis ist dabei Default
@@ -173,7 +175,7 @@ Nun sollt ihr euch ein wenig mit der man-Page und dem Paket-Management vertraut 
 
 \begin{frame}
 \frametitle{\textcolor{red}{c}hange \textcolor{red}{d}irectory}
-\framesubtitle{Die kleine Form der Teleportation}
+\framesubtitle{\textcolor{ownDarkOr}{Die kleine Form der Teleportation}}
 'cd' bietet das Navigieren durch das Dateisystem
 \begin{itemize}[<+->]
 	\item Notationen:	
@@ -196,7 +198,7 @@ Nun sollt ihr euch ein wenig mit der man-Page und dem Paket-Management vertraut 
 
 \begin{frame}
 \frametitle{\textcolor{red}{m}a\textcolor{red}{k}e \textcolor{red}{dir}ectory}
-\framesubtitle{Verzeichnisse erschaffen}
+\framesubtitle{\textcolor{ownDarkOr}{Verzeichnisse erschaffen}}
 'mkdir' erstellt Ordner auf dem Rechner
 \begin{itemize}[<+->]
 	\item Syntax: 'mkdir [path]'   (erzeugt Ordner mit Pfad [path])
@@ -224,7 +226,7 @@ Nun sollt ihr euch ein wenig mit der man-Page und dem Paket-Management vertraut 
 
 \begin{frame}
 \frametitle{\textcolor{red}{ch}ange \textcolor{red}{mod}e}
-\framesubtitle{Mein Ordner gehört mir}
+\framesubtitle{\textcolor{ownDarkOr}{Mein Ordner gehört mir}}
 'chmod' ändert die Zugriffsrechte von Dateien und Ordnern
 \begin{itemize}[<+->]
 	\item Syntax: 'chmod [mode] [path]'
@@ -331,7 +333,7 @@ Umleiten der Ein- und Ausgabe
 
 \begin{frame}
 \frametitle{more}
-\framesubtitle{Less than everything}
+\framesubtitle{\textcolor{ownDarkOr}{Less than everything}}
 'more' ist ein Filereader
 \begin{itemize}
 	\item Angucken von Datei ohne Editieren
@@ -344,7 +346,7 @@ Umleiten der Ein- und Ausgabe
 
 \begin{frame}
 \frametitle{less}
-\framesubtitle{Even more than 'more}
+\framesubtitle{\textcolor{ownDarkOr}{Even more than 'more'}}
 'less' ist intelligenter Nachfolger von 'more'
 \begin{itemize}
 	\item unterstützt Scrolling
@@ -377,7 +379,7 @@ In dieser Aufgabe sollt ihr euch mit der Umleitung der Standardausgabe beschäft
 
 \begin{frame}
 \frametitle{con\textcolor{red}{cat}enate}
-\framesubtitle{Was eine Katze mit Linux zu tun hat}
+\framesubtitle{\textcolor{ownDarkOr}{Was eine Katze mit Linux zu tun hat}}
 'cat' konkateniert und zeigt die Inhalte von Dateien
 \begin{itemize}[<+->]
 	\item An sich nicht mächtig, sehr einfacher Befehl
@@ -392,7 +394,7 @@ In dieser Aufgabe sollt ihr euch mit der Umleitung der Standardausgabe beschäft
 
 \begin{frame}
 \frametitle{head $\&$ tail}
-\framesubtitle{Dateien von Kopf bis Fuß}
+\framesubtitle{\textcolor{ownDarkOr}{Dateien von Kopf bis Fuß}}
 Ähnlich zu 'cat', sind 'head' und 'tail' einfach Textdatei Betrachter. Allerdings beschränken sich diese auf bestimmte Teile der Datei.
 \begin{itemize}
 	\item 'head' gibt ersten 10 Zeilen der angegebenen Datei aus
@@ -434,7 +436,7 @@ Das Suchen bezieht sich auf das Finden von Dateien.
 
 \begin{frame}
 \frametitle{\textcolor{red}{c}o\textcolor{red}{p}y $\&$ \textcolor{red}{m}o\textcolor{red}{v}e}
-\framesubtitle{Die Kunst des Klonens und Umbenennens}
+\framesubtitle{\textcolor{ownDarkOr}{Die Kunst des Klonens und Umbenennens}}
 'cp' und 'mv' sind neben 'ls' und 'cd' wohl die wichtigsten Befehle in Linux.
 \begin{itemize}
 	\item Dateiname muss bei beiden Befehlen nicht gleich bleiben
@@ -464,7 +466,7 @@ Das Suchen bezieht sich auf das Finden von Dateien.
 
 \begin{frame}
 \frametitle{\textcolor{red}{r}e\textcolor{red}{m}ove}
-\framesubtitle{Flutsch! Und weg!}
+\framesubtitle{\textcolor{ownDarkOr}{Flutsch! Und weg!}}
 Immer wieder im Leben kommt eine Zeit in der man etwas Ballast abwerfen möchte.  
 `rm` hilft dabei
 \begin{itemize}[<+->]
@@ -483,7 +485,7 @@ Immer wieder im Leben kommt eine Zeit in der man etwas Ballast abwerfen möchte.
 
 \begin{frame}
 \frametitle{shred}
-\framesubtitle{RRRRRRRRRRRRRTTZZZZZZZZZZZ!}
+\framesubtitle{\textcolor{ownDarkOr}{RRRRRRRRRRRRRTTZZZZZZZZZZZ!}}
 'shred' überschreibt Dateien und löscht sie damit entgültig
 \begin{itemize}
 	\item Syntax: 'shred [option] [file]'
@@ -520,7 +522,7 @@ Diese Aufgabe soll euch ein Gefühl für den Umgang mit Dateien geben. Für die 
 \subsection{Archive}
 \begin{frame}
 \frametitle{\textcolor{red}{t}ape \textcolor{red}{ar}chiver}
-\framesubtitle{Archivieren}
+\framesubtitle{\textcolor{ownDarkOr}{Archivieren}}
 Dateien mit .tar, .tar.gz, .zip, etc. können natürlich auch via der Oberfläche entpackt werden, allerdings kann es auch sein, dass man dies über die Konsole vornehmen muss.
 \begin{itemize}[<+->]
 	\item Syntax entpacken: 'tar [option] [path]'
@@ -615,7 +617,7 @@ Bei Angabe dieses Operators am Ende eines Prozess-Aufrufs, wird der Prozess in d
 
 \begin{frame}
 \frametitle{Texteditoren - 1: ed, nano, pico}
-\framesubtitle{You would (not) love Ed!!}
+\framesubtitle{\textcolor{ownDarkOr}{You would (not) love Ed!!}}
 Das Bearbeiten von Textdateien ist in der Konsole schwierig. Ein Beispiel ist 'ed' (release 1970; Grundlage für 'grep').
 \begin{itemize}
 	\item 'pico' (release 1992):
@@ -636,7 +638,7 @@ Das Bearbeiten von Textdateien ist in der Konsole schwierig. Ein Beispiel ist 'e
 
 \begin{frame}
 \frametitle{Texteditoren - 2: vim, jed}
-\framesubtitle{Good thing Ed is not around anymore}
+\framesubtitle{\textcolor{ownDarkOr}{Good thing Ed is not around anymore}}
 Wir haben grad die minimaltistischen Editoren betrachtet, nun die etwas mächtigeren.
 \begin{itemize}
 	\item 'vim' (release 1991):
@@ -674,7 +676,7 @@ Für die Bearbeitung stehen euch 10 Minuten zur Verfügung.
 
 \begin{frame}
 \frametitle{shutdown}
-\framesubtitle{Wenn man mal das real life genießen will}
+\framesubtitle{\textcolor{ownDarkOr}{Wenn man mal das real life genießen will}}
 ermöglicht Ausschalten oder Neustart des Systems [nur Root]
 \begin{itemize}[<+->]
 	\item Syntax: 'shutdown [options] [time]'
@@ -729,7 +731,7 @@ Meist wurde 'ifconfig' benutzt um seine lokalen IP-Adressen des Rechners anzuzei
 
 \begin{frame}
 \frametitle{\textcolor{red}{Reg}ular \textcolor{red}{Ex}pression - 1}
-\framesubtitle{The art of black magic}
+\framesubtitle{\textcolor{ownDarkOr}{The art of black magic}}
 Reguläre Ausdrücke sind Muster, die eine Grundstruktur von gesuchten Begriffen angeben. Um eine Fehlinterpretation der Shell zu vermeiden, sollte ein RegEx immer in Anführungszeichen angegeben werden.
 \begin{itemize}
 	\item Syntax - 1:
@@ -751,7 +753,7 @@ Reguläre Ausdrücke sind Muster, die eine Grundstruktur von gesuchten Begriffen
 
 \begin{frame}
 \frametitle{\textcolor{red}{Reg}ular \textcolor{red}{Ex}pression - 2}
-\framesubtitle{The art of black magic}
+\framesubtitle{\textcolor{ownDarkOr}{The art of black magic}}
 \begin{itemize}
 	\item Syntax - 2:
 	\begin{itemize}
@@ -776,7 +778,7 @@ Reguläre Ausdrücke sind Muster, die eine Grundstruktur von gesuchten Begriffen
 
 \begin{frame}
 \frametitle{grep}
-\framesubtitle{Gonna catch em' Strings}
+\framesubtitle{\textcolor{ownDarkOr}{Gonna catch em' Strings}}
 Durchsucht eine Eingabe nach einem RegEx.
 \begin{itemize}[<+->]
 	\item Selektoren:
