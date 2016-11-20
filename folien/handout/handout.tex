@@ -1,6 +1,9 @@
-\documentclass{article}
-\usepackage{ngerman}
+\documentclass[12pt,utf8, 10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
 \usepackage{color}
+
+\usepackage{graphicx}
 
 \newcommand\svthema{Terminal Basic Cheat Sheet}
 \newcommand\svperson{Jan-Marius Lenk, Christoph Parnitzke, Josef Schneider, Yannick Bungers}
@@ -11,10 +14,16 @@
 %TODO : title, author, etc
 \date{\today}
 \title{ \textbf{\color{blue}\svthema} }
-\author{ \textsl{\color{black}\svperson}\\ \svdatum }
-\date{ \small \lvinst }
+\author{ \textsl{\color{black}\svperson} }
+\date{ \small \lvinst \\ \svdatum}
+
+
+\begin{figure}
+\includegraphics[scale=0.35]{foss-ag.png}
+\end{figure}
 
 \maketitle
+
 
 \small
 \textbf{Terminal vs. Shell}
@@ -540,9 +549,9 @@
 		\item + (Zeichen vor + min. einmal)
 		\item $\{$n,m$\}$ (Zeichen wird n bis m mal wiederholt)
 		\item $\{$n$\}$ (Zeichen wird genau n mal wiederholt)
-		\item [...] (Zeichen kommt in den Klammern vor)
-		\item [...-...] (Zeichen ist aus Zeichenklasse)
-		\item [$\hat{}$...] und [$\hat{}$...-...] (verneinen von Zeichenklasse)
+		\item '[...]' (Zeichen kommt in den Klammern vor) [Hochkommata ignorieren]
+		\item '[...-...]' (Zeichen ist aus Zeichenklasse) [Hochkommata ignorieren]
+		\item '[$\hat{}$...]' und [$\hat{}$...-...] (verneinen von Zeichenklasse) [Hochkommata ignorieren]
 		\item \$ (Zeilenende)
 		\item $<$ (Wortanfang)
 		\item $>$ (Wortende)

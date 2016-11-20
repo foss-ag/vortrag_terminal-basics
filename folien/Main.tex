@@ -1,11 +1,10 @@
-\documentclass[12pt,utf8]{beamer}
+\documentclass[12pt,utf8, handout]{beamer}
 \setbeamercovered{transparent}
 \usepackage[german]{babel}
 \usepackage{color}
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{tikz}
-%\input{beamerthemeTUSzeded.sty}
 \usetheme{TuSzeded}
 
 \title{Linux Basic}
@@ -35,7 +34,7 @@
 \begin{frame}
 \frametitle{Linux Philosophie}
 \begin{figure}
-\includegraphics[scale=0.3]{res/tux.png}
+\includegraphics[scale=0.15]{res/tuX_tu.png}
 \end{figure}
 \begin{itemize}
 	\item Philosophie besteht aus drei Punkten:
@@ -46,7 +45,7 @@
 	\end{itemize}
 	\item Ist auch heute noch Kernaussage
 \end{itemize}
-\footnote{https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png}
+%\footnote{https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png}
 \end{frame}
 
 \begin{frame}
@@ -66,7 +65,7 @@
 \begin{itemize}
 	\item Wechsel des Benutzers innerhalb der Konsole
 	\item Ohne Parameter wird versucht sich als 'root' einzuloggen
-	\item Ansonsten 'su [user]' einloggen als 'user'
+	\item Ansonsten 'su [user]' einloggen als [user]
 \end{itemize}
 \end{frame}
 
@@ -74,15 +73,15 @@
 \frametitle{\textcolor{red}{s}uper \textcolor{red}{u}ser \textcolor{red}{do}}
 \framesubtitle{\textcolor{ownDarkOr}{Mit großer Macht kommt große Verantwortung}}
 'sudo' führt einen Befehl mit administrativer Berechtigung aus 'sudo [command]'.
-[Achtung!!] 'sudo' funktioniert nur, wenn Benutzer in root-Gruppe ist.
+\textbf{\textcolor{red}{Achtung!!}} 'sudo' funktioniert nur, wenn Benutzer in root-Gruppe ist.
 \begin{itemize}[<+->]
 	\item Führt man Befehle als Root aus, sollte man vorsichtig sein
 	\item Parameter:
 	\begin{itemize}[<+->]
-		\item '-b' (background) führt Befehl im Hintergrund aus [kommt später]
-		\item '-e' (edit) öffnet Datei zum editieren, erstellt temp. Backup
-		\item '-s' (shell) öffnet eine Shell
-		\item '-u [user]' führt Befehl als [user] aus
+		\item {\scriptsize'-b' (background) führt Befehl im Hintergrund aus [kommt später]}
+		\item {\scriptsize '-e' (edit) öffnet Datei zum editieren, erstellt temp. Backup}
+		\item {\scriptsize '-s' (shell) öffnet eine Shell}
+		\item {\scriptsize '-u [user]' führt Befehl als [user] aus}
 	\end{itemize}
 	\item Wird hier'[nur Root]' angegeben, muss Befehl mit sudo gestartet werden
 \end{itemize}
@@ -180,7 +179,7 @@ Nun sollt ihr euch ein wenig mit der man-Page und dem Paket-Management vertraut 
 \begin{itemize}[<+->]
 	\item Notationen:	
 	\begin{itemize}[<+->]
-		\item Wechsel in Parent-Directory mit '../'
+		\item Wechsel in Parent-Directory mit '..'
 		\item Wechsel in Home-Directory mit 'cd'   (ohne Pfad)
 		\item Wechsel in Verzeichnis (Bsp.: Dokumente (bzw. Documents))
 		\begin{itemize}[<+->]
@@ -204,8 +203,8 @@ Nun sollt ihr euch ein wenig mit der man-Page und dem Paket-Management vertraut 
 	\item Syntax: 'mkdir [path]'   (erzeugt Ordner mit Pfad [path])
 	\item Beispiel:
 	\begin{itemize}[<+->]
-		\item 'mkdir neuer-ordner/'    (relativ zum aktuellen Pfad)
-		\item 'mkdir /tmp/neuer-ordner/tmp1/tmp2/'
+		\item 'mkdir neuer-ordner'    (relativ zum aktuellen Pfad)
+		\item 'mkdir -p /tmp/neuer-ordner/tmp1/tmp2/'
 	\end{itemize}
 	\item '-p'   erstellt Parent-Directory, falls es nicht existiert
 	\item '-mode=[mode]'  Modus mit dem der Ordner erstellt wird (siehe chmod)
@@ -267,7 +266,7 @@ Löschen von leeren Ordnern.
 
 \begin{frame}
 \frametitle{Aufgabe 2)}
-In der zweiten Aufgabe sollt ihr euch mit der Verwaltung von Ordnern auseinander setzen. Zur Bearbeitung stehen euch 10 Minuten zur verfügung.
+In der zweiten Aufgabe sollt ihr euch mit der Verwaltung von Ordnern beschäftigen. Zur Bearbeitung stehen euch 15 Minuten zur verfügung.
 {\footnotesize
 \begin{itemize}
 	\item wechselt in das Verzeichnis '/tmp'
@@ -297,7 +296,7 @@ In der zweiten Aufgabe sollt ihr euch mit der Verwaltung von Ordnern auseinander
 	\begin{itemize}[<+->]
 		\item 'echo' gibt einen eingegebenen Text zurück
 		\item Syntax: 'echo [text]'
-		\item [text] ist stdin und die Konsole ist stdout und stderr
+		\item dabei ist [text] stdin und die Konsole stdout und stderr
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -323,10 +322,7 @@ Umleiten der Ein- und Ausgabe
 	\begin{itemize}[<+->]
 		\item Umleiten von stderr: 2$>$ statt $>$
 		\item also durch Angabe von Stream Nummer
-		\item Bsp.: Umleiten von stderr auf stdout
-		\begin{itemize}
-			\item ls -r $>$ output.txt 2$>\&$1 
-		\end{itemize}
+		\item Bsp.: 'ls -r $>$ output.txt 2$>\&$1 '
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -368,7 +364,7 @@ In dieser Aufgabe sollt ihr euch mit der Umleitung der Standardausgabe beschäft
 \begin{itemize}
 	{\footnotesize
 	\item wechselt in euer Home-Verzeichnis
-	\item lasst euch die Inhalte rekursiv ausgeben
+	\item lasst euch die Inhalte reversive ausgeben
 	\item benutzt die Ausgabe als Eingabe für 'cowsay' (Pipe-Operator)
 	\item lasst euch nun diese Ausgabe in die Datei 'KuhSagtHome.txt' schreiben
 	\item seht euch den Inhalt der Datei an
@@ -428,8 +424,8 @@ Das Suchen bezieht sich auf das Finden von Dateien.
 	\end{itemize}
 	\item 'find [path] [pattern]' (suchen nach Datei im System via Muster)
 	\begin{itemize}[<+->]
-		\item [Achtung!!] Suche kann lange dauern
-		\item Bsp.: 'find ~ -name output.txt' (suche im Home-Folder 'output.txt')
+		\item \textbf{\textcolor{red}{Achtung!!}} Suche kann lange dauern
+		\item Bsp.: 'find ~ -name output.txt'
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -496,7 +492,7 @@ Immer wieder im Leben kommt eine Zeit in der man etwas Ballast abwerfen möchte.
 		\item '-u' Löschen nach dem Überschreiben
 	\end{itemize}
 	\item Bsp.: 'shred -u test.txt'
-	\item [Achtung!!] kein Löschen von Backups, evtl. Wiederherstellung möglich
+	\item \textbf{\textcolor{red}{Achtung!!}} kein Löschen von Backups, evtl. Wiederherstellung möglich
 \end{itemize}
 \end{frame}
 
@@ -505,7 +501,7 @@ Immer wieder im Leben kommt eine Zeit in der man etwas Ballast abwerfen möchte.
 Diese Aufgabe soll euch ein Gefühl für den Umgang mit Dateien geben. Für die Bearbeitung habt ihr 15 Minuten.
 \begin{itemize}
 	{\footnotesize
-	\item sucht alle Dateien in '/usr/share' ausgeben, die dem folgenden RegEx entsprechen '".*.txt"' und schreibt diese in '/home/[username]/txt-files.txt'
+	\item lasst euch alle Dateien in '/usr/share' ausgeben, die dem folgenden RegEx entsprechen '".*.txt"' und schreibt die Ausgabe in '/home/[username]/txt-files.txt'
 	\item schaut euch nun den Inhalt an
 	\item sucht nach eurer Datei 'KuhSagtHome.txt' und schreibt das Ergebnis in 'kuh-sagt-path.txt' (Suche in '/home')
 	\item verbindet nun den Inhalt von 'txt-files.txt' und 'kuh-sagt-path.txt' und schreibt die Ausgabe in 'cat-files-kuh.txt'
@@ -529,11 +525,11 @@ Dateien mit .tar, .tar.gz, .zip, etc. können natürlich auch via der Oberfläch
 	\item Syntax verpacken: 'tar [option] [path-archiv] [path-files]'
 	\item Parameter:
 	\begin{itemize}[<+->]
-		\item '-c' (create) erzeugt neues Archiv
-		\item '-x' (extract) extrahieren einer Datei
-		\item '-v' (verbose) Fortschritt auflisten
-		\item '-z' (gzip format) komprimieren als .gz, etc.
-		\item '-f' erzeugt beim Entpacken einen Ordner mit Namen von Archiv
+		\item {\scriptsize '-c' (create) erzeugt neues Archiv}
+		\item {\scriptsize '-x' (extract) extrahieren einer Datei}
+		\item {\scriptsize '-v' (verbose) Fortschritt auflisten}
+		\item {\scriptsize '-z' (gzip format) komprimieren als .gz, etc.}
+		\item {\scriptsize '-f' erzeugt beim Entpacken einen Ordner mit Namen von Archiv}
 	\end{itemize}
 	\item Bsp.: 'tar -xvf test.tar'
 \end{itemize}
@@ -544,34 +540,32 @@ Dateien mit .tar, .tar.gz, .zip, etc. können natürlich auch via der Oberfläch
 \begin{frame}
 \frametitle{htop - interaktiver Prozessmanager}
 \begin{itemize}
-	\item 'top'
+	\item 'top' (bereits installtiert)
 	\begin{itemize}[<+->]
-		\item ist bereits installtiert
-		\item '-h' um Befehle anzeigen zu lassen
+		\item {\scriptsize '-h' um Befehle anzeigen zu lassen}
 	\end{itemize}
-	\item 'htop'
+	\item 'htop' (muss installiert werden)
 	\begin{itemize}[<+->]
-		\item muss noch installiert werden
-		\item deutlich leichtere Bedienung
+		\item {\scriptsize deutlich leichtere Bedienung}
 	\end{itemize}
 	\item Ansicht:
 	\begin{itemize}[<+->]
-		\item Auslastung der einzelnen CPU-Kerne und des Arbeitsspeichers
-		\item Anteil vom Swap und bisherige Laufzeit des Systems
-		\item PID (Prozess ID), User, PRI (Priorität), NI (Nice-Wert)
-		\item VIRT und RES (benutzer virtueller und physischer Speicher)
-		\item S (State; S $\in$ $\{$ S[leeping], R[unning], D[isk sleep], Z[ombie], T[raced/suspended], W[Paging] $\}$)
-		\item CPU$\%$ und MEM$\%$ (genutzter CPU und Arbeitsspeicher Anteil) und TIME (bisherige Laufzeit)
+		\item {\scriptsize Auslastung der einzelnen CPU-Kerne und des Arbeitsspeichers}
+		\item {\scriptsize Anteil vom Swap und bisherige Laufzeit des Systems}
+		\item {\scriptsize PID (Prozess ID), User, PRI (Priorität), NI (Nice-Wert)}
+		\item {\scriptsize VIRT und RES (benutzer virtueller und physischer Speicher)}
+		\item {\scriptsize S (State; S $\in$ $\{${\footnotesize S[leeping], R[unning], D[isk sleep], Z[ombie], T[raced/suspended], W[Paging]}$\}$)}
+		\item {\scriptsize CPU$\%$ und MEM$\%$ (genutzter CPU und Arbeitsspeicher Anteil) und TIME (bisherige Laufzeit)}
 	\end{itemize}
 \end{itemize}
 \end{frame}
 
 \subsection{Nettigkeit}
 \begin{frame}
-\frametitle{nice - nette Programme}
-Ausführen von Programmen mit modifizierter sheduling Priorität p, mit p $\in$ [-20,19]. Hierbei ist -20 die höchste Priorität
+\frametitle{nice}
+\framesubtitle{nette Programme}
+Ausführen von Programmen mit modifizierter sheduling Priorität p, p $\in$ [-20,19]. Hierbei ist -20 die höchste Priorität. Default: p = 0
 \begin{itemize}[<+->]
-	\item Normalerweise werden Programme mit Priorität 0 gestartet
 	\item Syntax: 'nice [option] [command] [arg] ...'
 	\item Parameter:
 	\begin{itemize}
@@ -580,7 +574,7 @@ Ausführen von Programmen mit modifizierter sheduling Priorität p, mit p $\in$ 
 	\item Bsp. 'ping':
 	\begin{itemize}[<+->]
 		\item Syntax: 'ping [option] [addr]'
-		\item Parameter: '-c [num]' (Anzahl der pings setzen), '-W [time]' (Timeout setzen)
+		\item Parameter: {\scriptsize '-c [num]' (Anzahl der pings setzen), '-W [time]' (Timeout setzen)}
 		\item 'nice -n 20 ping www.foss-ag.de'
 	\end{itemize}
 \end{itemize}
@@ -593,7 +587,7 @@ Ausführen von Programmen mit modifizierter sheduling Priorität p, mit p $\in$ 
 \begin{itemize}
 	\item 'renice'
 	\begin{itemize}[<+->]
-		\item Syntax: 'renice [-n] priority [-g | -p | -u] identifier'
+		\item Syntax: 'renice [-n] priority [-g $\mid$ -p $\mid$ -u] identifier'
 		\item '-n [num]' ist neuer Nice-Wert
 		\item '-g [group-id]', '-p [process-id]', '-u [user-id]'
 	\end{itemize}
@@ -612,7 +606,7 @@ Bei Angabe dieses Operators am Ende eines Prozess-Aufrufs, wird der Prozess in d
 	\item Prozess blockiert Shell nicht $\to$ weiteres Arbeiten möglich
 	\item Ausgabe wird aber weiterhin auf Shell geschrieben
 \end{itemize}
-[Achtung!!] $\&$ $\equiv$ Prozess in Hintergrund; $\&\&$ $\equiv$ Prozesse hintereinander ausführen (p1 $\&\&$ p2 : p2 wird ausgeführt, wenn p1 erfolgreich)
+\textbf{\textcolor{red}{Achtung!!}} $\&$ $\equiv$ Prozess in Hintergrund; $\&\&$ $\equiv$ Prozesse hintereinander ausführen (p1 $\&\&$ p2 : p2 wird ausgeführt, wenn p1 erfolgreich)
 \end{frame}
 
 \begin{frame}
@@ -622,15 +616,15 @@ Das Bearbeiten von Textdateien ist in der Konsole schwierig. Ein Beispiel ist 'e
 \begin{itemize}
 	\item 'pico' (release 1992):
 	\begin{itemize}[<+->]
-		\item sehr minimalistischer Editor
-		\item reine Textverarbeitung, mehrere Dokumente möglich, Syntaxhighlighting
-		\item kein Highlighting von einem Wort, kein Text-Splitscreen, keine RegEx-Suche
+		\item {\scriptsize sehr minimalistischer Editor}
+		\item {\scriptsize reine Textverarbeitung, mehrere Dokumente möglich, Syntaxhighlighting}
+		\item {\scriptsize kein Highlighting Wörtern, kein Text-Splitscreen, keine RegEx-Suche}
 	\end{itemize}
 	\item 'nano' (release 1999):
 	\begin{itemize}[<+->]
-		\item ebenfalls sehr minimalistisch
-		\item Nachfolger von pico
-		\item bietet mehr Funktionsumfang, z.B.: Text-Splitscreen, RegEx-Suche
+		\item {\scriptsize ebenfalls sehr minimalistisch}
+		\item {\scriptsize Nachfolger von pico}
+		\item {\scriptsize bietet mehr Funktionsumfang, z.B.: Text-Splitscreen, RegEx-Suche}
 	\end{itemize}
 	\item 'nano' und 'pico' sind sehr minimalistisch, aber nicht zu unterschätzen
 \end{itemize}
@@ -671,7 +665,7 @@ Für die Bearbeitung stehen euch 10 Minuten zur Verfügung.
 	\item stoppt nun den Prozess mit dem Befehl 'kill', wobei ihr die PID angeben müsst
 	}
 \end{itemize}
-{\scriptsize Tipp:  Tipp: tar, mv, nice, \&, renice, htop bzw. top}
+{\scriptsize Tipp: tar, mv, nice, \&, renice, htop bzw. top}
 \end{frame}
 
 \begin{frame}
@@ -694,7 +688,7 @@ ermöglicht Ausschalten oder Neustart des Systems [nur Root]
 \section{Zusatz}
 \begin{frame}
 \frametitle{ip addr}
-Meist wurde 'ifconfig' benutzt um seine lokalen IP-Adressen des Rechners anzuzeigen. Dieser Befehl ist allerdings ein wenig obsolet und wurde ersetzt durch 'ip addr'.
+Meist wurde 'ifconfig' benutzt um sich seine lokalen IP-Adressen des Rechners anzeigen zu lassen. Dieser Befehl ist allerdings ein wenig obsolet und wurde ersetzt durch 'ip addr'.
 \begin{itemize}
 	\item Um lokale IP-Adresse zu erfahren, ohne über Router zu gehen
 	\item Wird benötigt, wenn man sich via 'ssh' einloggen will
@@ -711,20 +705,17 @@ Meist wurde 'ifconfig' benutzt um seine lokalen IP-Adressen des Rechners anzuzei
 \frametitle{nmon}
 'nmon' dient zur Überwachung der Auslastung der PC Komponenten
 \begin{itemize}
-	\item Elemente können der Anzeige bei Bedarf hinzugefügt und entfernt werden
 	\item Shortcuts:
 	\begin{itemize}[<+->]
-		\item 'c' zeigt die Auslastung aller CPU Kerne an
-		\item 'm' zeigt die Auslastung des Arbeitsspeichers an (auch mit SWAP)
-		\item 'd' zeigt die Auslastung der Festplatte an
-		\item 'k' zeigt Kernel Statistiken an (Queue, Forks, Interrupts)
-		\item 'r' Details zum System und Prozessor
-		\item 'l' CPU Auslastung als Graph
-		\item 'n' Auslastung der Netzwerk Schnittstelle
-		\item 'j' Auslastung des Dateisystems (Platz und Aufbau)
-		\item 't' wie top, Auflistung aller laufenden Prozesse
-		\item '+' bzw. '-' Refresh erhöhen bzw. verringern
-		\item 'H' für Hilfe (Shortcuts auflisten)
+		\item {\scriptsize 'c', 'm', 'd' zeigen Auslastung von CPU-Kerne, Arbeitsspeicher, Festplatte an}
+		\item {\scriptsize 'k' zeigt Kernel Statistiken an (Queue, Forks, Interrupts)}
+		\item {\scriptsize 'r' Details zum System und Prozessor}
+		\item {\scriptsize 'l' CPU Auslastung als Graph}
+		\item {\scriptsize 'n' Auslastung der Netzwerk Schnittstelle}
+		\item {\scriptsize 'j' Auslastung des Dateisystems (Platz und Aufbau)}
+		\item {\scriptsize 't' wie top, Auflistung aller laufenden Prozesse}
+		\item {\scriptsize '+' bzw. '-' Refresh erhöhen bzw. verringern}
+		\item {\scriptsize 'H' für Hilfe (Shortcuts auflisten)}
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -732,21 +723,17 @@ Meist wurde 'ifconfig' benutzt um seine lokalen IP-Adressen des Rechners anzuzei
 \begin{frame}
 \frametitle{\textcolor{red}{Reg}ular \textcolor{red}{Ex}pression - 1}
 \framesubtitle{\textcolor{ownDarkOr}{The art of black magic}}
-Reguläre Ausdrücke sind Muster, die eine Grundstruktur von gesuchten Begriffen angeben. Um eine Fehlinterpretation der Shell zu vermeiden, sollte ein RegEx immer in Anführungszeichen angegeben werden.
+Reguläre Ausdrücke sind Muster, die eine Grundstruktur von gesuchten Begriffen angeben. Um Fehlinterpretationen zu vermeiden, sollte der RegEx immer in Anführungszeichen angegeben werden.
 \begin{itemize}
 	\item Syntax - 1:
 	\begin{itemize}[<+->]
-		\item 'c' ein konstantes Zeichen c
-		\item '.' genau \textbf{ein} beliebiges Zeichen
-		\item '.*' Folge von beliebigen Zeichen (auch keines)
-		\item '*' Zeichen vor * ist beliebig oft (auch gar nicht)
-		\item '?' Zeichen vor ? ist \textbf{genau} einmal oder gar nicht
-		\item '+' Zeichen vor + ist min. einmal
-		\item '$\{$n,m$\}$' Zeichen wird n bis m mal wiederholt
-		\item '$\{$n$\}$' Zeichen genau n mal
-		\item '[...]' Zeichen kommt in den Klammern vor
-		\item '[...-...]' Zeichen aus Zeichenklasse
-		
+		\item {\scriptsize 'c' ein konstantes Zeichen c}
+		\item {\scriptsize '.' genau \textbf{ein} beliebiges Zeichen}
+		\item {\scriptsize '.*' Folge von beliebigen Zeichen (auch keines)}
+		\item {\scriptsize '*' Zeichen vor * ist beliebig oft (auch gar nicht)}
+		\item {\scriptsize '?' Zeichen vor ? ist \textbf{genau} einmal oder gar nicht}
+		\item {\scriptsize '+' Zeichen vor + ist min. einmal}
+		\item {\scriptsize '$\{$n,m$\}$' Zeichen wird n bis m mal wiederholt}
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -757,15 +744,25 @@ Reguläre Ausdrücke sind Muster, die eine Grundstruktur von gesuchten Begriffen
 \begin{itemize}
 	\item Syntax - 2:
 	\begin{itemize}
-		\item '[ $\hat{}$ ...]' und '[ $\hat{}$ ...-...]' verneinte Zeichenklasse
-		\item ' $\hat{}$ ' Zeilenanfang
-		\item '\$' Zeilenende
-		\item '$<$' Wortanfang
-		\item '$>$' Wortende
-		\item 'a1$\mid$a2' alternative Ausdrücke; a1 oder a2
-		\item '(...)' Gruppe von Ausdrücken
-		\item '$\setminus$' Sonderbedeutung von nächstem Symbol ignorieren. Bsp.: |
+		\item {\scriptsize '$\{$n$\}$' Zeichen genau n mal}
+		\item {\scriptsize '[...]' Zeichen kommt in den Klammern vor}
+		\item {\scriptsize '[...-...]' Zeichen aus Zeichenklasse}
+		\item {\scriptsize '[ $\hat{}$ ...]' und '[ $\hat{}$ ...-...]' verneinte Zeichenklasse}
+		\item {\scriptsize ' $\hat{}$ ' Zeilenanfang}
+		\item {\scriptsize '\$' Zeilenende}
+		\item {\scriptsize '$<$' Wortanfang}
+		\item {\scriptsize '$>$' Wortende}
+		\item {\scriptsize 'a1$\mid$a2' alternative Ausdrücke; a1 oder a2}
+		\item {\scriptsize '(...)' Gruppe von Ausdrücken}
+		\item {\scriptsize '$\setminus$' Sonderbedeutung von nächstem Symbol ignorieren. Bsp.: |}
 	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textcolor{red}{Reg}ular \textcolor{red}{Ex}pression - 3}
+\framesubtitle{\textcolor{ownDarkOr}{The art of black magic}}
+\begin{itemize}
 	\item Bsp.: '.*p+ython[1-99]*.*$\setminus\mid$.*$\setminus$.pyc?'
 	\item Es werden alle Wörter/Dateien gesucht, die:
 	\begin{itemize}
@@ -780,27 +777,48 @@ Reguläre Ausdrücke sind Muster, die eine Grundstruktur von gesuchten Begriffen
 \frametitle{grep}
 \framesubtitle{\textcolor{ownDarkOr}{Gonna catch em' Strings}}
 Durchsucht eine Eingabe nach einem RegEx.
-\begin{itemize}[<+->]
-	\item Selektoren:
-	\begin{itemize}[<+->]
-		\item '-E' Interpretiert Suchwort als erweiterten RegEx
-		\item '-F' Interpretiert Suchwort als fixed String
-		\item '-G' Interpretiert Suchwort als basic RegEx
-	\end{itemize}
-	\item Kontrolle:
-	\begin{itemize}
-		\item '-f [file]' liest RegEx aus [file]
-		\item '-v' invertiert das Matchmaking (alle Zeilen ohne RegEx)
-		\item '-w' gibt nur Zeilen aus, in denen ganze Worte dem RegEx entsprechen
-		\item '-x' gibt nur Zeilen aus, die ganz dem RegEx entsprechen
-	\end{itemize}
-	\item Ausgabe:
-	\begin{itemize}
-		\item '-c' gibt Anzahl der passenden Zeilen aus
-		\item '-o' gibt nur gematchte Teile einer Zeile aus
-		\item '-q' keine Ausgabe, gibt Exitcode 0 aus, wenn erfolgreich
-	\end{itemize}
-\end{itemize}
+{\footnotesize
+\begin{table}
+\begin{tabular}{l c}
+
+\begin{tabular}{l|c}
+&{\scriptsize \textbf{Selektoren}} (interpretieren Suchwort als)\\
+\hline
+\textbf{\textcolor{ownDarkOr}{'-E'}} & erweiterter RegEx \\
+\hline
+\textbf{\textcolor{ownDarkOr}{'-F'}} & fixed String\\
+\hline 
+\textbf{\textcolor{ownDarkOr}{'-G'}} & basic RegEx\\
+
+\end{tabular} \\ \\
+\begin{tabular}{l|c}
+& {\scriptsize \textbf{Ausgabe}}\\
+\hline
+\textbf{\textcolor{ownDarkOr}{'-c'}} & Anzahl passender Zeilen\\
+\hline
+\textbf{\textcolor{ownDarkOr}{'-o'}} & nur gematchte Teile einer Zeile\\
+\hline
+\textbf{\textcolor{ownDarkOr}{'-q'}} & keine Ausgabe, nur Exitcode  \\
+& (0 wenn erfolgreich)\\
+\end{tabular}
+&
+\begin{tabular}{l|c}
+& {\scriptsize \textbf{Kontrolle}}\\
+\hline
+\textbf{\textcolor{ownDarkOr}{'-f [file]'}} & liest RegEx aus [file]\\
+\hline
+\textbf{\textcolor{ownDarkOr}{'-v'}} & invertiert Matchmaking\\
+\hline
+\textbf{\textcolor{ownDarkOr}{'-w'}} & nur Zeilen, in denen ganze\\
+& Worte RegEx entsprechen\\ 
+\hline
+\textbf{\textcolor{ownDarkOr}{'-x'}} & nur Zeilen, die ganz \\
+& dem RegEx entsprechen \\
+\end{tabular} 
+
+\end{tabular}
+\end{table}
+}
 \end{frame}
 
 \begin{frame}
