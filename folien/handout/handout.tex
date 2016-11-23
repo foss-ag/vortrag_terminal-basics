@@ -44,6 +44,10 @@
 	\item wechseln des Benutzers via Terminal
 \end{itemize}
 
+
+\twocolumn
+%\center
+\scriptsize
 \textbf{super user do}
 \begin{itemize}
 	\item Syntax: sudo [command]
@@ -71,9 +75,6 @@
 	\end{itemize}
 \end{itemize}
 
-\twocolumn
-%\center
-\scriptsize
 \textbf{apt-get und aptitude}
 \begin{itemize}
 	\item immer mit 'sudo' ausführen
@@ -86,10 +87,10 @@
 		\item sudo apt upgrade (mit Datenbank die Pakete aktualisieren)
 		\item sudo apt dist-upgrade (wie upgrade, löst dependency Probleme)
 		\item sudo apt remove [pkg] ([pkg] deinstallieren)
-		\item sudo apt search [RegEx] (Paket in vorhandenen suchen)
+		\item sudo apt search [RegEx] (Paket suchen)
 		\item sudo apt show [pkg] (zeigt Informationen zu [pkg])
 		\item sudo apt list (zeigt Liste von Paketen)
-		\item sudo apt list --installed (zeigt installierte pakete)
+		\item sudo apt list --installed (zeigt installierte Pakete)
 	\end{itemize}
 \end{itemize}
 
@@ -120,7 +121,7 @@
 	\item Suchverlauf
 	\begin{itemize}
 		\item[1.] ausführbare Programme und Shell Kommandos
-        \item[2.] Systemaufrufe (vom Kernel bereit gestellt)
+        \item[2.] Systemaufrufe (vom Kernel bereitgestellt)
         \item[3.] Bibliotheksaufrufe (innerhalb von Programm-Bibliotheken)
         \item[4.] spezielle Dateien (in /dev)
         \item[5.] Dateiformate und Konventionen (/etc/passwd)
@@ -134,7 +135,7 @@
 \textbf{list}
 \begin{itemize}
 	\item listet alle Dateien und Ordner im gegebenen Verzeichnis auf
-	\item aktuelles Verzeichnis ist dabei default
+	\item aktuelles Verzeichnis ist dabei Default
 	\item Syntax: ls [option] [path]
 	\item Parameter:
 	\begin{itemize}
@@ -145,10 +146,11 @@
 		\item -g (listet wie '-l' nur ohne Namen; '-G' ohen Gruppen)
 		\item -h (gibt die Größe der Dateien für Menschen leserlicher aus)
 		\item -m (gibt Liste durch Kommata getrennt)
-		\item -r (rekursive Auflistung der Inhalte)
+		\item -r (reversive Auflistung der Inhalte)
+		\item -R (rekursive Auflistung der Inhalte, auch Unterordner)
 		\item -s (größe der Dateien)
 		\item -1 (Auflistung zeilenweise)
-		\item --sort=[var] (sortiert mit [var]=none (keine Sortierung); [var]=size (nach Größe sortiert); [var]=time (Sortierung nach Zeit); version=(Sortierung nach Version), [var]=extension (Sortierung nach Anhang))
+		\item --sort=[var] (sortiert mit [var]=none (keine Sortierung); [var]=size (nach Größe sortiert); [var]=time (Sortierung nach Zeit); [var]=version (Sortierung nach Version), [var]=extension (Sortierung nach Anhang))
 	\end{itemize}
 \end{itemize}
 
@@ -156,7 +158,7 @@
 \begin{itemize}
 	\item Navigieren durch Dateisystem
 	\item Syntax: cd [path]
-	\item Wechsel in Parent-Directory '../'
+	\item Wechsel in Parent-Directory '..' bzw. '../'
 	\item Wechsel in Home-Directory 'cd' 
 \end{itemize}
 
@@ -185,7 +187,7 @@
 \begin{itemize}
 	\item Ändern von Zugriffsrechte von Ordnern und Dateien
 	\item Syntax: chmod [mode] [path]
-	\item [mode]
+	\item Elemente von [mode]:
 	\begin{itemize}
 		\item u= (Rechte des Besitzers)
 		\item g= (Rechte der zugeordneten Gruppe)
@@ -193,15 +195,15 @@
 	\end{itemize}	 
 	\item Rechte:
 	\begin{itemize}
-		\item r (Erlaubnis zu Lesen)
-		\item w (Erlaubnis zu Schreiben)
+		\item r (Erlaubnis zum Lesen)
+		\item w (Erlaubnis zum Schreiben)
 		\item x (Erlaubnis zum Ausführen)
 	\end{itemize}
 \end{itemize}
 
 \textbf{change owner}
 \begin{itemize}
-	\item Ändern des Besitzers und der Gruppe einer/s Datei/Ordner
+	\item Ändern des Besitzers und der Gruppe einer/s Datei/Ordners
 	\item Benutzer ändern: chown [user] [file]
 	\item Gruppe ändern: chown [user]:[group] [file]
 	\item Parameter '-R' ändert Zugehörigkeit rekursiv
@@ -238,16 +240,16 @@
 \begin{itemize}
 	\item Umleiten der Ein- und Ausgabe
 	\item $<$ Laden der Eingabe aus Datei
-	\item Syntax $<$: [command] $<$ [path]
+	\item Syntax von $<$: [command] $<$ [path]
 	\item $>$ Schreiben der Ausgabe in Datei
-	\item Syntax $>$: [command] $>$ [path]
+	\item Syntax von $>$: [command] $>$ [path]
 	\item Pipe '$\mid$': [command1] $\mid$ [command2]
-	\item Ausgabe von [command1] wird zu Eingabe von [command2]
+	\item Ausgabe von [command1] wird zu der Eingabe von [command2]
 	\item stderr umleiten:
 	\begin{itemize}
 		\item '2$>$' es muss die Datenstromnummer angegeben werden
 		\item Bsp. umleiten von stderr auf stdout:
-		\item [command] $>$ [path] 2$>\&$1
+		\item '[command] $>$ [path] 2$>\&$1'
 	\end{itemize}	 
 \end{itemize}
 
@@ -288,8 +290,8 @@
 \textbf{head und tail}
 \begin{itemize}
 	\item Textbetrachter auf bestimmte Bereiche der Datei
-	\item head gibt ersten 10 Zeilen einer Datei aus
-	\item tail gibt letzten 10 Zeilen einer Datei aus
+	\item \textbf{head} gibt ersten 10 Zeilen einer Datei aus
+	\item \textbf{tail} gibt letzten 10 Zeilen einer Datei aus
 	\item Parameter:	
 	\begin{itemize}
 		\item head [option] [path]
@@ -298,8 +300,8 @@
 		\end{itemize}
 		\item tail [option] [path]
 		\begin{itemize}
-			\item -n [val] (siehe 'head')
-			\item -f (gibt immer aktuellen Zeilen aus)
+			\item -n [val] (gibt letzten [val] Zeilen aus)
+			\item -f (gibt immer aktuelle Zeilen aus)
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
@@ -372,7 +374,7 @@
 	\item Parameter:
 	\begin{itemize}
 		\item -c (erzeugt Archiv)
-		\item -x (extragiert Dateien)
+		\item -x (extrahiert Dateien)
 		\item -v (Fortschritt auflisten)
 		\item -z (komprimieren als .gz, etc.)
 		\item -f (erzeugt beim entpacken einen Ordner mit Archivnamen)
@@ -450,7 +452,7 @@
 	\item Angabe am Ende von Prozess um diesen in Hintergrund zu verschieben
 	\item stdout ist immernoch das Terminal
 	\item Prozess blockiert Shell nicht
-	\item Achtung!! $\&\&$ $\equiv$ Prozesse hintereinander ausführen
+	\item \textbf{Achtung!!} $\&\&$ $\equiv$ Prozesse hintereinander ausführen
 	\begin{itemize}
 		\item p1 $\&\&$ p2 : p2 ausgeführt, wenn p1 erfolgreich
 	\end{itemize}
