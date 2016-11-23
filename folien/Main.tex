@@ -384,7 +384,7 @@ In dieser Aufgabe sollt ihr euch mit der Umleitung der Standardausgabe beschäft
 		\item '-n' Nummeriert die ausgegebenen Zeilen 
 		\item '-s' Unterdrückt Ausgabe von sich wiederholenden Leerzeichen
 	\end{itemize}
-	\item Bsp.: 'cat -m output.txt'
+	\item Bsp.: 'cat -n output.txt'
 \end{itemize}
 \end{frame}
 
@@ -399,12 +399,12 @@ In dieser Aufgabe sollt ihr euch mit der Umleitung der Standardausgabe beschäft
 	\begin{itemize}
 		\item head:
 		\begin{itemize}[<+->]
-			\item '-n [val]' gibt ersten [val] Zeilen aus 
+			\item {\scriptsize '-n [val]' gibt ersten [val] Zeilen aus }
 		\end{itemize}
 		\item tail:
 		\begin{itemize}[<+->]
-			\item '-n [val]' analog zu head
-			\item '-f' fügt weitere Zeilen zur Ausgabe hinzu, falls Inhalt weiter anwächst
+			\item {\scriptsize '-n [val]' analog zu head}
+			\item {\scriptsize '-f' fügt weitere Zeilen zur Ausgabe hinzu, falls Inhalt weiter anwächst}
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
@@ -441,20 +441,19 @@ Das Suchen bezieht sich auf das Finden von Dateien.
 		\item verschiebt Datei von [path1] zu [path2]
 		\item Parameter:
 		\begin{itemize}[<+->]
-			\item '-i' (interactive) fragt vor Überschreiben
-			\item '-f' (force) überschreibt \textbf{immer}
-			\item '-n' (no-clobber) überschreibt \textbf{niemals}
-			\item '--backup' erstellt Backup vor Überschreiben
+			\item {\scriptsize '-i' (interactive) fragt vor Überschreiben}
+			\item {\scriptsize '-f' (force) überschreibt \textbf{immer}}
+			\item {\scriptsize '-n' (no-clobber) überschreibt \textbf{niemals}}
+			\item {\scriptsize '--backup' erstellt Backup vor Überschreiben}
 		\end{itemize}
 	\end{itemize}
 	\item 'cp [path1] [path2]'
 	\begin{itemize}
 		\item kopiert Datei von [path1] zu [path2]
-		\item Parameter:
+		\item Parameter {\scriptsize (dieselben wie 'mv')}:
 		\begin{itemize}[<+->]
-			\item selben wie 'mv'
-			\item '-r' (recursive) ermöglicht verschieben von Ordnern
-			\item '-s' (symbolic-link) erstellt symbolische Links, statt Dateien
+			\item {\scriptsize '-r' (recursive) ermöglicht verschieben von Ordnern}
+			\item {\scriptsize '-s' (symbolic-link) erstellt symbolische Links, statt Dateien}
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
@@ -600,7 +599,8 @@ Ausführen von Programmen mit modifizierter sheduling Priorität p, p $\in$ [-20
 \end{frame}
 
 \begin{frame}
-\frametitle{$\&$ - Backstage}
+\frametitle{$\&$}
+\framesubtitle{Backstage}
 Bei Angabe dieses Operators am Ende eines Prozess-Aufrufs, wird der Prozess in den Hintergrund verschoben
 \begin{itemize}[<+->]
 	\item Prozess blockiert Shell nicht $\to$ weiteres Arbeiten möglich
