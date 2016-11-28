@@ -40,7 +40,7 @@
 	\item Philosophie besteht aus drei Punkten:
 	\begin{itemize}
 		\item 1. Schreibe Programme, die nur eine Sache tun und dies erfolgreich (DOTADIW)
-		\item 2. Schreibe Programme um zusammen zu Arbeiten
+		\item 2. Schreibe Programme, die Kolaboration ermöglichen
 		\item 3. Schreibe Programme, die mit Text arbeiten, denn dies ist universell
 	\end{itemize}
 	\item Ist auch heute noch Kernaussage
@@ -83,12 +83,13 @@
 		\item {\scriptsize \texttt{-s} (shell) öffnet eine Shell}
 		\item {\scriptsize \texttt{-u [user]} führt Befehl als \texttt{[user]} aus}
 	\end{itemize}
-	\item Wird hier \texttt{[nur Root]} angegeben, muss Befehl mit \texttt{sudo} gestartet werden
+	\item Wird im Vortrag \texttt{[nur Root]} angegeben, muss der Befehl mit \texttt{sudo} gestartet werden
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{apt-get vs. apt vs. aptitude}
+Diese Paket Manager werden nur in Debian basierten Systemen benutzt. Es gibt aber auch noch weitere, z.B. Pacman für Arch basierte Systeme.
 \texttt{[nur Root]}
 \begin{itemize}
 	\item Paket Management: \texttt{apt} Kurzform für \texttt{apt-get} und \texttt{apt-cache}
@@ -110,7 +111,7 @@ Die Man-Page ist die Benutzeranleitung des Systems, mit Anleitungen zur Benutzun
 \begin{itemize}
 	\item Sektionen, die besonders interessant sind:
 	\begin{itemize}
-		\item {\scriptsize \texttt{NAME, SYNOPSIS, DESCRIPTION, OPTIONS (EXAMPLE und BUGS)}}
+		\item {\scriptsize \texttt{NAME, SYNOPSIS, DESCRIPTION, OPTIONS, (EXAMPLE und BUGS)}}
 	\end{itemize}
 	\item \textbf{Wie werden Einträge gesucht?}
 	\begin{itemize}
@@ -167,8 +168,9 @@ Nun sollt ihr euch ein wenig mit der \texttt{man}-Page und dem Paket-Management 
 		\item \texttt{-h}  (human readable) Größen der Dateien leserlicher
 		\item \texttt{-r}  (reversiv) umgekehrte Reihenfolge
 		\item \texttt{-m}  Namen durch Kommata getrennt
+		\item \texttt{-R}  (rekursiv) inkl. Unterverzeichnisse
 	\end{itemize}
-	\item Bsp.: \texttt{ls -al}
+	\item Bsp.: \texttt{ls -ahl} und \texttt{ls -ah}
 \end{itemize}
 \end{frame}
 
@@ -185,6 +187,7 @@ Nun sollt ihr euch ein wenig mit der \texttt{man}-Page und dem Paket-Management 
 		\begin{itemize}[<+->]
 			\item \texttt{cd /home/[username]/Dokumente}
 			\item \texttt{cd $\sim$/Dokumente}   (Abkürzen von Home-Directory mit $\sim$)
+			\item \texttt{cd $\sim$[username]/Dokumente}
 			\item \texttt{cd Dokumente}    (relativ vom aktuellen Verzeichnis)
 		\end{itemize}
 	\end{itemize}
@@ -231,17 +234,19 @@ Nun sollt ihr euch ein wenig mit der \texttt{man}-Page und dem Paket-Management 
 	\item Syntax: \texttt{chmod [mode] [path]}
 	\item Beispiel (\texttt{/home/[username]/neuer-ordner/}):
 	\begin{itemize}[<+->]
-		\item aktuelle Rechte: \texttt{u=rwx g=r-x a=r-x}
+		\item aktuelle Rechte: \texttt{u=rwx g=r-x o=r-x}
 		\item \texttt{chmod g=rwx $\sim$/neuer-ordner} (wir geben der Gruppe Schreib-Recht)
-		\item \texttt{chmod a-r $\sim$/neuer-ordner} (wir nehmen allen anderen das Lese-Recht)
-		\item neue Rechte: \texttt{u=rwx g=rwx a=--x}
+		\item \texttt{chmod o-r $\sim$/neuer-ordner} (wir nehmen allen anderen das Lese-Recht)
+		\item neue Rechte: \texttt{u=rwx g=rwx o=--x}
+		\item es gibt auch \texttt{a} als Argument, was für \textcolor{red}{a}ll steht
+		\item Bsp. Schreib-Recht von \texttt{group} und \texttt{others} nehmen: chmod g-x,o-x [path] 	
 	\end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{\textcolor{red}{ch}ange \textcolor{red}{own}er}
-Ändern des Besitzers von Orndern und Dateien.
+Ändern des Besitzers von Ordern und Dateien.
 \begin{itemize}
 	\item Zu jeder Datei/Ordner gehören 2 Besitzer:
 	\begin{itemize}[<+->]
@@ -272,7 +277,7 @@ In der zweiten Aufgabe sollt ihr euch mit der Verwaltung von Ordnern beschäftig
 	\item wechselt in das Verzeichnis \texttt{/tmp}
 	\item erstellt den Ordner \texttt{test}
 	\item guckt euch die Rechte des Ordners an
-	\item entfernt die Recht für \texttt{group} und \texttt{all} des Ordners
+	\item entfernt die Rechte für \texttt{group} und \texttt{all} des Ordners
 	\item setzt als neuen Owner des Ordners \texttt{root} \texttt{[nur Root]}
 	\item versucht den Ordner zu entfernen (ohne \texttt{sudo}). Was passiert?
 	\item wechselt nun wieder den Owner zurück \texttt{[nur Root]}
@@ -296,7 +301,8 @@ In der zweiten Aufgabe sollt ihr euch mit der Verwaltung von Ordnern beschäftig
 	\begin{itemize}[<+->]
 		\item \texttt{echo} gibt einen eingegebenen Text zurück
 		\item Syntax: \texttt{echo [text]}
-		\item dabei ist \texttt{[text] stdin} und die Konsole \texttt{stdout} und \texttt{stderr}
+		\item dabei ist \texttt{[text] Eingabe} und die Konsole \texttt{stdout} und \texttt{stderr}
+		\item Bsp. stdin: cat
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -349,9 +355,9 @@ Umleiten der Ein- und Ausgabe
 	\item Navigation:
 	\begin{itemize}[<+->]
 		\item Pfeil- und Bildlauftasten
-		\item \texttt{/pattern} Durchsucht das Dokument nach angegebenen Muster
-		\item \texttt{?pattern' ist wie '/pattern} nur rückwärts
-		\item \texttt{\&pattern} zeigt nur Zeilen, mit Muster
+		\item \texttt{/[pattern]} Durchsucht das Dokument nach angegebenen Muster
+		\item \texttt{?[pattern]' ist wie '/[pattern]} nur rückwärts
+		\item \texttt{\&[pattern]} zeigt nur Zeilen, mit Muster
 		\item wird pattern benutzt, dann zeigt \texttt{n} das nächste Vorkommen
 		\item \texttt{:n} ruft das nächste Dokument auf (wenn less mehrere bekommen hat)
 	\end{itemize}
@@ -364,7 +370,7 @@ In dieser Aufgabe sollt ihr euch mit der Umleitung der Standardausgabe beschäft
 \begin{itemize}
 	{\footnotesize
 	\item wechselt in euer Home-Verzeichnis
-	\item lasst euch die Inhalte reversive ausgeben
+	\item lasst euch die Inhalte reversiv ausgeben
 	\item benutzt die Ausgabe als Eingabe für \texttt{cowsay} (Pipe-Operator)
 	\item lasst euch nun diese Ausgabe in die Datei \texttt{KuhSagtHome.txt} schreiben
 	\item seht euch den Inhalt der Datei an
@@ -473,7 +479,7 @@ Immer wieder im Leben kommt eine Zeit in der man etwas Ballast abwerfen möchte.
 		\item \texttt{-r} Löschung rekursiv $\to$ (Ordner und Unterordner)
 		\item \texttt{-d} leere Verzeichnisse löschen
 	\end{itemize}
-	\item \texttt{rm} löscht nicht entgültig, Dateien sind nicht unleserlich
+	\item \texttt{rm} löscht nicht entgültig, Daten sind nicht unleserlich
 	\item soll entgültig gelöscht werden, dann benutze \texttt{shred} (später)
 \end{itemize}
 \end{frame}
@@ -518,7 +524,7 @@ Diese Aufgabe soll euch ein Gefühl für den Umgang mit Dateien geben. Für die 
 \begin{frame}
 \frametitle{\textcolor{red}{t}ape \textcolor{red}{ar}chiver}
 \framesubtitle{\textcolor{ownDarkOr}{Archivieren}}
-Dateien mit \texttt{.tar}, \texttt{.tar.gz}, \texttt{.zip}, etc. können natürlich auch via der Oberfläche entpackt werden, allerdings kann es auch sein, dass man dies über die Konsole vornehmen muss.
+Zum entpacken von \texttt{.tar}, \texttt{.tar.gz}, \texttt{.zip}, etc. via Konsole.
 \begin{itemize}[<+->]
 	\item Syntax entpacken: \texttt{tar [option] [path]}
 	\item Syntax verpacken: \texttt{tar [option] [path-archiv] [path-files]}
@@ -530,6 +536,7 @@ Dateien mit \texttt{.tar}, \texttt{.tar.gz}, \texttt{.zip}, etc. können natürl
 		\item {\scriptsize \texttt{-z} (gzip format) komprimieren als \texttt{.gz}, etc.}
 		\item {\scriptsize \texttt{-f} erzeugt beim Entpacken einen Ordner mit Namen von Archiv}
 	\end{itemize}
+	\item {\scriptsize mit cat können sogar 2 Archive zusammengeführt werden}
 	\item Bsp.: \texttt{tar -xvf test.tar}
 \end{itemize}
 \end{frame}
@@ -537,9 +544,10 @@ Dateien mit \texttt{.tar}, \texttt{.tar.gz}, \texttt{.zip}, etc. können natürl
 \section{Prozesse}
 \subsection{Prozesse verwalten}
 \begin{frame}
-\frametitle{htop - interaktiver Prozessmanager}
+\frametitle{\textcolor{red}{h}isham \textcolor{red}{t}able \textcolor{red}{o}f \textcolor{red}{p}rocesses}
+\framesubtitle{interaktiver Prozessmanager}
 \begin{itemize}
-	\item \texttt{top} (bereits installtiert)
+	\item \texttt{\textcolor{red}{t}able \textcolor{red}{o}f \textcolor{red}{p}rocesses} (bereits installtiert)
 	\begin{itemize}[<+->]
 		\item {\scriptsize \texttt{-h} um Befehle anzeigen zu lassen}
 	\end{itemize}
@@ -563,18 +571,19 @@ Dateien mit \texttt{.tar}, \texttt{.tar.gz}, \texttt{.zip}, etc. können natürl
 \begin{frame}
 \frametitle{nice}
 \framesubtitle{nette Programme}
-Ausführen von Programmen mit modifizierter sheduling Priorität p, p $\in$ [-20,19]. Hierbei ist -20 die höchste Priorität. Default: p = 0
+Ausführen von Programmen mit modifizierter sheduling Priorität p, p $\in$ [-20,19]. -20 ist die höchste Priorität.
 \begin{itemize}[<+->]
+	\item {\scriptsize Default: p = 0; negative Werte nur als Root}
 	\item Syntax: \texttt{nice [option] [command] [arg] ...}
 	\item Parameter:
 	\begin{itemize}
-		\item \texttt{-n (--adjustment=N)} aufaddieren von Integer N auf aktuellen Nice-Wert (Default: N=10)
+		\item {\scriptsize \texttt{-n (--adjustment=N)} aufaddieren von Integer N auf aktuellen Nice-Wert (Default: N=10)}
 	\end{itemize}
 	\item Bsp. \texttt{ping}:
 	\begin{itemize}[<+->]
-		\item Syntax: \texttt{ping [option] [addr]}
-		\item Parameter: {\scriptsize \texttt{-c [num]} (Anzahl der pings setzen), \texttt{-W [time]} (Timeout setzen)}
-		\item \texttt{nice -n 20 ping www.foss-ag.de}
+		\item {\scriptsize Syntax: \texttt{ping [option] [addr]}}
+		\item {\scriptsize Parameter: \texttt{-c [num]} (setze Anzahl der Pings), \texttt{-W [time]} (setze Timeout)}
+		\item \texttt{nice -n 10 ping foss-ag.de}
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -678,7 +687,7 @@ ermöglicht Ausschalten oder Neustart des Systems \texttt{[nur Root]}
 	\begin{itemize}[<+->]
 		\item \texttt{-P} (poweroff)
 		\item \texttt{-r} (reboot) 
-		\item \texttt{-h} (halt) kein Timer möglich
+		\item \texttt{-h} (halt)
 	\end{itemize}
 	\item \texttt{sudo reboot} anstelle von \texttt{sudo shutdown -r}
 	\item Bei \texttt{reboot} kein Timer möglich
@@ -693,6 +702,7 @@ Meist wurde \texttt{ifconfig} benutzt um sich seine lokalen IP-Adressen des Rech
 	\item Um lokale IP-Adresse zu erfahren, ohne über Router zu gehen
 	\item Wird benötigt, wenn man sich via \texttt{ssh} einloggen will
 	\item leider etwas unübersichtlich
+	\item Syntax: ip [Option] [Argument]
 	\item Parameter:
 	\begin{itemize}
 		\item \texttt{-4} Anzeigen der IPv4-Adressen
@@ -763,20 +773,22 @@ Reguläre Ausdrücke sind Muster, die eine Grundstruktur von gesuchten Begriffen
 \frametitle{\textcolor{red}{Reg}ular \textcolor{red}{Ex}pression - 3}
 \framesubtitle{\textcolor{ownDarkOr}{The art of black magic}}
 \begin{itemize}
-	\item Bsp.: \texttt{.*p+ython[1-99]*.*$\setminus\mid$.*$\setminus$.pyc?}
+	\item Bsp.: \texttt{.*p+ython[1-99]*.*$\mid$.*$\setminus$.pyc?}
 	\item Es werden alle Wörter/Dateien gesucht, die:
 	\begin{itemize}
 		\item \texttt{python} im Namen haben oder mit .py bzw. .pyc aufhören
 		\item dürfen mit Zahlen zwischen 1 und 99 enden
 		\item min. ein p am Anfang haben
 	\end{itemize}
+	\item \textcolor{red}{Achtung!!} bei find muss RegEx dem Pfad entsprechen
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{grep}
+\frametitle{\textcolor{red}{g}lobally search a \textcolor{red}{re}gular expression and \textcolor{red}{p}rint}
 \framesubtitle{\textcolor{ownDarkOr}{Gonna catch em' Strings}}
-Durchsucht eine Eingabe nach einem RegEx.
+Durchsucht eine Eingabe nach einem RegEx.\\
+Der Name kommt von den Befehlen g, re und p aus dem Editor Ed
 {\footnotesize
 \begin{table}
 \begin{tabular}{l c}
