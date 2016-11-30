@@ -161,7 +161,7 @@ Nun sollt ihr euch ein wenig mit der \texttt{man}-Page und dem Paket-Management 
 \begin{itemize}
 	\item Listet alle Ordner und Dateien in Verzeichnis auf
 	\item Aktuelles Verzeichnis ist dabei Default
-	\item Mögliche Argumente:
+	\item Mögliche Argumente (Default: -1):
 	\begin{itemize}[<+->]
 		\item \texttt{-a}  (all) inkl. versteckter Verzeichnisse
 		\item \texttt{-l}  (long listing format) inkl. Rechte, Besitzer, Größe, etc.
@@ -385,7 +385,7 @@ In dieser Aufgabe sollt ihr euch mit der Umleitung der Standardausgabe beschäft
 \texttt{cat} konkateniert und zeigt die Inhalte von Dateien
 \begin{itemize}[<+->]
 	\item An sich nicht mächtig, sehr einfacher Befehl
-	\item Parameter
+	\item Parameter (Default: -u):
 	\begin{itemize}
 		\item \texttt{-n} Nummeriert die ausgegebenen Zeilen 
 		\item \texttt{-s} Unterdrückt Ausgabe von sich wiederholenden Leerzeichen
@@ -401,7 +401,7 @@ In dieser Aufgabe sollt ihr euch mit der Umleitung der Standardausgabe beschäft
 \begin{itemize}
 	\item \texttt{head} gibt ersten 10 Zeilen der angegebenen Datei aus
 	\item \texttt{tail} gibt letzten 10 Zeilen der angegebenen Datei aus
-	\item Parameter:
+	\item Parameter (Default: -q):
 	\begin{itemize}
 		\item \texttt{head}:
 		\begin{itemize}[<+->]
@@ -422,14 +422,16 @@ Auch wenn man beim Sortieren erst einmal an das Sortieren von Dateien denkt,
 bezieht sich das Sortieren auf den Inhalt von Dateien.
 Das Suchen bezieht sich auf das Finden von Dateien.
 \begin{itemize}[<+->]
-	\item \texttt{sort [option] [File]} (liest die Datei \texttt{File} und sortiert den Inhalt)
+	\item \texttt{sort [option] [File]} (liest \texttt{File} und sortiert Inhalt)
 	\begin{itemize}[<+->]
+		\item \texttt{-g} ist Default. generic sort
 		\item \texttt{-r} Ausgabe umdrehen
 		\item \texttt{-c} Check ob Inhalt von Datei sortiert ist
 		\item Bsp.: \texttt{sort -r output.txt}
 	\end{itemize}
 	\item \texttt{find [path] [pattern]} (suchen nach Datei im System via Muster)
 	\begin{itemize}[<+->]
+		\item \texttt{-P} Default
 		\item \textbf{\textcolor{red}{Achtung!!}} Suche kann lange dauern
 		\item Bsp.: \texttt{find ~ -name output.txt}
 	\end{itemize}
@@ -445,7 +447,7 @@ Das Suchen bezieht sich auf das Finden von Dateien.
 	\item \texttt{mv [path1] [path2]}
 	\begin{itemize}
 		\item verschiebt Datei von \texttt{[path1]} zu \texttt{[path2]}
-		\item Parameter:
+		\item Parameter (Default: -f):
 		\begin{itemize}[<+->]
 			\item {\scriptsize \texttt{-i} (interactive) fragt vor Überschreiben}
 			\item {\scriptsize \texttt{-f} (force) überschreibt \textbf{immer}}
@@ -472,7 +474,7 @@ Immer wieder im Leben kommt eine Zeit in der man etwas Ballast abwerfen möchte.
 \texttt{rm} hilft dabei
 \begin{itemize}[<+->]
 	\item Syntax: \texttt{rm [option] [file]}
-	\item Parameter:
+	\item Parameter (Default: -f):
 	\begin{itemize}[<+->]
 		\item \texttt{-f} (force) es wird nicht nachgefragt und einfach alles gelöscht
 		\item \texttt{-i} Nachfragen bei jeder Löschung
@@ -490,7 +492,7 @@ Immer wieder im Leben kommt eine Zeit in der man etwas Ballast abwerfen möchte.
 \texttt{shred} überschreibt Dateien und löscht sie damit entgültig
 \begin{itemize}
 	\item Syntax: \texttt{shred [option] [file]}
-	\item Parameter:
+	\item Parameter (Default: -f):
 	\begin{itemize}[<+->]
 		\item \texttt{-f} (force) Versuch Schreibrechte zu bekommen, falls benötigt
 		\item \texttt{-n [num]} Anzahl \texttt{[num]} der Schreibvorgänge pro Datei
@@ -575,7 +577,7 @@ Ausführen von Programmen mit modifizierter sheduling Priorität p, p $\in$ [-20
 \begin{itemize}[<+->]
 	\item {\scriptsize Default: p = 0; negative Werte nur als Root}
 	\item Syntax: \texttt{nice [option] [command] [arg] ...}
-	\item Parameter:
+	\item Parameter (Default: -n 10):
 	\begin{itemize}
 		\item {\scriptsize \texttt{-n (--adjustment=N)} aufaddieren von Integer N auf aktuellen Nice-Wert (Default: N=10)}
 	\end{itemize}
@@ -683,7 +685,7 @@ Für die Bearbeitung stehen euch 10 Minuten zur Verfügung.
 ermöglicht Ausschalten oder Neustart des Systems \texttt{[nur Root]}
 \begin{itemize}[<+->]
 	\item Syntax: \texttt{shutdown [options] [time]}
-	\item Parameter:
+	\item Parameter (Default: -P):
 	\begin{itemize}[<+->]
 		\item \texttt{-P} (poweroff)
 		\item \texttt{-r} (reboot) 
@@ -789,6 +791,7 @@ Reguläre Ausdrücke sind Muster, die eine Grundstruktur von gesuchten Begriffen
 \framesubtitle{\textcolor{ownDarkOr}{Gonna catch em' Strings}}
 Durchsucht eine Eingabe nach einem RegEx.\\
 Der Name kommt von den Befehlen g, re und p aus dem Editor Ed
+Default: -G
 {\footnotesize
 \begin{table}
 \begin{tabular}{l c}
