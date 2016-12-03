@@ -428,7 +428,7 @@
 
 \textbf{ping}
 \begin{itemize}
-	\item prüft die Verfügbarkeit einer Website
+	\item prüft die Verfügbarkeit einer Adresse
 	\item Syntax: ping [option] [addr] 
 	\item -c [num] (Anzahl der Pings setzen)
 \end{itemize}
@@ -586,5 +586,18 @@
 		\item -o (gibt nur gematchten Teile einer Zeile aus)
 		\item -q (keine Ausgabe, gibt Exitcode 0 aus, falls erfolgreich)
 	\end{itemize}
+\end{itemize}
+
+\textbf{Alias}
+\begin{itemize}
+	\item Setzen von Alias für einen Befehl
+	\item Vorgehen:
+	\begin{itemize}
+		\item Bearbeite ~/.bashrc
+		\item füge \texttt{alias [aliasname]='[Befehl]'} hinzu
+		\item speichern
+		\item neu einloggen oder \texttt{source ~/.bashrc}
+	\end{itemize}
+	\item Bsp. Zeile: alias ll='ls -l'
 \end{itemize}
 \end{document}
