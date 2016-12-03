@@ -1,4 +1,4 @@
-\documentclass[12pt,utf8, handout]{beamer}
+\documentclass[12pt,utf8]{beamer}
 \setbeamercovered{transparent}
 \usepackage[german]{babel}
 \usepackage{color}
@@ -74,7 +74,7 @@
 \framesubtitle{\textcolor{ownDarkOr}{Mit großer Macht kommt große Verantwortung}}
 \texttt{sudo} führt einen Befehl mit administrativer Berechtigung aus \texttt{sudo [command]}.
 \textbf{\textcolor{red}{Achtung!!}} \texttt{sudo} funktioniert nur, wenn Benutzer in \texttt{root}-Gruppe ist.
-\begin{itemize}[<+->]
+\begin{itemize}
 	\item Führt man Befehle als Root aus, sollte man vorsichtig sein
 	\item Parameter:
 	\begin{itemize}[<+->]
@@ -178,7 +178,7 @@ Nun sollt ihr euch ein wenig mit der \texttt{man}-Page und dem Paket-Management 
 \frametitle{\textcolor{red}{c}hange \textcolor{red}{d}irectory}
 \framesubtitle{\textcolor{ownDarkOr}{Die kleine Form der Teleportation}}
 \texttt{cd} bietet das Navigieren durch das Dateisystem
-\begin{itemize}[<+->]
+\begin{itemize}
 	\item Notationen:	
 	\begin{itemize}[<+->]
 		\item Wechsel in Parent-Directory mit \texttt{..}
@@ -202,7 +202,7 @@ Nun sollt ihr euch ein wenig mit der \texttt{man}-Page und dem Paket-Management 
 \frametitle{\textcolor{red}{m}a\textcolor{red}{k}e \textcolor{red}{dir}ectory}
 \framesubtitle{\textcolor{ownDarkOr}{Verzeichnisse erschaffen}}
 \texttt{mkdir} erstellt Ordner auf dem Rechner
-\begin{itemize}[<+->]
+\begin{itemize}
 	\item Syntax: \texttt{mkdir [path]}   (erzeugt Ordner mit Pfad \texttt{[path]})
 	\item Beispiel:
 	\begin{itemize}[<+->]
@@ -230,7 +230,7 @@ Nun sollt ihr euch ein wenig mit der \texttt{man}-Page und dem Paket-Management 
 \frametitle{\textcolor{red}{ch}ange \textcolor{red}{mod}e}
 \framesubtitle{\textcolor{ownDarkOr}{Mein Ordner gehört mir}}
 \texttt{chmod} ändert die Zugriffsrechte von Dateien und Ordnern
-\begin{itemize}[<+->]
+\begin{itemize}
 	\item Syntax: \texttt{chmod [mode] [path]}
 	\item Beispiel (\texttt{/home/[username]/neuer-ordner/}):
 	\begin{itemize}[<+->]
@@ -311,7 +311,7 @@ In der zweiten Aufgabe sollt ihr euch mit der Verwaltung von Ordnern beschäftig
 \begin{frame}
 \frametitle{Pipe, $<$ und $>$ }
 Umleiten der Ein- und Ausgabe
-\begin{itemize}[<+->]
+\begin{itemize}
 	\item \texttt{<} und \texttt{>} laden und schreiben Dateien
 	\begin{itemize}[<+->]
 		\item \texttt{>} Schreiben in eine Datei
@@ -383,10 +383,10 @@ In dieser Aufgabe sollt ihr euch mit der Umleitung der Standardausgabe beschäft
 \frametitle{con\textcolor{red}{cat}enate}
 \framesubtitle{\textcolor{ownDarkOr}{Was eine Katze mit Linux zu tun hat}}
 \texttt{cat} konkateniert und zeigt die Inhalte von Dateien
-\begin{itemize}[<+->]
+\begin{itemize}
 	\item An sich nicht mächtig, sehr einfacher Befehl
 	\item Parameter (Default: -u):
-	\begin{itemize}
+	\begin{itemize}[<+->]
 		\item \texttt{-n} Nummeriert die ausgegebenen Zeilen 
 		\item \texttt{-s} Unterdrückt Ausgabe von sich wiederholenden Leerzeichen
 	\end{itemize}
@@ -421,7 +421,7 @@ In dieser Aufgabe sollt ihr euch mit der Umleitung der Standardausgabe beschäft
 Auch wenn man beim Sortieren erst einmal an das Sortieren von Dateien denkt,
 bezieht sich das Sortieren auf den Inhalt von Dateien.
 Das Suchen bezieht sich auf das Finden von Dateien.
-\begin{itemize}[<+->]
+\begin{itemize}
 	\item \texttt{sort [option] [File]} (liest \texttt{File} und sortiert Inhalt)
 	\begin{itemize}[<+->]
 		\item \texttt{-g} ist Default. generic sort
@@ -463,7 +463,7 @@ Das Suchen bezieht sich auf das Finden von Dateien.
 			\item {\scriptsize \texttt{-r} (recursive) ermöglicht verschieben von Ordnern}
 			\item {\scriptsize \texttt{-s} (symbolic-link) erstellt symbolische Links, statt Dateien}
 		\end{itemize}
-	\end{itemize}
+	\end{itemize}0
 \end{itemize}
 \end{frame}
 
@@ -472,7 +472,7 @@ Das Suchen bezieht sich auf das Finden von Dateien.
 \framesubtitle{\textcolor{ownDarkOr}{Flutsch! Und weg!}}
 Immer wieder im Leben kommt eine Zeit in der man etwas Ballast abwerfen möchte.  
 \texttt{rm} hilft dabei
-\begin{itemize}[<+->]
+\begin{itemize}
 	\item Syntax: \texttt{rm [option] [file]}
 	\item Parameter (Default: -f):
 	\begin{itemize}[<+->]
@@ -527,7 +527,7 @@ Diese Aufgabe soll euch ein Gefühl für den Umgang mit Dateien geben. Für die 
 \frametitle{\textcolor{red}{t}ape \textcolor{red}{ar}chiver}
 \framesubtitle{\textcolor{ownDarkOr}{Archivieren}}
 Zum entpacken von \texttt{.tar}, \texttt{.tar.gz}, \texttt{.zip}, etc. via Konsole.
-\begin{itemize}[<+->]
+\begin{itemize}
 	\item Syntax entpacken: \texttt{tar [option] [path]}
 	\item Syntax verpacken: \texttt{tar [option] [path-archiv] [path-files]}
 	\item Parameter:
@@ -574,7 +574,7 @@ Zum entpacken von \texttt{.tar}, \texttt{.tar.gz}, \texttt{.zip}, etc. via Konso
 \frametitle{nice}
 \framesubtitle{nette Programme}
 Ausführen von Programmen mit modifizierter sheduling Priorität p, p $\in$ [-20,19]. -20 ist die höchste Priorität.
-\begin{itemize}[<+->]
+\begin{itemize}
 	\item {\scriptsize Default: p = 0; negative Werte nur als Root}
 	\item Syntax: \texttt{nice [option] [command] [arg] ...}
 	\item Parameter (Default: -n 10):
@@ -613,7 +613,7 @@ Ausführen von Programmen mit modifizierter sheduling Priorität p, p $\in$ [-20
 \frametitle{$\&$}
 \framesubtitle{Backstage}
 Bei Angabe dieses Operators am Ende eines Prozess-Aufrufs, wird der Prozess in den Hintergrund verschoben
-\begin{itemize}[<+->]
+\begin{itemize}
 	\item Prozess blockiert Shell nicht $\to$ weiteres Arbeiten möglich
 	\item Ausgabe wird aber weiterhin auf Shell geschrieben
 \end{itemize}
@@ -683,7 +683,7 @@ Für die Bearbeitung stehen euch 10 Minuten zur Verfügung.
 \frametitle{shutdown}
 \framesubtitle{\textcolor{ownDarkOr}{Wenn man mal das real life genießen will}}
 ermöglicht Ausschalten oder Neustart des Systems \texttt{[nur Root]}
-\begin{itemize}[<+->]
+\begin{itemize}
 	\item Syntax: \texttt{shutdown [options] [time]}
 	\item Parameter (Default: -P):
 	\begin{itemize}[<+->]
@@ -706,7 +706,7 @@ Meist wurde \texttt{ifconfig} benutzt um sich seine lokalen IP-Adressen des Rech
 	\item leider etwas unübersichtlich
 	\item Syntax: ip [Option] [Argument]
 	\item Parameter:
-	\begin{itemize}
+	\begin{itemize}[<+->]
 		\item \texttt{-4} Anzeigen der IPv4-Adressen
 		\item \texttt{-6} Anzeigen der IPv6-Adressen
 	\end{itemize}
@@ -755,7 +755,7 @@ Reguläre Ausdrücke sind Muster, die eine Grundstruktur von gesuchten Begriffen
 \framesubtitle{\textcolor{ownDarkOr}{The art of black magic}}
 \begin{itemize}
 	\item Syntax - 2:
-	\begin{itemize}
+	\begin{itemize}[<+->]
 		\item {\scriptsize \texttt{$\{$n$\}$} Zeichen genau \texttt{n} mal}
 		\item {\scriptsize \texttt{[...]} Zeichen kommt in den Klammern vor}
 		\item {\scriptsize \texttt{[...-...]} Zeichen aus Zeichenklasse}
@@ -777,7 +777,7 @@ Reguläre Ausdrücke sind Muster, die eine Grundstruktur von gesuchten Begriffen
 \begin{itemize}
 	\item Bsp.: \texttt{.*p+ython[1-99]*.*$\mid$.*$\setminus$.pyc?}
 	\item Es werden alle Wörter/Dateien gesucht, die:
-	\begin{itemize}
+	\begin{itemize}[<+->]
 		\item \texttt{python} im Namen haben oder mit .py bzw. .pyc aufhören
 		\item dürfen mit Zahlen zwischen 1 und 99 enden
 		\item min. ein p am Anfang haben
