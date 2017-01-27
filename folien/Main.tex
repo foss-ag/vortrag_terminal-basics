@@ -23,135 +23,50 @@
 \begin{frame}
 \frametitle{Inhaltsverzeichnis}
 \begin{itemize}
-	\item Theorie
+	\item Einleitung
 	\item Arbeiten mit Ordnern, Dateien und Archiven
-	\item Prozesse
-	\item Zusatz
+	\item Systemverwaltung
 \end{itemize}
 \end{frame}
 
-\section{Theorie}
+\section{Einleitung}
 \begin{frame}
-\frametitle{Linux Philosophie}
+\frametitle{Unix Philosophie}
 \begin{figure}
 \includegraphics[scale=0.15]{res/tuX_tu.png}
 \end{figure}
 \begin{itemize}
 	\item Philosophie besteht aus drei Punkten:
 	\begin{itemize}
-		\item 1. Schreibe Programme, die nur eine Sache tun und dies erfolgreich (DOTADIW)
+		\item 1. Schreibe Programme, die nur eine Sache tun und dies erfolgreich
 		\item 2. Schreibe Programme, die Kolaboration ermöglichen
 		\item 3. Schreibe Programme, die mit Text arbeiten, denn dies ist universell
 	\end{itemize}
-	\item Ist auch heute noch Kernaussage
 \end{itemize}
 %\footnote{https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png}
 \end{frame}
 
-\begin{frame}
-\frametitle{Terminal vs. Shell}
-\begin{itemize}
-	\item Terminal ist zeilenweise Eingabe von Befehlen
-	\begin{itemize}
-		\item[1)] TTY (teletype) sind Terminals, erreichbar via STRG+ALT+F[1-7]
-		\item[2)] VTerm: virtueller Terminal in grafischer Oberfläche
-		\item[3)] Shell: interpretiert Eingabe des Benutzers
-	\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{\textcolor{red}{s}witch \textcolor{red}{u}ser}
-\begin{itemize}
-	\item Wechsel des Benutzers innerhalb der Konsole
-	\item Ohne Parameter wird versucht sich als \texttt{root} einzuloggen
-	\item Ansonsten \texttt{su [user]} einloggen als \texttt{[user]}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{\textcolor{red}{s}uper \textcolor{red}{u}ser \textcolor{red}{do}}
-\framesubtitle{\textcolor{ownDarkOr}{Mit großer Macht kommt große Verantwortung}}
-\texttt{sudo} führt einen Befehl mit administrativer Berechtigung aus \texttt{sudo [command]}.
-\textbf{\textcolor{red}{Achtung!!}} \texttt{sudo} funktioniert nur, wenn Benutzer in \texttt{root}-Gruppe ist.
-\begin{itemize}
-	\item Führt man Befehle als Root aus, sollte man vorsichtig sein
-	\item Parameter:
-	\begin{itemize}[<+->]
-		\item {\scriptsize \texttt{-b} (background) führt Befehl im Hintergrund aus [kommt später]}
-		\item {\scriptsize \texttt{-e} (edit) öffnet Datei zum editieren, erstellt temp. Backup}
-		\item {\scriptsize \texttt{-s} (shell) öffnet eine Shell}
-		\item {\scriptsize \texttt{-u [user]} führt Befehl als \texttt{[user]} aus}
-	\end{itemize}
-	\item Wird im Vortrag \texttt{[nur Root]} angegeben, muss der Befehl mit \texttt{sudo} gestartet werden
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{apt-get vs. apt vs. aptitude}
-Diese Paket Manager werden nur in Debian basierten Systemen benutzt. Es gibt aber auch noch weitere, z.B. Pacman für Arch basierte Systeme.
-\texttt{[nur Root]}
-\begin{itemize}
-	\item Paket Management: \texttt{apt} Kurzform für \texttt{apt-get} und \texttt{apt-cache}
-	\item Wichtigsten Befehle:
-	\begin{itemize}
-		\item[1.] \texttt{apt install [pkg...]}
-		\item[2.] \texttt{apt update}
-		\item[3.] \texttt{apt [upgrade | dist-upgrade | full-upgrade]}
-		\item[4.] \texttt{apt remove [pkg...]}
-	\end{itemize}
-	\item \texttt{aptitude} ist etwas grafischer und hat Zusatzfunktionen
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{man page}
-\framesubtitle{\textcolor{ownDarkOr}{Wenn man mal nicht weiter weiß}}
-Die Man-Page ist die Benutzeranleitung des Systems, mit Anleitungen zur Benutzung der installierten Programme
-\begin{itemize}
-	\item Sektionen, die besonders interessant sind:
-	\begin{itemize}
-		\item {\scriptsize \texttt{NAME, SYNOPSIS, DESCRIPTION, OPTIONS, (EXAMPLE und BUGS)}}
-	\end{itemize}
-	\item \textbf{Wie werden Einträge gesucht?}
-	\begin{itemize}
-		{
-		\footnotesize
-		\item ausführbare Programme und Shell Kommandos
-		\item Systemaufrufe (vom Kernel bereit gestellt)
-		\item Bibliotheksaufrufe (Programm-Bibliotheken)
-		\item spezielle Dateien (in \texttt{/dev})
-		\item Dateiformate und Konventionen (\texttt{/etc/passwd})
-		\item Spiele
-		\item Sonstiges (Macropakete und Konventionen)
-		\item Systemadministrations Kommandos \texttt{[nur Root]}
-		\item Kernel Routinen (kein Standard)
-		}
-	\end{itemize}
-\end{itemize}
-\end{frame}
-
 %autocompletion einfach erwähnen und als notiz auf Handout
-\begin{frame}
-\frametitle{Aufgabe 1}
-Nun sollt ihr euch ein wenig mit der \texttt{man}-Page und dem Paket-Management vertraut machen. Zur Bearbeitung dieser Aufgabe habt ihr 10 Minuten Zeit.
-\begin{itemize}
-	\item[1)] führt ein Update der Quellen durch; \texttt{apt update}
-	\item[2)] installiert das Paket \texttt{funny-manpages}
-	\begin{itemize}
-		\item benutzt dazu \texttt{apt install}
-		\item \texttt{sudo} nicht vergessen!!
-	\end{itemize}
-	\item[3)] betrachtet folgende \texttt{man}-Pages:
-	\begin{itemize}
-		\item \texttt{su}, \texttt{apt-get}, \texttt{party}, \texttt{t}, \texttt{tm}, \texttt{flog}
-	\end{itemize}
-	\item[4)] (optional) \texttt{funny-manpages} entfernen, wer mag
-	\begin{itemize}
-		\item benutzt dazu \texttt{apt remove}
-	\end{itemize}
-\end{itemize} 
-\end{frame}
+%\begin{frame}
+%\frametitle{Aufgabe 1}
+%Nun sollt ihr euch ein wenig mit der \texttt{man}-Page und dem Paket-Management vertraut machen. Zur Bearbeitung dieser Aufgabe habt ihr 10 Minuten Zeit.
+%\begin{itemize}
+%	\item[1)] führt ein Update der Quellen durch; \texttt{apt update}
+%	\item[2)] installiert das Paket \texttt{funny-manpages}
+%	\begin{itemize}
+%		\item benutzt dazu \texttt{apt install}
+%		\item \texttt{sudo} nicht vergessen!!
+%	\end{itemize}
+%	\item[3)] betrachtet folgende \texttt{man}-Pages:
+%	\begin{itemize}
+%		\item \texttt{su}, \texttt{apt-get}, \texttt{party}, \texttt{t}, \texttt{tm}, \texttt{flog}
+%	\end{itemize}
+%	\item[4)] (optional) \texttt{funny-manpages} entfernen, wer mag
+%	\begin{itemize}
+%		\item benutzt dazu \texttt{apt remove}
+%	\end{itemize}
+%\end{itemize} 
+%\end{frame}
 
 \section{Arbeiten mit Ordnern, Dateien und Archiven}
 \subsection{Ordner}
@@ -166,9 +81,9 @@ Nun sollt ihr euch ein wenig mit der \texttt{man}-Page und dem Paket-Management 
 		\item \texttt{-a}  (all) inkl. versteckter Verzeichnisse
 		\item \texttt{-l}  (long listing format) inkl. Rechte, Besitzer, Größe, etc.
 		\item \texttt{-h}  (human readable) Größen der Dateien leserlicher
-		\item \texttt{-r}  (reversiv) umgekehrte Reihenfolge
+		\item \texttt{-r}  (reversive) umgekehrte Reihenfolge
 		\item \texttt{-m}  Namen durch Kommata getrennt
-		\item \texttt{-R}  (rekursiv) inkl. Unterverzeichnisse
+		\item \texttt{-R}  (recursive) inkl. Unterverzeichnisse
 	\end{itemize}
 	\item Bsp.: \texttt{ls -ahl} und \texttt{ls -ah}
 \end{itemize}
@@ -177,7 +92,7 @@ Nun sollt ihr euch ein wenig mit der \texttt{man}-Page und dem Paket-Management 
 \begin{frame}
 \frametitle{\textcolor{red}{c}hange \textcolor{red}{d}irectory}
 \framesubtitle{\textcolor{ownDarkOr}{Die kleine Form der Teleportation}}
-\texttt{cd} bietet das Navigieren durch das Dateisystem
+\texttt{cd} ermöglicht das Navigieren durch das Dateisystem
 \begin{itemize}
 	\item Notationen:	
 	\begin{itemize}[<+->]
@@ -199,6 +114,17 @@ Nun sollt ihr euch ein wenig mit der \texttt{man}-Page und dem Paket-Management 
 \end{frame}
 
 \begin{frame}
+	\frametitle{find}
+	Mit \texttt{find} lassen sich Dateien einfach im aktuellen Ordner und in allen Unterordnern suchen
+	\begin{itemize}
+		\item \texttt{find -name [path]}
+		\begin{itemize}[<+->]
+			\item Bsp.: \texttt{find -name output.txt}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
 \frametitle{\textcolor{red}{m}a\textcolor{red}{k}e \textcolor{red}{dir}ectory}
 \framesubtitle{\textcolor{ownDarkOr}{Verzeichnisse erschaffen}}
 \texttt{mkdir} erstellt Ordner auf dem Rechner
@@ -209,53 +135,7 @@ Nun sollt ihr euch ein wenig mit der \texttt{man}-Page und dem Paket-Management 
 		\item \texttt{mkdir neuer-ordner}    (relativ zum aktuellen Pfad)
 		\item \texttt{mkdir -p /tmp/neuer-ordner/tmp1/tmp2/}
 	\end{itemize}
-	\item \texttt{-p}   erstellt Parent-Directory, falls es nicht existiert
-	\item \texttt{--mode=[mode]}  Modus mit dem der Ordner erstellt wird (siehe \texttt{chmod})
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Gruppenverwaltung}
-\begin{itemize}[<+->]
-	\item \texttt{groups [username]} (zeigt Gruppen von Benutzer an)
-	\item \texttt{groupadd [groupname]} (legt Gruppe an) \texttt{[nur Root]}
-	\item \texttt{groupdel [groupname]} (löscht Gruppe) \texttt{[nur Root]}
-	\item \texttt{groupmod [option] [groupname]} (Bsp.: \texttt{--new-name [Name]}) \texttt{[nur Root]}
-	\item \texttt{usermod -aG [username] [groupname]} (Benutzer zu Gruppe hinzufügen) [nur Root]
-	\item \texttt{deluser [username] [groupname]} (Benutzer aus Gruppe entfernen) \texttt{[nur Root]}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{\textcolor{red}{ch}ange \textcolor{red}{mod}e}
-\framesubtitle{\textcolor{ownDarkOr}{Mein Ordner gehört mir}}
-\texttt{chmod} ändert die Zugriffsrechte von Dateien und Ordnern
-\begin{itemize}
-	\item Syntax: \texttt{chmod [mode] [path]}
-	\item Beispiel (\texttt{/home/[username]/neuer-ordner/}):
-	\begin{itemize}[<+->]
-		\item aktuelle Rechte: \texttt{u=rwx g=r-x o=r-x}
-		\item \texttt{chmod g=rwx $\sim$/neuer-ordner} (wir geben der Gruppe Schreib-Recht)
-		\item \texttt{chmod o-r $\sim$/neuer-ordner} (wir nehmen allen anderen das Lese-Recht)
-		\item neue Rechte: \texttt{u=rwx g=rwx o=--x}
-		\item es gibt auch \texttt{a} als Argument, was für \textcolor{red}{a}ll steht
-		\item Bsp. Schreib-Recht von \texttt{group} und \texttt{others} nehmen: chmod g-x,o-x [path] 	
-	\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{\textcolor{red}{ch}ange \textcolor{red}{own}er}
-Ändern des Besitzers von Ordern und Dateien.
-\begin{itemize}
-	\item Zu jeder Datei/Ordner gehören 2 Besitzer:
-	\begin{itemize}[<+->]
-		\item ein Nutzer
-		\item eine Gruppe
-	\end{itemize}
-	\item \texttt{chown [user] [file]} \texttt{[file]} gehört jetzt \texttt{[user]}
-	\item \texttt{chown [user]:[group] [file]} \texttt{[file]} gehört jetzt zu \texttt{[group]} und \texttt{[user]}
-	\item Parameter \texttt{-R} ändert die Zugehörigkeit rekursiv
+	\item \texttt{-p}   erstellt alle Ordner auf dem Pfad, die noch nicht existieren
 \end{itemize}
 \end{frame}
 
@@ -266,26 +146,27 @@ Löschen von leeren Ordnern.
 	\item Befehl ist weniger mächtig als man erwartet
 	\item Vorsicht ist geboten, auch leere Verzeichnisse können wichtig sein!!
 	\item Leere Ordner in dem leeren Ordner werden auch gelöscht
+	\item für nicht-leere Ordner siehe \texttt{rm}
 \end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{Aufgabe 2)}
-In der zweiten Aufgabe sollt ihr euch mit der Verwaltung von Ordnern beschäftigen. Zur Bearbeitung stehen euch 15 Minuten zur verfügung.
-{\footnotesize
-\begin{itemize}
-	\item wechselt in das Verzeichnis \texttt{/tmp}
-	\item erstellt den Ordner \texttt{test}
-	\item guckt euch die Rechte des Ordners an
-	\item entfernt die Rechte für \texttt{group} und \texttt{other} des Ordners
-	\item setzt als neuen Owner des Ordners \texttt{root} \texttt{[nur Root]}
-	\item versucht den Ordner zu entfernen (ohne \texttt{sudo}). Was passiert?
-	\item wechselt nun wieder den Owner zurück \texttt{[nur Root]}
-	\item entfernt den Ordner
-\end{itemize}
-}
-{\scriptsize Tipp: \texttt{cd}, \texttt{ls}, \texttt{mkdir}, \texttt{chmod}, \texttt{chown}, \texttt{rmdir}}
-\end{frame}
+%\begin{frame}
+%\frametitle{Aufgabe 2)}
+%In der zweiten Aufgabe sollt ihr euch mit der Verwaltung von Ordnern beschäftigen. Zur Bearbeitung stehen euch 15 Minuten zur verfügung.
+%{\footnotesize
+%\begin{itemize}
+%	\item wechselt in das Verzeichnis \texttt{/tmp}
+%	\item erstellt den Ordner \texttt{test}
+%	\item guckt euch die Rechte des Ordners an
+%	\item entfernt die Rechte für \texttt{group} und \texttt{other} des Ordners
+%	\item setzt als neuen Owner des Ordners \texttt{root} \texttt{[nur Root]}
+%	\item versucht den Ordner zu entfernen (ohne \texttt{sudo}). Was passiert?
+%	\item wechselt nun wieder den Owner zurück \texttt{[nur Root]}
+%	\item entfernt den Ordner
+%\end{itemize}
+%}
+%{\scriptsize Tipp: \texttt{cd}, \texttt{ls}, \texttt{mkdir}, \texttt{chmod}, \texttt{chown}, \texttt{rmdir}}
+%\end{frame}
 
 \subsection{Dateien}
 \begin{frame}
@@ -301,12 +182,13 @@ In der zweiten Aufgabe sollt ihr euch mit der Verwaltung von Ordnern beschäftig
 	\begin{itemize}[<+->]
 		\item \texttt{echo} gibt einen eingegebenen Text zurück
 		\item Syntax: \texttt{echo [text]}
-		\item dabei ist \texttt{[text] Eingabe} und die Konsole \texttt{stdout} und \texttt{stderr}
-		\item Bsp. stdin: cat
+		\item dabei ist \texttt{[text] Eingabe} und die Konsole \texttt{stdout}
+		\item Bsp.\texttt{stdin}: cat
+		\item Bsp. \texttt{stdout}: echo Hello World \texttt{$\mid$} cat
+		\item Bsp. \texttt{stderr}: cat foo.bar (Datei existiert nicht)
 	\end{itemize}
 \end{itemize}
 \end{frame}
-
 
 \begin{frame}
 \frametitle{Pipe, $<$ und $>$ }
@@ -322,28 +204,30 @@ Umleiten der Ein- und Ausgabe
 	\item Pipe \texttt{$\mid$}
 	\begin{itemize}[<+->]
 		\item Ausgabe von Befehl $\to$ Eingabe anderer Befehl
-		\item Bsp.: \texttt{date $\mid$ less}
+		\item Bsp.: \texttt{cal $\mid$ less}
 	\end{itemize}
 	\item fancy stuff:
 	\begin{itemize}[<+->]
 		\item Umleiten von stderr: 2\texttt{>} statt \texttt{>}
 		\item also durch Angabe von Stream Nummer
-		\item Bsp.: \texttt{ls -r > output.txt 2>\&1 }
+		\item Bsp.: \texttt{date > output.txt 2>\&1 }
 	\end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{more}
-\framesubtitle{\textcolor{ownDarkOr}{Less than everything}}
-\texttt{more} ist ein Filereader
-\begin{itemize}
-	\item Angucken von Datei ohne Editieren
-	\item Arbeitet auf Standardausgabe
-	\item Beherrscht alle dem System bekannten Codierungen
-	\item Navigierung ist allerdings ein wenig hinderlich
-	\item Grundlage zu less
-\end{itemize}
+	\frametitle{con\textcolor{red}{cat}enate}
+	\framesubtitle{\textcolor{ownDarkOr}{Was eine Katze mit Linux zu tun hat}}
+	\texttt{cat} konkateniert und zeigt die Inhalte von Dateien
+	\begin{itemize}
+		\item An sich nicht mächtig, sehr einfacher Befehl
+		\item Parameter (Default: -u):
+		\begin{itemize}[<+->]
+			\item \texttt{-n} Nummeriert die ausgegebenen Zeilen 
+			\item \texttt{-e} Fügt am Ende jeder Zeile ein \$ hinzu
+		\end{itemize}
+		\item Bsp.: \texttt{cat -n output.txt output2.txt}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -355,88 +239,119 @@ Umleiten der Ein- und Ausgabe
 	\item Navigation:
 	\begin{itemize}[<+->]
 		\item Pfeil- und Bildlauftasten
-		\item \texttt{/[pattern]} Durchsucht das Dokument nach angegebenen Muster
-		\item \texttt{?[pattern]' ist wie '/[pattern]} nur rückwärts
-		\item \texttt{\&[pattern]} zeigt nur Zeilen, mit Muster
-		\item wird pattern benutzt, dann zeigt \texttt{n} das nächste Vorkommen
 		\item \texttt{:n} ruft das nächste Dokument auf (wenn less mehrere bekommen hat)
+		\item \texttt{:p} ruft das vorherige Dokumente auf
+		\item \texttt{:f} die Anzahl der Zeilen und die Dateigröße werden angezeigt
 	\end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Aufgabe 3)}
-In dieser Aufgabe sollt ihr euch mit der Umleitung der Standardausgabe beschäftigen. Für die Bearbeitung habt ihr 5 Minuten.
-\begin{itemize}
+	\frametitle{\textcolor{red}{g}lobally search a \textcolor{red}{re}gular expression and \textcolor{red}{p}rint}
+	\framesubtitle{\textcolor{ownDarkOr}{Gonna catch em' Strings}}
+	Durchsucht eine Eingabe nach einem RegEx.\\
+	Der Name kommt von den Befehlen g, re und p aus dem Editor Ed
+	Default: -G
 	{\footnotesize
-	\item wechselt in euer Home-Verzeichnis
-	\item lasst euch die Inhalte reversiv ausgeben
-	\item benutzt die Ausgabe als Eingabe für \texttt{cowsay} (Pipe-Operator)
-	\item lasst euch nun diese Ausgabe in die Datei \texttt{KuhSagtHome.txt} schreiben
-	\item seht euch den Inhalt der Datei an
+		\begin{table}
+			\begin{tabular}{l c}
+				
+				\begin{tabular}{l|c}
+					&{\scriptsize \textbf{Selektoren}} (interpretieren Suchwort als)\\
+					\hline
+					\textbf{\textcolor{ownDarkOr}{\texttt{-E}}} & erweiterter RegEx \\
+					\hline
+					\textbf{\textcolor{ownDarkOr}{\texttt{-F}}} & fixed String\\
+					\hline 
+					\textbf{\textcolor{ownDarkOr}{\texttt{-G}}} & basic RegEx\\
+					
+				\end{tabular} \\ \\
+				\begin{tabular}{l|c}
+					& {\scriptsize \textbf{Ausgabe}}\\
+					\hline
+					\textbf{\textcolor{ownDarkOr}{\texttt{-c}}} & Anzahl passender Zeilen\\
+					\hline
+					\textbf{\textcolor{ownDarkOr}{\texttt{-o}}} & nur gematchte Teile einer Zeile\\
+					\hline
+					\textbf{\textcolor{ownDarkOr}{\texttt{-q}}} & keine Ausgabe, nur Exitcode  \\
+					& (0 wenn erfolgreich)\\
+				\end{tabular}
+				&
+				\begin{tabular}{l|c}
+					& {\scriptsize \textbf{Kontrolle}}\\
+					\hline
+					\textbf{\textcolor{ownDarkOr}{\texttt{-f [file]}}} & liest RegEx aus [file]\\
+					\hline
+					\textbf{\textcolor{ownDarkOr}{\texttt{-v}}} & invertiert Matchmaking\\
+					\hline
+					\textbf{\textcolor{ownDarkOr}{\texttt{-w}}} & nur Zeilen, in denen ganze\\
+					& Worte RegEx entsprechen\\ 
+					\hline
+					\textbf{\textcolor{ownDarkOr}{\texttt{-x}}} & nur Zeilen, die ganz \\
+					& dem RegEx entsprechen \\
+				\end{tabular} 
+				
+			\end{tabular}
+		\end{table}
 	}
-\end{itemize}
-{\scriptsize Tipp: \texttt{cd}, \texttt{ls}, \texttt{cowsay}, \texttt{$\mid$}, \texttt{>}, \texttt{less}}
 \end{frame}
 
 \begin{frame}
-\frametitle{con\textcolor{red}{cat}enate}
-\framesubtitle{\textcolor{ownDarkOr}{Was eine Katze mit Linux zu tun hat}}
-\texttt{cat} konkateniert und zeigt die Inhalte von Dateien
-\begin{itemize}
-	\item An sich nicht mächtig, sehr einfacher Befehl
-	\item Parameter (Default: -u):
-	\begin{itemize}[<+->]
-		\item \texttt{-n} Nummeriert die ausgegebenen Zeilen 
-		\item \texttt{-s} Unterdrückt Ausgabe von sich wiederholenden Leerzeichen
-	\end{itemize}
-	\item Bsp.: \texttt{cat -n output.txt}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{head $\&$ tail}
-\framesubtitle{\textcolor{ownDarkOr}{Dateien von Kopf bis Fuß}}
-Ähnlich zu \texttt{cat}, sind \texttt{head} und \texttt{tail} einfach Textdatei Betrachter. Allerdings beschränken sich diese auf bestimmte Teile der Datei.
-\begin{itemize}
-	\item \texttt{head} gibt ersten 10 Zeilen der angegebenen Datei aus
-	\item \texttt{tail} gibt letzten 10 Zeilen der angegebenen Datei aus
-	\item Parameter (Default: -q):
+	\frametitle{Texteditoren - 1: \texttt{ed}, \texttt{nano}, \texttt{pico}}
+	\framesubtitle{\textcolor{ownDarkOr}{You would (not) love Ed!!}}
+	Das Bearbeiten von Textdateien ist in der Konsole schwierig. Ein Beispiel ist \texttt{ed} (release 1970; Grundlage für \texttt{grep}).
 	\begin{itemize}
-		\item \texttt{head}:
+		\item \texttt{pico} (release 1992):
 		\begin{itemize}[<+->]
-			\item {\scriptsize \texttt{-n [val]} gibt ersten \texttt{[val]} Zeilen aus }
+			\item {\scriptsize sehr minimalistischer Editor}
+			\item {\scriptsize reine Textverarbeitung, mehrere Dokumente möglich, Syntaxhighlighting}
+			\item {\scriptsize kein Highlighting Wörtern, kein Text-Splitscreen, keine RegEx-Suche}
 		\end{itemize}
-		\item \texttt{tail}:
+		\item \texttt{nano} (release 1999):
 		\begin{itemize}[<+->]
-			\item {\scriptsize \texttt{-n [val]} analog zu \texttt{head}}
-			\item {\scriptsize \texttt{-f} fügt weitere Zeilen zur Ausgabe hinzu, falls Inhalt weiter anwächst}
+			\item {\scriptsize ebenfalls sehr minimalistisch}
+			\item {\scriptsize Nachfolger von \texttt{pico}}
+			\item {\scriptsize bietet mehr Funktionsumfang, z.B.: Text-Splitscreen, RegEx-Suche}
 		\end{itemize}
+		\item \texttt{nano} und \texttt{pico} sind sehr minimalistisch, aber nicht zu unterschätzen
 	\end{itemize}
-\end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Sortieren und Suchen}
-Auch wenn man beim Sortieren erst einmal an das Sortieren von Dateien denkt,
-bezieht sich das Sortieren auf den Inhalt von Dateien.
-Das Suchen bezieht sich auf das Finden von Dateien.
-\begin{itemize}
-	\item \texttt{sort [option] [File]} (liest \texttt{File} und sortiert Inhalt)
-	\begin{itemize}[<+->]
-		\item \texttt{-g} ist Default. generic sort
-		\item \texttt{-r} Ausgabe umdrehen
-		\item \texttt{-c} Check ob Inhalt von Datei sortiert ist
-		\item Bsp.: \texttt{sort -r output.txt}
+	\frametitle{Texteditoren - 2: \texttt{vim}, \texttt{jed}}
+	\framesubtitle{\textcolor{ownDarkOr}{Good thing Ed is not around anymore}}
+	Wir haben grad die minimaltistischen Editoren betrachtet, nun die etwas mächtigeren.
+	\begin{itemize}
+		\item \texttt{vim} (release 1991):
+		\begin{itemize}[<+->]
+			\item Großmufti unter den Editoren
+			\item verbesserte Suchfunktionen, mächtiger als \texttt{nano} und \texttt{pico}
+			\item Standard bei \texttt{git}
+		\end{itemize}
+		\item \texttt{jed} (release 1992):
+		\begin{itemize}[<+->]
+			\item \textbf{der} Editor für Programmierer
+			\item liefert Templates für verschiedene Anwendungsfälle
+			\item weniger mächtig als \texttt{vim}, aber dennoch viele Features
+		\end{itemize}
+		\item Bei der Wahl des Editors ist es wie immer im Leben, Geschmäcker sind verschieden
 	\end{itemize}
-	\item \texttt{find [path] [pattern]} (suchen nach Datei im System via Muster)
-	\begin{itemize}[<+->]
-		\item \texttt{-P} Default
-		\item \textbf{\textcolor{red}{Achtung!!}} Suche kann lange dauern
-		\item Bsp.: \texttt{find ~ -name output.txt}
-	\end{itemize}
-\end{itemize}
 \end{frame}
+
+%\begin{frame}
+%\frametitle{Aufgabe 3)}
+%In dieser Aufgabe sollt ihr euch mit der Umleitung der Standardausgabe beschäftigen. Für die Bearbeitung habt ihr 5 Minuten.
+%\begin{itemize}
+%	{\footnotesize
+%	\item wechselt in euer Home-Verzeichnis
+%	\item lasst euch die Inhalte reversiv ausgeben
+%	\item benutzt die Ausgabe als Eingabe für \texttt{cowsay} (Pipe-Operator)
+%	\item lasst euch nun diese Ausgabe in die Datei \texttt{KuhSagtHome.txt} schreiben
+%	\item seht euch den Inhalt der Datei an
+%	}
+%\end{itemize}
+%{\scriptsize Tipp: \texttt{cd}, \texttt{ls}, \texttt{cowsay}, \texttt{$\mid$}, \texttt{>}, \texttt{less}}
+%\end{frame}
 
 \begin{frame}
 \frametitle{\textcolor{red}{c}o\textcolor{red}{p}y $\&$ \textcolor{red}{m}o\textcolor{red}{v}e}
@@ -452,7 +367,6 @@ Das Suchen bezieht sich auf das Finden von Dateien.
 			\item {\scriptsize \texttt{-i} (interactive) fragt vor Überschreiben}
 			\item {\scriptsize \texttt{-f} (force) überschreibt \textbf{immer}}
 			\item {\scriptsize \texttt{-n} (no-clobber) überschreibt \textbf{niemals}}
-			\item {\scriptsize \texttt{--backup} erstellt Backup vor Überschreiben}
 		\end{itemize}
 	\end{itemize}
 	\item \texttt{cp [path1] [path2]}
@@ -461,9 +375,8 @@ Das Suchen bezieht sich auf das Finden von Dateien.
 		\item Parameter {\scriptsize (dieselben wie \texttt{mv})}:
 		\begin{itemize}[<+->]
 			\item {\scriptsize \texttt{-r} (recursive) ermöglicht verschieben von Ordnern}
-			\item {\scriptsize \texttt{-s} (symbolic-link) erstellt symbolische Links, statt Dateien}
 		\end{itemize}
-	\end{itemize}0
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -481,45 +394,26 @@ Immer wieder im Leben kommt eine Zeit in der man etwas Ballast abwerfen möchte.
 		\item \texttt{-r} Löschung rekursiv $\to$ (Ordner und Unterordner)
 		\item \texttt{-d} leere Verzeichnisse löschen
 	\end{itemize}
-	\item \texttt{rm} löscht nicht entgültig, Daten sind nicht unleserlich
-	\item soll entgültig gelöscht werden, dann benutze \texttt{shred} (später)
 \end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{shred}
-\framesubtitle{\textcolor{ownDarkOr}{RRRRRRRRRRRRRTTZZZZZZZZZZZ!}}
-\texttt{shred} überschreibt Dateien und löscht sie damit entgültig
-\begin{itemize}
-	\item Syntax: \texttt{shred [option] [file]}
-	\item Parameter (Default: -f):
-	\begin{itemize}[<+->]
-		\item \texttt{-f} (force) Versuch Schreibrechte zu bekommen, falls benötigt
-		\item \texttt{-n [num]} Anzahl \texttt{[num]} der Schreibvorgänge pro Datei
-		\item \texttt{-u} Löschen nach dem Überschreiben
-	\end{itemize}
-	\item Bsp.: \texttt{shred -u test.txt}
-	\item \textbf{\textcolor{red}{Achtung!!}} kein Löschen von Backups, evtl. Wiederherstellung möglich
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Aufgabe 4)}
-Diese Aufgabe soll euch ein Gefühl für den Umgang mit Dateien geben. Für die Bearbeitung habt ihr 15 Minuten.
-\begin{itemize}
-	{\footnotesize
-	\item lasst euch alle Dateien in \texttt{/usr/share} ausgeben, die dem folgenden RegEx entsprechen \texttt{".*.txt"} und schreibt die Ausgabe in \texttt{/home/[username]/txt-files.txt}
-	\item schaut euch nun den Inhalt an
-	\item sucht nach eurer Datei \texttt{KuhSagtHome.txt} und schreibt das Ergebnis in \texttt{kuh-sagt-path.txt} (Suche in \texttt{/home})
-	\item verbindet nun den Inhalt von \texttt{txt-files.tx}' und \texttt{kuh-sagt-path.txt} und schreibt die Ausgabe in \texttt{cat-files-kuh.txt}
-	\item betrachtet das Ende der Datei \texttt{cat-files-kuh.txt}. Was fällt auf?
-	\item sortiert den Inhalt von \texttt{cat-files-kuh.txt} numerisch und schreibt die Ausgabe in \texttt{sort-cat-kuh.txt}
-	\item betrachtet den Anfang von \texttt{sort-cat-kuh.txt}. Was hat sich verändert?
-	\item löscht nun alle eben erstellten Dateien
-	}
-\end{itemize}
-{\scriptsize Tipp: \texttt{find}, \texttt{less} bzw. \texttt{more}, \texttt{cat}, \texttt{tail}, \texttt{head}, \texttt{sort}, \texttt{rm} bzw. \texttt{shred}}
-\end{frame}
+%\begin{frame}
+%\frametitle{Aufgabe 4)}
+%Diese Aufgabe soll euch ein Gefühl für den Umgang mit Dateien geben. Für die Bearbeitung habt ihr 15 Minuten.
+%\begin{itemize}
+%	{\footnotesize
+%	\item lasst euch alle Dateien in \texttt{/usr/share} ausgeben, die dem folgenden RegEx entsprechen \texttt{".*.txt"} und schreibt die Ausgabe in \texttt{/home/[username]/txt-files.txt}
+%	\item schaut euch nun den Inhalt an
+%	\item sucht nach eurer Datei \texttt{KuhSagtHome.txt} und schreibt das Ergebnis in \texttt{kuh-sagt-path.txt} (Suche in \texttt{/home})
+%	\item verbindet nun den Inhalt von \texttt{txt-files.tx}' und \texttt{kuh-sagt-path.txt} und schreibt die Ausgabe in \texttt{cat-files-kuh.txt}
+%	\item betrachtet das Ende der Datei \texttt{cat-files-kuh.txt}. Was fällt auf?
+%	\item sortiert den Inhalt von \texttt{cat-files-kuh.txt} numerisch und schreibt die Ausgabe in \texttt{sort-cat-kuh.txt}
+%	\item betrachtet den Anfang von \texttt{sort-cat-kuh.txt}. Was hat sich verändert?
+%	\item löscht nun alle eben erstellten Dateien
+%	}
+%\end{itemize}
+%{\scriptsize Tipp: \texttt{find}, \texttt{less} bzw. \texttt{more}, \texttt{cat}, \texttt{tail}, \texttt{head}, \texttt{sort}, \texttt{rm} bzw. \texttt{shred}}
+%\end{frame}
 
 
 \subsection{Archive}
@@ -543,7 +437,7 @@ Zum entpacken von \texttt{.tar}, \texttt{.tar.gz}, \texttt{.zip}, etc. via Konso
 \end{itemize}
 \end{frame}
 
-\section{Prozesse}
+\section{Systemverwaltung}
 \subsection{Prozesse verwalten}
 \begin{frame}
 \frametitle{\textcolor{red}{h}isham \textcolor{red}{t}able \textcolor{red}{o}f \textcolor{red}{p}rocesses}
@@ -555,56 +449,9 @@ Zum entpacken von \texttt{.tar}, \texttt{.tar.gz}, \texttt{.zip}, etc. via Konso
 	\end{itemize}
 	\item \texttt{htop} (muss installiert werden)
 	\begin{itemize}[<+->]
-		\item {\scriptsize deutlich leichtere Bedienung}
-	\end{itemize}
-	\item Ansicht:
-	\begin{itemize}[<+->]
-		\item {\scriptsize Auslastung der einzelnen CPU-Kerne und des Arbeitsspeichers}
-		\item {\scriptsize Anteil vom Swap und bisherige Laufzeit des Systems}
-		\item {\scriptsize PID (Prozess ID), User, PRI (Priorität), NI (Nice-Wert)}
-		\item {\scriptsize VIRT und RES (benutzer virtueller und physischer Speicher)}
-		\item {\scriptsize S (State; S $\in$ $\{${\footnotesize S[leeping], R[unning], D[isk sleep], Z[ombie], T[raced/suspended], W[Paging]}$\}$)}
-		\item {\scriptsize CPU$\%$ und MEM$\%$ (genutzter CPU und Arbeitsspeicher Anteil) und TIME (bisherige Laufzeit)}
-	\end{itemize}
-\end{itemize}
-\end{frame}
-
-\subsection{Nettigkeit}
-\begin{frame}
-\frametitle{nice}
-\framesubtitle{nette Programme}
-Ausführen von Programmen mit modifizierter sheduling Priorität p, p $\in$ [-20,19]. -20 ist die höchste Priorität.
-\begin{itemize}
-	\item {\scriptsize Default: p = 0; negative Werte nur als Root}
-	\item Syntax: \texttt{nice [option] [command] [arg] ...}
-	\item Parameter (Default: -n 10):
-	\begin{itemize}
-		\item {\scriptsize \texttt{-n (--adjustment=N)} aufaddieren von Integer N auf aktuellen Nice-Wert (Default: N=10)}
-	\end{itemize}
-	\item Bsp. \texttt{ping}:
-	\begin{itemize}[<+->]
-		\item {\scriptsize Syntax: \texttt{ping [option] [addr]}}
-		\item {\scriptsize Parameter: \texttt{-c [num]} (setze Anzahl der Pings), \texttt{-W [time]} (setze Timeout)}
-		\item \texttt{nice -n 10 ping foss-ag.de}
-	\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{renice und nohup}
-\texttt{renice} ermöglicht nachträgliches Einstellen des Nice-Wertes eines bereits laufenden Prozesses.
-\texttt{nohup} ermöglicht es ein Programm weiterlaufen zu lassen, auch wenn der Benutzer sich ausloggt.
-\begin{itemize}
-	\item \texttt{renice}
-	\begin{itemize}[<+->]
-		\item Syntax: \texttt{renice [-n] priority [-g $\mid$ -p $\mid$ -u] identifier}
-		\item \texttt{-n [num]} ist neuer Nice-Wert
-		\item \texttt{-g [group-id]}, \texttt{-p [process-id]}, \texttt{-u [user-id]}
-	\end{itemize}
-	\item \texttt{nohup}
-	\begin{itemize}
-		\item Syntax: \texttt{nohup [commando] [args]}
-		\item Ausgabe wird dabei in eine \texttt{nohup.txt} Datei im Home-Directory geschrieben (umlenken möglich)
+		\item {\scriptsize Übersicht über alle Prozesse und verbrauchte Ressourcen}
+		\item {\scriptsize deutlich leichtere Bedienung und bessere Übersicht}
+		\item {\scriptsize bietet mehr Interaktionen}
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -620,248 +467,102 @@ Bei Angabe dieses Operators am Ende eines Prozess-Aufrufs, wird der Prozess in d
 \textbf{\textcolor{red}{Achtung!!}} $\&$ $\equiv$ Prozess in Hintergrund; $\&\&$ $\equiv$ Prozesse hintereinander ausführen (p1 $\&\&$ p2 : p2 wird ausgeführt, wenn p1 erfolgreich)
 \end{frame}
 
+\subsection{IP-Adressen}
 \begin{frame}
-\frametitle{Texteditoren - 1: \texttt{ed}, \texttt{nano}, \texttt{pico}}
-\framesubtitle{\textcolor{ownDarkOr}{You would (not) love Ed!!}}
-Das Bearbeiten von Textdateien ist in der Konsole schwierig. Ein Beispiel ist \texttt{ed} (release 1970; Grundlage für \texttt{grep}).
-\begin{itemize}
-	\item \texttt{pico} (release 1992):
-	\begin{itemize}[<+->]
-		\item {\scriptsize sehr minimalistischer Editor}
-		\item {\scriptsize reine Textverarbeitung, mehrere Dokumente möglich, Syntaxhighlighting}
-		\item {\scriptsize kein Highlighting Wörtern, kein Text-Splitscreen, keine RegEx-Suche}
+	\frametitle{ip addr}
+	Meist wurde \texttt{ifconfig} benutzt um sich seine lokalen IP-Adressen des Rechners anzeigen zu lassen. Dieser Befehl ist allerdings ein wenig obsolet und wurde ersetzt durch \texttt{ip addr}.
+	\begin{itemize}
+		\item Um lokale IP-Adresse zu erfahren, ohne über Router zu gehen
+		\item leider etwas unübersichtlich
+		\begin{itemize}
+			\item {\scriptsize Gegenmaßnahme: \texttt{ip addr $\mid$ grep inet}}
+		\end{itemize}
 	\end{itemize}
-	\item \texttt{nano} (release 1999):
-	\begin{itemize}[<+->]
-		\item {\scriptsize ebenfalls sehr minimalistisch}
-		\item {\scriptsize Nachfolger von \texttt{pico}}
-		\item {\scriptsize bietet mehr Funktionsumfang, z.B.: Text-Splitscreen, RegEx-Suche}
+\end{frame}
+
+\subsection{Paketverwaltung}
+\begin{frame}
+	\frametitle{\textcolor{red}{s}uper \textcolor{red}{u}ser \textcolor{red}{do}}
+	\framesubtitle{\textcolor{ownDarkOr}{Mit großer Macht kommt große Verantwortung}}
+	\texttt{sudo} führt einen Befehl mit administrativer Berechtigung aus \texttt{sudo [command]}.
+	\textbf{\textcolor{red}{Achtung!!}} \texttt{sudo} funktioniert nur, wenn Benutzer in \texttt{root}-Gruppe ist.
+	\begin{itemize}
+		\item Führt man Befehle als Root aus, sollte man vorsichtig sein
+		\item Parameter:
+		\begin{itemize}[<+->]
+			\item {\scriptsize \texttt{-b} (background) führt Befehl im Hintergrund aus [kommt später]}
+			\item {\scriptsize \texttt{-e} (edit) öffnet Datei zum editieren, erstellt temp. Backup}
+			\item {\scriptsize \texttt{-s} (shell) öffnet eine Shell}
+			\item {\scriptsize \texttt{-u [user]} führt Befehl als \texttt{[user]} aus}
+		\end{itemize}
 	\end{itemize}
-	\item \texttt{nano} und \texttt{pico} sind sehr minimalistisch, aber nicht zu unterschätzen
-\end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Texteditoren - 2: \texttt{vim}, \texttt{jed}}
-\framesubtitle{\textcolor{ownDarkOr}{Good thing Ed is not around anymore}}
-Wir haben grad die minimaltistischen Editoren betrachtet, nun die etwas mächtigeren.
-\begin{itemize}
-	\item \texttt{vim} (release 1991):
-	\begin{itemize}[<+->]
-		\item Großmufti unter den Editoren
-		\item verbesserte Suchfunktionen, mächtiger als \texttt{nano} und \texttt{pico}
-		\item Standard bei \texttt{git}
+	\frametitle{apt}
+	Dieser Paketmanager wird nur in Debian basierten Systemen benutzt. Es gibt aber auch noch weitere, z.B. Pacman für Arch basierte Systeme.
+	\begin{itemize}
+		\item Wichtigsten Befehle:
+		\begin{itemize}
+			\item[1.] \texttt{sudo apt install [pkg...]}
+			\item[2.] \texttt{sudo apt update}
+			\item[3.] \texttt{sudo apt [upgrade | dist-upgrade]}
+			\item[4.] \texttt{sudo apt remove [pkg...]}
+			\item[5.] \texttt{sudo apt search [pkg...]}
+		\end{itemize}
 	\end{itemize}
-	\item \texttt{jed} (release 1992):
-	\begin{itemize}[<+->]
-		\item \textbf{der} Editor für Programmierer
-		\item liefert Templates für verschiedene Anwendungsfälle
-		\item weniger mächtig als \texttt{vim}, aber dennoch viele Features
-	\end{itemize}
-	\item Bei der Wahl des Editors ist es wie immer im Leben, Geschmäcker sind verschieden
-\end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Aufgabe 5)}
-In dieser Aufgabe sollt ihr euch mit der Verwaltung von Prozessen beschäftigen.
-Für die Bearbeitung stehen euch 10 Minuten zur Verfügung.
-\begin{itemize}
-	{\footnotesize
-	\item ladet euch die Datei \texttt{infinite.tar} von \texttt{foss-ag.de} herunter
-	\item verschiebt sie nach \texttt{/tmp} und entpackt sie dort
-	\item führt den Befehl \texttt{python infinite$\_$run.py} im Hintergrund aus mit Nice-Wert 15
-	\item führt \texttt{htop} bzw. \texttt{top} aus, sucht euren Prozess und merkt euch die \texttt{PID}
-	\item verändert den Nice-Wert auf 10 und schaut in \texttt{htop} bzw. \texttt{top} nach, was passiert ist
-	\item stoppt nun den Prozess mit dem Befehl \texttt{kill}, wobei ihr die \texttt{PID} angeben müsst
-	}
-\end{itemize}
-{\scriptsize Tipp: \texttt{tar}, \texttt{mv}, \texttt{nice}, \texttt{\&}, \texttt{renice}, \texttt{htop} bzw. \texttt{top}}
+	\frametitle{man page}
+	\framesubtitle{\textcolor{ownDarkOr}{Wenn man mal nicht weiter weiß}}
+	Die Man-Page ist die Benutzeranleitung des Systems, mit Anleitungen zur Benutzung der installierten Programme
+	\begin{itemize}
+		\item Sektionen, die besonders interessant sind:
+		\begin{itemize}
+			\item {\scriptsize \texttt{NAME, SYNOPSIS, DESCRIPTION, OPTIONS, EXAMPLE}}
+		\end{itemize}
+	\end{itemize}
 \end{frame}
 
+%\begin{frame}
+%\frametitle{Aufgabe 5)}
+%In dieser Aufgabe sollt ihr euch mit der Verwaltung von Prozessen beschäftigen.
+%Für die Bearbeitung stehen euch 10 Minuten zur Verfügung.
+%\begin{itemize}
+%	{\footnotesize
+%	\item ladet euch die Datei \texttt{infinite.tar} von \texttt{foss-ag.de} herunter
+%	\item verschiebt sie nach \texttt{/tmp} und entpackt sie dort
+%	\item führt den Befehl \texttt{python infinite$\_$run.py} im Hintergrund aus mit Nice-Wert 15
+%	\item führt \texttt{htop} bzw. \texttt{top} aus, sucht euren Prozess und merkt euch die \texttt{PID}
+%	\item verändert den Nice-Wert auf 10 und schaut in \texttt{htop} bzw. \texttt{top} nach, was passiert ist
+%	\item stoppt nun den Prozess mit dem Befehl \texttt{kill}, wobei ihr die \texttt{PID} angeben müsst
+%	}
+%\end{itemize}
+%{\scriptsize Tipp: \texttt{tar}, \texttt{mv}, \texttt{nice}, \texttt{\&}, \texttt{renice}, \texttt{htop} bzw. \texttt{top}}
+%\end{frame}
+
+\subsection{Herunterfahren und Neustarten}
 \begin{frame}
-\frametitle{shutdown}
+\frametitle{poweroff und reboot}
 \framesubtitle{\textcolor{ownDarkOr}{Wenn man mal das real life genießen will}}
-ermöglicht Ausschalten oder Neustart des Systems \texttt{[nur Root]}
 \begin{itemize}
-	\item Syntax: \texttt{shutdown [options] [time]}
-	\item Parameter (Default: -P):
-	\begin{itemize}[<+->]
-		\item \texttt{-P} (poweroff)
-		\item \texttt{-r} (reboot) 
-		\item \texttt{-h} (halt)
-	\end{itemize}
-	\item \texttt{sudo reboot} anstelle von \texttt{sudo shutdown -r}
-	\item Bei \texttt{reboot} kein Timer möglich
+	\item \texttt{poweroff} (Herunterfahren des Systems)
+	\item \texttt{reboot} (Neustart des Systems)
 \end{itemize}
 \end{frame}
 
-\section{Zusatz}
-\begin{frame}
-\frametitle{ip addr}
-Meist wurde \texttt{ifconfig} benutzt um sich seine lokalen IP-Adressen des Rechners anzeigen zu lassen. Dieser Befehl ist allerdings ein wenig obsolet und wurde ersetzt durch \texttt{ip addr}.
-\begin{itemize}
-	\item Um lokale IP-Adresse zu erfahren, ohne über Router zu gehen
-	\item Wird benötigt, wenn man sich via \texttt{ssh} einloggen will
-	\item leider etwas unübersichtlich
-	\item Syntax: ip [Option] [Argument]
-	\item Parameter:
-	\begin{itemize}[<+->]
-		\item \texttt{-4} Anzeigen der IPv4-Adressen
-		\item \texttt{-6} Anzeigen der IPv6-Adressen
-	\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{nmon}
-\texttt{nmon} dient zur Überwachung der Auslastung der PC Komponenten
-\begin{itemize}
-	\item Shortcuts:
-	\begin{itemize}[<+->]
-		\item {\scriptsize \texttt{c}, \texttt{m}, \texttt{d} zeigen Auslastung von CPU-Kerne, Arbeitsspeicher, Festplatte an}
-		\item {\scriptsize \texttt{k} zeigt Kernel Statistiken an (Queue, Forks, Interrupts)}
-		\item {\scriptsize \texttt{r} Details zum System und Prozessor}
-		\item {\scriptsize \texttt{l} CPU Auslastung als Graph}
-		\item {\scriptsize \texttt{n} Auslastung der Netzwerk Schnittstelle}
-		\item {\scriptsize \texttt{j} Auslastung des Dateisystems (Platz und Aufbau)}
-		\item {\scriptsize \texttt{t} wie \texttt{top}, Auflistung aller laufenden Prozesse}
-		\item {\scriptsize \texttt{+} bzw. \texttt{-} Refresh erhöhen bzw. verringern}
-		\item {\scriptsize \texttt{H} für Hilfe (Shortcuts auflisten)}
-	\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{\textcolor{red}{Reg}ular \textcolor{red}{Ex}pression - 1}
-\framesubtitle{\textcolor{ownDarkOr}{The art of black magic}}
-Reguläre Ausdrücke sind Muster, die eine Grundstruktur von gesuchten Begriffen angeben. Um Fehlinterpretationen zu vermeiden, sollte der RegEx immer in Anführungszeichen angegeben werden.
-\begin{itemize}
-	\item Syntax - 1:
-	\begin{itemize}[<+->]
-		\item {\scriptsize \texttt{c} ein konstantes Zeichen \texttt{c}}
-		\item {\scriptsize \texttt{.} genau \textbf{ein} beliebiges Zeichen}
-		\item {\scriptsize \texttt{.*} Folge von beliebigen Zeichen (auch keines)}
-		\item {\scriptsize \texttt{*} Zeichen vor \texttt{*} ist beliebig oft (auch gar nicht)}
-		\item {\scriptsize \texttt{?} Zeichen vor \texttt{?} ist \textbf{genau} einmal oder gar nicht}
-		\item {\scriptsize \texttt{+} Zeichen vor \texttt{+} ist min. einmal}
-		\item {\scriptsize \texttt{$\{$n,m$\}$} Zeichen wird \texttt{n} bis \texttt{m} mal wiederholt}
-	\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{\textcolor{red}{Reg}ular \textcolor{red}{Ex}pression - 2}
-\framesubtitle{\textcolor{ownDarkOr}{The art of black magic}}
-\begin{itemize}
-	\item Syntax - 2:
-	\begin{itemize}[<+->]
-		\item {\scriptsize \texttt{$\{$n$\}$} Zeichen genau \texttt{n} mal}
-		\item {\scriptsize \texttt{[...]} Zeichen kommt in den Klammern vor}
-		\item {\scriptsize \texttt{[...-...]} Zeichen aus Zeichenklasse}
-		\item {\scriptsize \texttt{[ $\hat{}$ ...]} und \texttt{[ $\hat{}$ ...-...]} verneinte Zeichenklasse}
-		\item {\scriptsize \texttt{ $\hat{}$ } Zeilenanfang}
-		\item {\scriptsize \texttt{\$} Zeilenende}
-		\item {\scriptsize \texttt{$<$} Wortanfang}
-		\item {\scriptsize \texttt{$>$} Wortende}
-		\item {\scriptsize \texttt{a1$\mid$a2} alternative Ausdrücke; a1 oder a2}
-		\item {\scriptsize \texttt{(...)} Gruppe von Ausdrücken}
-		\item {\scriptsize \texttt{$\setminus$} Sonderbedeutung von nächstem Symbol ignorieren. Bsp.: |}
-	\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{\textcolor{red}{Reg}ular \textcolor{red}{Ex}pression - 3}
-\framesubtitle{\textcolor{ownDarkOr}{The art of black magic}}
-\begin{itemize}
-	\item Bsp.: \texttt{.*p+ython[1-99]*.*$\mid$.*$\setminus$.pyc?}
-	\item Es werden alle Wörter/Dateien gesucht, die:
-	\begin{itemize}[<+->]
-		\item \texttt{python} im Namen haben oder mit .py bzw. .pyc aufhören
-		\item dürfen mit Zahlen zwischen 1 und 99 enden
-		\item min. ein p am Anfang haben
-	\end{itemize}
-	\item \textcolor{red}{Achtung!!} bei find muss RegEx dem Pfad entsprechen
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{\textcolor{red}{g}lobally search a \textcolor{red}{re}gular expression and \textcolor{red}{p}rint}
-\framesubtitle{\textcolor{ownDarkOr}{Gonna catch em' Strings}}
-Durchsucht eine Eingabe nach einem RegEx.\\
-Der Name kommt von den Befehlen g, re und p aus dem Editor Ed
-Default: -G
-{\footnotesize
-\begin{table}
-\begin{tabular}{l c}
-
-\begin{tabular}{l|c}
-&{\scriptsize \textbf{Selektoren}} (interpretieren Suchwort als)\\
-\hline
-\textbf{\textcolor{ownDarkOr}{\texttt{-E}}} & erweiterter RegEx \\
-\hline
-\textbf{\textcolor{ownDarkOr}{\texttt{-F}}} & fixed String\\
-\hline 
-\textbf{\textcolor{ownDarkOr}{\texttt{-G}}} & basic RegEx\\
-
-\end{tabular} \\ \\
-\begin{tabular}{l|c}
-& {\scriptsize \textbf{Ausgabe}}\\
-\hline
-\textbf{\textcolor{ownDarkOr}{\texttt{-c}}} & Anzahl passender Zeilen\\
-\hline
-\textbf{\textcolor{ownDarkOr}{\texttt{-o}}} & nur gematchte Teile einer Zeile\\
-\hline
-\textbf{\textcolor{ownDarkOr}{\texttt{-q}}} & keine Ausgabe, nur Exitcode  \\
-& (0 wenn erfolgreich)\\
-\end{tabular}
-&
-\begin{tabular}{l|c}
-& {\scriptsize \textbf{Kontrolle}}\\
-\hline
-\textbf{\textcolor{ownDarkOr}{\texttt{-f [file]}}} & liest RegEx aus [file]\\
-\hline
-\textbf{\textcolor{ownDarkOr}{\texttt{-v}}} & invertiert Matchmaking\\
-\hline
-\textbf{\textcolor{ownDarkOr}{\texttt{-w}}} & nur Zeilen, in denen ganze\\
-& Worte RegEx entsprechen\\ 
-\hline
-\textbf{\textcolor{ownDarkOr}{\texttt{-x}}} & nur Zeilen, die ganz \\
-& dem RegEx entsprechen \\
-\end{tabular} 
-
-\end{tabular}
-\end{table}
-}
-\end{frame}
-
-\begin{frame}
-\frametitle{Alias}
-\framesubtitle{How to save time!!!!!}
-Im System kann für einen Befehl ein Alias definiert werden.
-Die Datei \texttt{.bashrc} wird beim Einloggen des Users geladen.
-Vorsicht beim Bearbeiten!!!
-Bsp.: ll anstatt von 6ls -l
-\begin{itemize}[<+->]
-	\item editiere die Datei ~/.bashrc
-	\item füge die Zeile \texttt{alias ll='ls -l'} hinzu
-	\item lade Datei neu: \texttt{source ~/.bashrc} bzw. neu einloggen
-	\item Tadaa!!!!
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Aufgabe 6)}
-Diese Aufgabe soll euch ein Gefühl für RegEx geben.
-\begin{itemize}
-{\footnotesize
-	\item lasst euch eure IP-Adresse ausgeben und schreibt die Ausgabe in \texttt{ip.txt}
-	\item lasst euch nun nur die Zeilen Ausgeben, die eine valide IP-Adresse enthalten (IPv4, IPv6, oder beides)
-	\item \textbf{Achtung!!} es gibt mehrere Lösungen
-	}
-\end{itemize}
-{\scriptsize Tipp: \texttt{ip addr}, \texttt{grep}, \texttt{RegEx}}
-\end{frame}
+%\begin{frame}
+%\frametitle{Aufgabe 6)}
+%Diese Aufgabe soll euch ein Gefühl für RegEx geben.
+%\begin{itemize}
+%{\footnotesize
+%	\item lasst euch eure IP-Adresse ausgeben und schreibt die Ausgabe in \texttt{ip.txt}
+%	\item lasst euch nun nur die Zeilen Ausgeben, die eine valide IP-Adresse enthalten (IPv4, IPv6, oder beides)
+%	\item \textbf{Achtung!!} es gibt mehrere Lösungen
+%	}
+%\end{itemize}
+%{\scriptsize Tipp: \texttt{ip addr}, \texttt{grep}, \texttt{RegEx}}
+%\end{frame}
 
 \end{document}
