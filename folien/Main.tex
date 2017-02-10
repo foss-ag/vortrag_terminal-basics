@@ -206,12 +206,6 @@ Umleiten der Ein- und Ausgabe
 		\item Ausgabe von Befehl $\to$ Eingabe anderer Befehl
 		\item Bsp.: \texttt{cal $\mid$ less}
 	\end{itemize}
-	\item fancy stuff:
-	\begin{itemize}[<+->]
-		\item Umleiten von stderr: 2\texttt{>} statt \texttt{>}
-		\item also durch Angabe von Stream Nummer
-		\item Bsp.: \texttt{date > output.txt 2>\&1 }
-	\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -249,52 +243,66 @@ Umleiten der Ein- und Ausgabe
 \begin{frame}
 	\frametitle{\textcolor{red}{g}lobally search a \textcolor{red}{re}gular expression and \textcolor{red}{p}rint}
 	\framesubtitle{\textcolor{ownDarkOr}{Gonna catch em' Strings}}
-	Durchsucht eine Eingabe nach einem RegEx.\\
-	Der Name kommt von den Befehlen g, re und p aus dem Editor Ed
-	Default: -G
-	{\footnotesize
-		\begin{table}
-			\begin{tabular}{l c}
-				
-				\begin{tabular}{l|c}
-					&{\scriptsize \textbf{Selektoren}} (interpretieren Suchwort als)\\
-					\hline
-					\textbf{\textcolor{ownDarkOr}{\texttt{-E}}} & erweiterter RegEx \\
-					\hline
-					\textbf{\textcolor{ownDarkOr}{\texttt{-F}}} & fixed String\\
-					\hline 
-					\textbf{\textcolor{ownDarkOr}{\texttt{-G}}} & basic RegEx\\
-					
-				\end{tabular} \\ \\
-				\begin{tabular}{l|c}
-					& {\scriptsize \textbf{Ausgabe}}\\
-					\hline
-					\textbf{\textcolor{ownDarkOr}{\texttt{-c}}} & Anzahl passender Zeilen\\
-					\hline
-					\textbf{\textcolor{ownDarkOr}{\texttt{-o}}} & nur gematchte Teile einer Zeile\\
-					\hline
-					\textbf{\textcolor{ownDarkOr}{\texttt{-q}}} & keine Ausgabe, nur Exitcode  \\
-					& (0 wenn erfolgreich)\\
-				\end{tabular}
-				&
-				\begin{tabular}{l|c}
-					& {\scriptsize \textbf{Kontrolle}}\\
-					\hline
-					\textbf{\textcolor{ownDarkOr}{\texttt{-f [file]}}} & liest RegEx aus [file]\\
-					\hline
-					\textbf{\textcolor{ownDarkOr}{\texttt{-v}}} & invertiert Matchmaking\\
-					\hline
-					\textbf{\textcolor{ownDarkOr}{\texttt{-w}}} & nur Zeilen, in denen ganze\\
-					& Worte RegEx entsprechen\\ 
-					\hline
-					\textbf{\textcolor{ownDarkOr}{\texttt{-x}}} & nur Zeilen, die ganz \\
-					& dem RegEx entsprechen \\
-				\end{tabular} 
-				
-			\end{tabular}
-		\end{table}
-	}
+	\texttt{grep} ermöglicht die Suche in einer Eingabe
+	\begin{itemize}
+		\item \texttt{-i} ignoriert Groß- und Kleinschreibung bei der Suche
+	\end{itemize}
+	Beispiel:
+	\begin{itemize}
+		\item \texttt{ls | grep 'Documents'}
+		\item \texttt{cat example.txt | grep -i 'TeSt'}
+	\end{itemize}
 \end{frame}
+
+%\begin{frame}
+%	\frametitle{\textcolor{red}{g}lobally search a \textcolor{red}{re}gular expression and \textcolor{red}{p}rint}
+%	\framesubtitle{\textcolor{ownDarkOr}{Gonna catch em' Strings}}
+%	Durchsucht eine Eingabe nach einem RegEx.\\
+%	Der Name kommt von den Befehlen g, re und p aus dem Editor Ed
+%	Default: -G
+%	{\footnotesize
+%		\begin{table}
+%			\begin{tabular}{l c}
+%				
+%				\begin{tabular}{l|c}
+%					&{\scriptsize \textbf{Selektoren}} (interpretieren Suchwort als)\\
+%					\hline
+%					\textbf{\textcolor{ownDarkOr}{\texttt{-E}}} & erweiterter RegEx \\
+%					\hline
+%					\textbf{\textcolor{ownDarkOr}{\texttt{-F}}} & fixed String\\
+%					\hline 
+%					\textbf{\textcolor{ownDarkOr}{\texttt{-G}}} & basic RegEx\\
+%					
+%				\end{tabular} \\ \\
+%				\begin{tabular}{l|c}
+%					& {\scriptsize \textbf{Ausgabe}}\\
+%					\hline
+%					\textbf{\textcolor{ownDarkOr}{\texttt{-c}}} & Anzahl passender Zeilen\\
+%					\hline
+%					\textbf{\textcolor{ownDarkOr}{\texttt{-o}}} & nur gematchte Teile einer Zeile\\
+%					\hline
+%					\textbf{\textcolor{ownDarkOr}{\texttt{-q}}} & keine Ausgabe, nur Exitcode  \\
+%					& (0 wenn erfolgreich)\\
+%				\end{tabular}
+%				&
+%				\begin{tabular}{l|c}
+%					& {\scriptsize \textbf{Kontrolle}}\\
+%					\hline
+%					\textbf{\textcolor{ownDarkOr}{\texttt{-f [file]}}} & liest RegEx aus [file]\\
+%					\hline
+%					\textbf{\textcolor{ownDarkOr}{\texttt{-v}}} & invertiert Matchmaking\\
+%					\hline
+%					\textbf{\textcolor{ownDarkOr}{\texttt{-w}}} & nur Zeilen, in denen ganze\\
+%					& Worte RegEx entsprechen\\ 
+%					\hline
+%					\textbf{\textcolor{ownDarkOr}{\texttt{-x}}} & nur Zeilen, die ganz \\
+%					& dem RegEx entsprechen \\
+%				\end{tabular} 
+%				
+%			\end{tabular}
+%		\end{table}
+%	}
+%\end{frame}
 
 \begin{frame}
 	\frametitle{Texteditoren - 1: \texttt{ed}, \texttt{nano}, \texttt{pico}}
