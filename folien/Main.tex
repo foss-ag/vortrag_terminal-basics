@@ -71,56 +71,33 @@
 \section{Arbeiten mit Ordnern, Dateien und Archiven}
 \subsection{Ordner}
 \begin{frame}
-\frametitle{\textcolor{lightGreen}{l}i\textcolor{lightGreen}{s}t}
-\framesubtitle{Ein kleines Licht in der Dunkelheit}
-\begin{itemize}
-	\item Listet alle Ordner und Dateien in Verzeichnis auf
-	\item Aktuelles Verzeichnis ist dabei Default
-	\item Mögliche Argumente (Default: -1):
-	\begin{itemize}[<+->]
-		\item \texttt{-a}  (all) inkl. versteckter Verzeichnisse
-		\item \texttt{-l}  (long listing format) inkl. Rechte, Besitzer, Größe, etc.
-		\item \texttt{-h}  (human readable) Größen der Dateien leserlicher
-		\item \texttt{-r}  (reversive) umgekehrte Reihenfolge
-		\item \texttt{-m}  Namen durch Kommata getrennt
-		\item \texttt{-R}  (recursive) inkl. Unterverzeichnisse
+	\frametitle{\textcolor{lightGreen}{l}i\textcolor{lightGreen}{s}t}
+	\framesubtitle{Ein kleines Licht in der Dunkelheit}
+	\begin{itemize}
+		\item Listet alle Ordner und Dateien in Verzeichnis auf
+		\item Mögliche Optionen:
+		\begin{itemize}[<+->]
+			\item \texttt{-a}  (all) inkl. versteckter Verzeichnisse
+			\item \texttt{-hl}  (human readable / long listing format) inkl. Rechte, Besitzer, Größe, etc.
+		\end{itemize}
 	\end{itemize}
-	\item Bsp.: \texttt{ls -ahl} und \texttt{ls -ah}
-\end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{\textcolor{lightGreen}{c}hange \textcolor{lightGreen}{d}irectory}
-\framesubtitle{Die kleine Form der Teleportation}
-\texttt{cd} ermöglicht das Navigieren durch das Dateisystem
-\begin{itemize}
-	\item Notationen:	
-	\begin{itemize}[<+->]
-		\item Wechsel in Parent-Directory mit \texttt{..}
-		\item Wechsel in Home-Directory mit \texttt{cd}   (ohne Pfad)
-		\item Wechsel in Verzeichnis (Bsp.: Dokumente (bzw. Documents))
-		\begin{itemize}[<+->]
-			\item \texttt{cd /home/[username]/Dokumente}
-			\item \texttt{cd $\sim$/Dokumente}   (Abkürzen von Home-Directory mit $\sim$)
-			\item \texttt{cd $\sim$[username]/Dokumente}
-			\item \texttt{cd Dokumente}    (relativ vom aktuellen Verzeichnis)
-		\end{itemize}
-	\end{itemize}
-	\item Funfact: \texttt{cd .}  (wechselt in das aktuelle Verzeichnis)
+	\frametitle{\textcolor{lightGreen}{c}hange \textcolor{lightGreen}{d}irectory}
+	\framesubtitle{Die kleine Form der Teleportation}
+	\texttt{cd} ermöglicht das Navigieren durch das Dateisystem
 	\begin{itemize}
-		\item es tut nichts, aber dafür sehr gut
+		\item Wechsel in Parent-Directory mit \texttt{cd ..}
+		\item Wechsel in Home-Directory mit \texttt{cd} ($\sim$)
 	\end{itemize}
-\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{find}
-	Mit \texttt{find} lassen sich Dateien einfach im aktuellen Ordner und in allen Unterordnern suchen
+	\texttt{find} sucht Dateien im aktuellen Ordner und in Unterordnern
 	\begin{itemize}
-		\item \texttt{find -name [path]}
-		\begin{itemize}[<+->]
-			\item Bsp.: \texttt{find -name output.txt}
-		\end{itemize}
+		\item \texttt{find -name FILE}
 	\end{itemize}
 \end{frame}
 
@@ -129,24 +106,8 @@
 \framesubtitle{Verzeichnisse erschaffen}
 \texttt{mkdir} erstellt Ordner auf dem Rechner
 \begin{itemize}
-	\item Syntax: \texttt{mkdir [path]}   (erzeugt Ordner mit Pfad \texttt{[path]})
-	\item Beispiel:
-	\begin{itemize}[<+->]
-		\item \texttt{mkdir neuer-ordner}    (relativ zum aktuellen Pfad)
-		\item \texttt{mkdir -p /tmp/neuer-ordner/tmp1/tmp2/}
-	\end{itemize}
-	\item \texttt{-p}   erstellt alle Ordner auf dem Pfad, die noch nicht existieren
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{\textcolor{lightGreen}{r}e\textcolor{lightGreen}{m}ove \textcolor{lightGreen}{dir}ectory}
-Löschen von leeren Ordnern.
-\begin{itemize}
-	\item Befehl ist weniger mächtig als man erwartet
-	\item Vorsicht ist geboten, auch leere Verzeichnisse können wichtig sein!!
-	\item Leere Ordner in dem leeren Ordner werden auch gelöscht
-	\item für nicht-leere Ordner siehe \texttt{rm}
+	\item \texttt{mkdir PATH}
+	\item \texttt{-p} erstellt alle Ordner auf dem Pfad, die noch nicht existieren
 \end{itemize}
 \end{frame}
 
@@ -171,23 +132,7 @@ Löschen von leeren Ordnern.
 \subsection{Dateien}
 \begin{frame}
 \frametitle{Input, Output und Error}
-\begin{itemize}
-	\item Jedes Programm hat drei Datenströme:
-	\begin{itemize}
-		\item[1)] \texttt{stdin} (Standard Input [number: 0])
-		\item[2)] \texttt{stdout} (Standard Output [number: 1])
-		\item[3)] \texttt{stderr} (Standard Error Output [number: 2])
-	\end{itemize}
-	\item Bsp.: \texttt{echo}
-	\begin{itemize}[<+->]
-		\item \texttt{echo} gibt einen eingegebenen Text zurück
-		\item Syntax: \texttt{echo [text]}
-		\item dabei ist \texttt{[text] Eingabe} und die Konsole \texttt{stdout}
-		\item Bsp.\texttt{stdin}: cat
-		\item Bsp. \texttt{stdout}: echo Hello World \texttt{$\mid$} cat
-		\item Bsp. \texttt{stderr}: cat foo.bar (Datei existiert nicht)
-	\end{itemize}
-\end{itemize}
+	\centering\includegraphics[scale=0.65]{res/IOE}
 \end{frame}
 
 \begin{frame}
