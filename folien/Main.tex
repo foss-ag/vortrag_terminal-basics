@@ -131,43 +131,27 @@
 
 \subsection{Dateien}
 \begin{frame}
-\frametitle{Input, Output und Error}
 	\centering\includegraphics[scale=0.65]{res/IOE}
 \end{frame}
 
 \begin{frame}
-\frametitle{Pipe, $<$ und $>$ }
-Umleiten der Ein- und Ausgabe
-\begin{itemize}
-	\item \texttt{<} und \texttt{>} laden und schreiben Dateien
-	\begin{itemize}[<+->]
-		\item \texttt{>} Schreiben in eine Datei
-		\item Bsp.: \texttt{cal > test.txt}
-		\item \texttt{<} Laden aus einer Datei
-		\item Bsp.: \texttt{less < test.txt}
-	\end{itemize}
-	\item Pipe \texttt{$\mid$}
-	\begin{itemize}[<+->]
-		\item Ausgabe von Befehl $\to$ Eingabe anderer Befehl
-		\item Bsp.: \texttt{cal $\mid$ less}
-	\end{itemize}
-\end{itemize}
+	\Huge\centering{$|$~~~$>$}
 \end{frame}
 
-\begin{frame}
-	\frametitle{con\textcolor{lightGreen}{cat}enate}
-	\framesubtitle{Was eine Katze mit Linux zu tun hat}
-	\texttt{cat} konkateniert und zeigt die Inhalte von Dateien
-	\begin{itemize}
-		\item An sich nicht mächtig, sehr einfacher Befehl
-		\item Parameter (Default: -u):
-		\begin{itemize}[<+->]
-			\item \texttt{-n} Nummeriert die ausgegebenen Zeilen 
-			\item \texttt{-e} Fügt am Ende jeder Zeile ein \$ hinzu
-		\end{itemize}
-		\item Bsp.: \texttt{cat -n output.txt output2.txt}
-	\end{itemize}
-\end{frame}
+%\begin{frame}
+%	\frametitle{con\textcolor{lightGreen}{cat}enate}
+%	\framesubtitle{Was eine Katze mit Linux zu tun hat}
+%	\texttt{cat} konkateniert und zeigt die Inhalte von Dateien
+%	\begin{itemize}
+%		\item An sich nicht mächtig, sehr einfacher Befehl
+%		\item Parameter (Default: -u):
+%		\begin{itemize}[<+->]
+%			\item \texttt{-n} Nummeriert die ausgegebenen Zeilen 
+%			\item \texttt{-e} Fügt am Ende jeder Zeile ein \$ hinzu
+%		\end{itemize}
+%		\item Bsp.: \texttt{cat -n output.txt output2.txt}
+%	\end{itemize}
+%\end{frame}
 
 \begin{frame}
 \frametitle{less}
@@ -320,26 +304,11 @@ Umleiten der Ein- und Ausgabe
 \begin{frame}
 \frametitle{\textcolor{lightGreen}{c}o\textcolor{lightGreen}{p}y $\&$ \textcolor{lightGreen}{m}o\textcolor{lightGreen}{v}e}
 \framesubtitle{Die Kunst des Klonens und Umbenennens}
-\texttt{cp} und \texttt{mv} sind neben \texttt{ls} und \texttt{cd} wohl die wichtigsten Befehle in Linux.
 \begin{itemize}
-	\item Dateiname muss bei beiden Befehlen nicht gleich bleiben
-	\item \texttt{mv [path1] [path2]}
+	\item \texttt{mv PATH1 PATH2} (Verschieben von Dateien/Ordnern)
+	\item \texttt{cp PATH1 PATH2} (Kopieren von Dateien)
 	\begin{itemize}
-		\item verschiebt Datei von \texttt{[path1]} zu \texttt{[path2]}
-		\item Parameter (Default: -f):
-		\begin{itemize}[<+->]
-			\item {\scriptsize \texttt{-i} (interactive) fragt vor Überschreiben}
-			\item {\scriptsize \texttt{-f} (force) überschreibt \textbf{immer}}
-			\item {\scriptsize \texttt{-n} (no-clobber) überschreibt \textbf{niemals}}
-		\end{itemize}
-	\end{itemize}
-	\item \texttt{cp [path1] [path2]}
-	\begin{itemize}
-		\item kopiert Datei von \texttt{[path1]} zu \texttt{[path2]}
-		\item Parameter {\scriptsize (dieselben wie \texttt{mv})}:
-		\begin{itemize}[<+->]
-			\item {\scriptsize \texttt{-r} (recursive) ermöglicht verschieben von Ordnern}
-		\end{itemize}
+		\item -r ermöglicht kopieren von Ordnern
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -347,16 +316,10 @@ Umleiten der Ein- und Ausgabe
 \begin{frame}
 \frametitle{\textcolor{lightGreen}{r}e\textcolor{lightGreen}{m}ove}
 \framesubtitle{Flutsch! Und weg!}
-Immer wieder im Leben kommt eine Zeit in der man etwas Ballast abwerfen möchte.  
-\texttt{rm} hilft dabei
 \begin{itemize}
-	\item Syntax: \texttt{rm [option] [file]}
-	\item Parameter (Default: -f):
+	\item \texttt{rm [OPTION] FILE}
 	\begin{itemize}[<+->]
-		\item \texttt{-f} (force) es wird nicht nachgefragt und einfach alles gelöscht
-		\item \texttt{-i} Nachfragen bei jeder Löschung
-		\item \texttt{-r} Löschung rekursiv $\to$ (Ordner und Unterordner)
-		\item \texttt{-d} leere Verzeichnisse löschen
+		\item \texttt{-r} ermöglicht das Löchen von Ordnern
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -421,14 +384,7 @@ Zum entpacken von \texttt{.tar}, \texttt{.tar.gz}, \texttt{.zip}, etc. via Konso
 \end{frame}
 
 \begin{frame}
-\frametitle{$\&$}
-\framesubtitle{Backstage}
-Bei Angabe dieses Operators am Ende eines Prozess-Aufrufs, wird der Prozess in den Hintergrund verschoben
-\begin{itemize}
-	\item Prozess blockiert Shell nicht $\to$ weiteres Arbeiten möglich
-	\item Ausgabe wird aber weiterhin auf Shell geschrieben
-\end{itemize}
-\textbf{\textcolor{red}{Achtung!!}} $\&$ $\equiv$ Prozess in Hintergrund; $\&\&$ $\equiv$ Prozesse hintereinander ausführen (p1 $\&\&$ p2 : p2 wird ausgeführt, wenn p1 erfolgreich)
+	\Huge\centering{\&}
 \end{frame}
 
 \subsection{IP-Adressen}
