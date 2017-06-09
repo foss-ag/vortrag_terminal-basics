@@ -154,18 +154,11 @@
 %\end{frame}
 
 \begin{frame}
-\frametitle{less}
-\framesubtitle{Even more than \texttt{more}}
-\texttt{less} ist intelligenter Nachfolger von \texttt{more}
+\frametitle{\Large Dateien betrachten und bearbeiten}
 \begin{itemize}
-	\item unterstützt Scrolling
-	\item Navigation:
-	\begin{itemize}[<+->]
-		\item Pfeil- und Bildlauftasten
-		\item \texttt{:n} ruft das nächste Dokument auf (wenn less mehrere bekommen hat)
-		\item \texttt{:p} ruft das vorherige Dokumente auf
-		\item \texttt{:f} die Anzahl der Zeilen und die Dateigröße werden angezeigt
-	\end{itemize}
+	\item \texttt{cat FILE} - Ausgabe einer Datei
+	\item \texttt{less FILE} - Betrachten einer Datei
+	\item \texttt{nano FILE} - Bearbeiten einer Datei
 \end{itemize}
 \end{frame}
 
@@ -175,11 +168,6 @@
 	\texttt{grep} ermöglicht die Suche in einer Eingabe
 	\begin{itemize}
 		\item \texttt{-i} ignoriert Groß- und Kleinschreibung bei der Suche
-	\end{itemize}
-	Beispiel:
-	\begin{itemize}
-		\item \texttt{ls | grep 'Documents'}
-		\item \texttt{cat example.txt | grep -i 'TeSt'}
 	\end{itemize}
 \end{frame}
 
@@ -233,16 +221,16 @@
 %	}
 %\end{frame}
 
-\begin{frame}
-	\frametitle{nano}
-	Ermöglicht das bearbeiten von Textdateien im Terminal.
-	\begin{itemize}
-		\item minimalistisch
-		\item leichte Bedienung
-		\item bietet alle Standardfunktionen eines Texteditors
-	\end{itemize}
-	Umfangreichere Alternative stellt \texttt{vim} dar.
-\end{frame}
+%\begin{frame}
+%	\frametitle{nano}
+%	Ermöglicht das bearbeiten von Textdateien im Terminal.
+%	\begin{itemize}
+%		\item minimalistisch
+%		\item leichte Bedienung
+%		\item bietet alle Standardfunktionen eines Texteditors
+%	\end{itemize}
+%	Umfangreichere Alternative stellt \texttt{vim} dar.
+%\end{frame}
 
 %\begin{frame}
 %	\frametitle{Texteditoren - 1: \texttt{ed}, \texttt{nano}, \texttt{pico}}
@@ -347,11 +335,16 @@
 \begin{frame}
 \frametitle{\textcolor{lightGreen}{t}ape \textcolor{lightGreen}{ar}chiver}
 \framesubtitle{Archivieren}
-Zum entpacken von \texttt{.tar}, \texttt{.tar.gz}, \texttt{.zip}, etc. via Konsole.
+Zum entpacken von Archiven wie \texttt{.tar}, \texttt{.tar.gz}, \texttt{.zip}, etc. 
 \begin{itemize}
-	\item Syntax entpacken: \texttt{tar [option] [path]}
-	\item Syntax verpacken: \texttt{tar [option] [path-archiv] [path-files]}
-	\item Parameter:
+	\item \texttt{tar -czvf ARCHIVE\_PATH PATH\_FILES}\\(Verpacken)
+	\item \texttt{tar -xzvf ARCHIVE\_PATH}\\(Entpacken)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textcolor{lightGreen}{t}ape \textcolor{lightGreen}{ar}chiver}
+\framesubtitle{Archivieren}
 	\begin{itemize}[<+->]
 		\item {\scriptsize \texttt{-c} (create) erzeugt neues Archiv}
 		\item {\scriptsize \texttt{-x} (extract) extrahieren einer Datei}
@@ -359,9 +352,6 @@ Zum entpacken von \texttt{.tar}, \texttt{.tar.gz}, \texttt{.zip}, etc. via Konso
 		\item {\scriptsize \texttt{-z} (gzip format) komprimieren als \texttt{.gz}, etc.}
 		\item {\scriptsize \texttt{-f} erzeugt beim Entpacken einen Ordner mit Namen von Archiv}
 	\end{itemize}
-	\item {\scriptsize mit cat können sogar 2 Archive zusammengeführt werden}
-	\item Bsp.: \texttt{tar -xvf test.tar}
-\end{itemize}
 \end{frame}
 
 \section{Systemverwaltung}
@@ -371,9 +361,6 @@ Zum entpacken von \texttt{.tar}, \texttt{.tar.gz}, \texttt{.zip}, etc. via Konso
 \framesubtitle{interaktiver Prozessmanager}
 \begin{itemize}
 	\item \texttt{\textcolor{red}{t}able \textcolor{red}{o}f \textcolor{red}{p}rocesses} (bereits installtiert)
-	\begin{itemize}[<+->]
-		\item {\scriptsize \texttt{-h} um Befehle anzeigen zu lassen}
-	\end{itemize}
 	\item \texttt{htop} (muss installiert werden)
 	\begin{itemize}[<+->]
 		\item {\scriptsize Übersicht über alle Prozesse und verbrauchte Ressourcen}
@@ -387,61 +374,47 @@ Zum entpacken von \texttt{.tar}, \texttt{.tar.gz}, \texttt{.zip}, etc. via Konso
 	\Huge\centering{\&}
 \end{frame}
 
-\subsection{IP-Adressen}
-\begin{frame}
-	\frametitle{ip addr}
-	Meist wurde \texttt{ifconfig} benutzt um sich seine lokalen IP-Adressen des Rechners anzeigen zu lassen. Dieser Befehl ist allerdings ein wenig obsolet und wurde ersetzt durch \texttt{ip addr}.
-	\begin{itemize}
-		\item Um lokale IP-Adresse zu erfahren, ohne über Router zu gehen
-		\item leider etwas unübersichtlich
-		\begin{itemize}
-			\item {\scriptsize Gegenmaßnahme: \texttt{ip addr $\mid$ grep inet}}
-		\end{itemize}
-	\end{itemize}
-\end{frame}
+%\subsection{IP-Adressen}
+%\begin{frame}
+%	\frametitle{ip addr}
+%	Meist wurde \texttt{ifconfig} benutzt um sich seine lokalen IP-Adressen des Rechners anzeigen zu lassen. Dieser Befehl ist allerdings ein wenig obsolet und wurde ersetzt durch \texttt{ip addr}.
+%	\begin{itemize}
+%		\item Um lokale IP-Adresse zu erfahren, ohne über Router zu gehen
+%		\item leider etwas unübersichtlich
+%		\begin{itemize}
+%			\item {\scriptsize Gegenmaßnahme: \texttt{ip addr $\mid$ grep inet}}
+%		\end{itemize}
+%	\end{itemize}
+%\end{frame}
 
 \subsection{Paketverwaltung}
 \begin{frame}
 	\frametitle{\textcolor{lightGreen}{s}uper \textcolor{lightGreen}{u}ser \textcolor{lightGreen}{do}}
 	\framesubtitle{Mit großer Macht kommt große Verantwortung}
-	\texttt{sudo} führt einen Befehl mit administrativer Berechtigung aus \texttt{sudo [command]}.
-	\textbf{\textcolor{red}{Achtung!!}} \texttt{sudo} funktioniert nur, wenn Benutzer in \texttt{root}-Gruppe ist.
+	\texttt{sudo} führt einen Befehl mit administrativer Berechtigung aus
 	\begin{itemize}
-		\item Führt man Befehle als Root aus, sollte man vorsichtig sein
-		\item Parameter:
-		\begin{itemize}[<+->]
-			\item {\scriptsize \texttt{-b} (background) führt Befehl im Hintergrund aus [kommt später]}
-			\item {\scriptsize \texttt{-e} (edit) öffnet Datei zum editieren, erstellt temp. Backup}
-			\item {\scriptsize \texttt{-s} (shell) öffnet eine Shell}
-			\item {\scriptsize \texttt{-u [user]} führt Befehl als \texttt{[user]} aus}
-		\end{itemize}
+		\item \texttt{sudo COMMAND}
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{apt}
-	Dieser Paketmanager wird nur in Debian basierten Systemen benutzt. Es gibt aber auch noch weitere, z.B. Pacman für Arch basierte Systeme.
+	Mit \texttt{apt} lassen sich Pakete installieren und deinstallieren
 	\begin{itemize}
-		\item Wichtigsten Befehle:
-		\begin{itemize}
-			\item[1.] \texttt{sudo apt install [pkg...]}
-			\item[2.] \texttt{sudo apt update}
-			\item[3.] \texttt{sudo apt [upgrade | dist-upgrade]}
-			\item[4.] \texttt{sudo apt remove [pkg...]}
-			\item[5.] \texttt{sudo apt search [pkg...]}
-		\end{itemize}
+		\item \texttt{sudo apt install PACKAGE}
+		\item \texttt{sudo apt update}
+		\item \texttt{sudo apt upgrade / dist-upgrade}
+		\item \texttt{sudo apt remove PACKAGE}
+		\item \texttt{sudo apt search PACKAGE}
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{man page}
 	\framesubtitle{Wenn man mal nicht weiter weiß}
-	Die Man-Page ist die Benutzeranleitung des Systems, mit Anleitungen zur Benutzung der installierten Programme
+	Anleitungen (Manuals) zu den installierten Paketen lassen sich mit \texttt{man} betrachten.
 	\begin{itemize}
-		\item Sektionen, die besonders interessant sind:
-		\begin{itemize}
-			\item {\scriptsize \texttt{NAME, SYNOPSIS, DESCRIPTION, OPTIONS, EXAMPLE}}
-		\end{itemize}
+		\item man COMMAND
 	\end{itemize}
 \end{frame}
 
