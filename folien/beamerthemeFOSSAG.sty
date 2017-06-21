@@ -8,28 +8,27 @@
 %\usetheme{Szeged}
 
 %\usepackage{fontspec}
- %   \setmainfont[Ligatures=TeX]{Tex Gyre Adventor}
+%   \setmainfont[Ligatures=TeX]{Tex Gyre Adventor}
 \usepackage{xcolor}
 
 
 % Colors
-\definecolor{TUgreen}{HTML}{649600}
-\definecolor{TUgreenLighter}{HTML}{A5CB5B}
-\definecolor{TUgreenDarker}{HTML}{54711C}
-\definecolor{TUalert}{HTML}{A10000}
-\definecolor{TUalertLighter}{HTML}{D03434}
-\definecolor{TUexample}{HTML}{006496}
-\definecolor{TUexampleLighter}{HTML}{8735B5}
+\definecolor{FOSSAGgreen}{HTML}{0AA06F}
+\definecolor{FOSSAGgreenLighter}{HTML}{0CC78A}
+\definecolor{FOSSAGgreenDarker}{HTML}{097A56}
+\definecolor{FOSSAGalert}{HTML}{A10000}
+\definecolor{FOSSAGalertLighter}{HTML}{D03434}
+\definecolor{FOSSAGexample}{HTML}{006496}
+\definecolor{FOSSAGexampleLighter}{HTML}{8735B5}
 \definecolor{PeP}{HTML}{565656}
-\definecolor{ltgrey}{HTML}{CCCCCC}
 \definecolor{ownDarkOr}{HTML}{0101DF}
 \definecolor{ownDarkBlue}{HTML}{0080FF}
-\definecolor{lightGreen}{HTML}{00FF00}
+\definecolor{highlight}{HTML}{FF8A8B}
 
 % Titlepage
 %  Title
 \setbeamerfont{title}{size=\Huge}
-\setbeamercolor{title}{fg=white, bg=TUgreen}
+\setbeamercolor{title}{fg=white, bg=FOSSAGgreen}
 %  Subtitle
 \setbeamerfont{subtitle}{size=\large}
 %  Author
@@ -40,22 +39,22 @@
 
 % Frametitle
 \setbeamerfont{frametitle}{size=\Huge}
-\setbeamercolor{frametitle}{fg=white, bg=TUgreen}
+\setbeamercolor{frametitle}{fg=white, bg=FOSSAGgreen}
 
 % Framesubtitle
 \setbeamerfont{framesubtitle}{size=\large}
-\setbeamercolor{framesubtitle}{fg=white, bg=TUgreenDarker}
+\setbeamercolor{framesubtitle}{fg=white, bg=FOSSAGgreenDarker}
 
 % Structure
 \setbeamerfont{structure}{size=\Large}
-\setbeamercolor{structure}{fg=TUgreen}
+\setbeamercolor{structure}{fg=FOSSAGgreen}
 
 % Blocks
 \setbeamertemplate{blocks}[square]
 \setbeamerfont{block title}{}
-\setbeamercolor{block title}{fg=TUgreen, bg=white}
-\setbeamercolor{block title alerted}{use=alerted text,fg=TUalert, bg=white}
-\setbeamercolor{block title example}{use=example text,fg=TUexample, bg=white}
+\setbeamercolor{block title}{fg=FOSSAGgreen, bg=white}
+\setbeamercolor{block title alerted}{use=alerted text,fg=FOSSAGalert, bg=white}
+\setbeamercolor{block title example}{use=example text,fg=FOSSAGexample, bg=white}
 
 % Items
 \setbeamertemplate{items}[circle]
@@ -68,30 +67,30 @@
 
 \setbeamertemplate{frametitle}{
 	\ifx\insertframesubtitle\empty
-		*\vspace{-0.5em}
-		\begin{beamercolorbox}[wd=0.92\paperwidth, ht=0.9em, dp=0.2em, leftskip=0.04em, left]{frametitle}
-			\hspace{.25em}\usebeamercolor{frametitle}\usebeamerfont{frametitle}\insertframetitle 
-		\end{beamercolorbox}
-  	\else
-  		*\vspace{-0.5em}
-    	\begin{beamercolorbox}[wd=0.92\paperwidth, ht=0.9em, dp=0.2em, leftskip=0.04em, left]{frametitle}
-    		\hspace{.25em}\usebeamercolor{frametitle}\usebeamerfont{frametitle}\insertframetitle 
-    	\end{beamercolorbox}
-    	\begin{beamercolorbox}[wd=0.92\paperwidth, ht=0.7em, dp=0.2em, leftskip=0.04em, left]{framesubtitle}
-    		\hspace{.25em}\usebeamercolor{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle
-    	\end{beamercolorbox}
-  	\fi
+	*\vspace{-0.5em}
+	\begin{beamercolorbox}[wd=0.92\paperwidth, ht=0.9em, dp=0.2em, leftskip=0.04em, left]{frametitle}
+		\hspace{.25em}\usebeamercolor{frametitle}\usebeamerfont{frametitle}\insertframetitle 
+	\end{beamercolorbox}
+	\else
+	*\vspace{-0.5em}
+	\begin{beamercolorbox}[wd=0.92\paperwidth, ht=0.9em, dp=0.2em, leftskip=0.04em, left]{frametitle}
+		\hspace{.25em}\usebeamercolor{frametitle}\usebeamerfont{frametitle}\insertframetitle 
+	\end{beamercolorbox}
+	\begin{beamercolorbox}[wd=0.92\paperwidth, ht=0.7em, dp=0.2em, leftskip=0.04em, left]{framesubtitle}
+		\hspace{.25em}\usebeamercolor{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle
+	\end{beamercolorbox}
+	\fi
 }
 
 \defbeamertemplate*{footline}{TU}{
-    \leavevmode
-    \begin{beamercolorbox}[wd=0\paperwidth, ht=0.1em, dp=1em, left, leftskip=1em]{}
-        \textbf{\insertshorttitle}
-    \end{beamercolorbox}
-    \begin{beamercolorbox}[wd=.8\paperwidth, ht=0.1em, dp=1em, center, rightskip=4em]{}
-        \insertshortauthor\quad(\insertshortinstitute)
-    \end{beamercolorbox}
-    \begin{beamercolorbox}[wd=.1\paperwidth, ht=0.1em, dp=1em, right, rightskip=-4em]{}
-        \insertframenumber{} / \inserttotalframenumber
-    \end{beamercolorbox}
+	\leavevmode
+	\begin{beamercolorbox}[wd=0\paperwidth, ht=0.1em, dp=1em, left, leftskip=1em]{}
+		\textbf{\insertshorttitle}
+	\end{beamercolorbox}
+	\begin{beamercolorbox}[wd=.8\paperwidth, ht=0.1em, dp=1em, center, rightskip=4em]{}
+		\insertshortauthor\quad(\insertshortinstitute)
+	\end{beamercolorbox}
+	\begin{beamercolorbox}[wd=.1\paperwidth, ht=0.1em, dp=1em, right, rightskip=-4em]{}
+		\insertframenumber{} / \inserttotalframenumber
+	\end{beamercolorbox}
 }
